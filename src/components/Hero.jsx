@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-scroll';
 import { IMAGES } from '../constants/images';
 
-const HERO_IMG = IMAGES.hero;
+const HERO_IMG = IMAGES.gallery6; // Using the chic black-and-white bow photo for a highly editorial feel
 
 const stats = [
   { value: '55', label: 'Guests Max' },

@@ -85,7 +85,7 @@ export default function Invest() {
                 {p.desc}
               </p>
               <button
-                className="mt-auto w-full py-4 rounded-full text-sm font-semibold tracking-widest uppercase text-white border border-white/20 hover:bg-white/10 hover:border-white/40 transition-all backdrop-blur-md"
+                className="btn-secondary !w-full !text-white !border-white/20 hover:!bg-white/10 mt-auto"
                 style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", letterSpacing: '0.1em' }}
               >
                 {p.btn}

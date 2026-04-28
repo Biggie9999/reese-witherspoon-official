@@ -4,42 +4,42 @@
 
 @theme {
   /* ── Surface System ── */
-  --color-surface: #FFF8F2;
-  --color-surface-dim: #DFD9D3;
-  --color-surface-container: #F3EDE7;
-  --color-surface-container-low: #F9F2EC;
-  --color-surface-container-high: #EEE7E1;
-  --color-surface-container-highest: #E8E1DC;
+  --color-surface: #FFFFFF;
+  --color-surface-dim: #F4F4F5;
+  --color-surface-container: #FAFAFA;
+  --color-surface-container-low: #FFFFFF;
+  --color-surface-container-high: #F4F4F5;
+  --color-surface-container-highest: #E4E4E7;
 
   /* ── Primary Palette ── */
-  --color-primary: #6D595D;
+  --color-primary: #18181B; /* Jet Black */
   --color-on-primary: #FFFFFF;
-  --color-primary-container: #F2D8DC;
-  --color-on-primary-container: #705D60;
-  --color-primary-fixed: #F6DCE0;
-  --color-primary-fixed-dim: #D9C0C4;
+  --color-primary-container: #FDF2F5; /* Ultra soft blush */
+  --color-on-primary-container: #18181B;
+  --color-primary-fixed: #FCE7EB;
+  --color-primary-fixed-dim: #F4D1D7;
 
-  /* ── Secondary / Gold ── */
-  --color-secondary: #745A27;
-  --color-on-secondary: #FFFFFF;
-  --color-secondary-container: #FEDB9B;
-  --color-on-secondary-container: #795F2B;
+  /* ── Secondary / Rose ── */
+  --color-secondary: #E1C1C6;
+  --color-on-secondary: #18181B;
+  --color-secondary-container: #FAF0F2;
+  --color-on-secondary-container: #18181B;
 
-  /* ── Tertiary / Rose ── */
-  --color-tertiary: #6E5959;
+  /* ── Tertiary / Gold ── */
+  --color-tertiary: #D4AF37;
   --color-on-tertiary: #FFFFFF;
-  --color-tertiary-container: #F4D8D7;
-  --color-on-tertiary-container: #725D5C;
-  --color-tertiary-fixed: #F9DCDB;
+  --color-tertiary-container: #FDF8E8;
+  --color-on-tertiary-container: #18181B;
+  --color-tertiary-fixed: #F9ECCC;
 
   /* ── Neutrals & Accents ── */
-  --color-on-surface: #1E1B18;
-  --color-on-surface-variant: #4E4446;
-  --color-outline: #807476;
-  --color-outline-variant: #D1C3C5;
-  --color-inverse-surface: #33302C;
-  --color-inverse-on-surface: #F6F0EA;
-  --color-surface-tint: #6D595D;
+  --color-on-surface: #18181B;
+  --color-on-surface-variant: #52525B; /* Zinc 600 */
+  --color-outline: #E4E4E7;
+  --color-outline-variant: #F4F4F5;
+  --color-inverse-surface: #18181B;
+  --color-inverse-on-surface: #FFFFFF;
+  --color-surface-tint: #18181B;
 
   /* ── Legacy aliases (components still reference these) ── */
   --color-cream: #FFF8F2;
@@ -87,26 +87,27 @@ body {
    ═══════════════════════════════════════ */
 
 .glass-panel {
-  background: rgba(255, 255, 255, 0.4);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.6);
-  box-shadow: 0 8px 32px 0 rgba(242, 216, 220, 0.3);
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  box-shadow: 0 4px 24px -2px rgba(0, 0, 0, 0.03);
 }
 
 .glass-card {
-  background: rgba(246, 220, 224, 0.15);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.4);
-  box-shadow: 0 8px 32px 0 rgba(242, 216, 220, 0.3);
+  background: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.04);
 }
 
 .glass-dark {
-  background: rgba(28, 14, 14, 0.4);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  background: rgba(24, 24, 27, 0.6);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
   border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.15);
 }
 
 /* ═══════════════════════════════════════
@@ -146,40 +147,40 @@ body {
   background: var(--color-primary);
   color: var(--color-on-primary);
   font-family: var(--font-sans);
-  font-weight: 600;
+  font-weight: 500;
   font-size: 13px;
   line-height: 1.2;
-  letter-spacing: 0.05em;
-  padding: 12px 28px;
+  letter-spacing: 0.02em;
+  padding: 14px 32px;
   border-radius: 9999px;
-  border: 1px solid rgba(255, 255, 255, 0.4);
-  box-shadow: 0 4px 20px rgba(242, 216, 220, 0.6);
-  transition: all 0.3s ease;
+  border: 1px solid transparent;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   cursor: pointer;
 }
 
 .btn-primary:hover {
-  background: var(--color-tertiary);
-  transform: scale(1.03);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
 }
 
 .btn-secondary {
   background: transparent;
   color: var(--color-primary);
   font-family: var(--font-sans);
-  font-weight: 600;
+  font-weight: 500;
   font-size: 13px;
   line-height: 1.2;
-  letter-spacing: 0.05em;
-  padding: 12px 28px;
+  letter-spacing: 0.02em;
+  padding: 14px 32px;
   border-radius: 9999px;
-  border: 1px solid rgba(109, 89, 93, 0.3);
-  transition: all 0.3s ease;
+  border: 1px solid rgba(24, 24, 27, 0.2);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   cursor: pointer;
 }
 
 .btn-secondary:hover {
-  background: var(--color-primary-fixed);
+  background: rgba(24, 24, 27, 0.05);
 }
 
 /* ═══════════════════════════════════════

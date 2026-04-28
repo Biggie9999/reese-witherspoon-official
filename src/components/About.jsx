@@ -65,25 +65,25 @@ export default function About() {
           </motion.p>
 
           {/* Feature Cards */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div className="grid grid-cols-2 gap-3 md:gap-4 mt-8">
             {features.map((f, i) => (
               <motion.div
                 key={i}
                 initial={{ opacity: 0, y: 20 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ delay: 0.3 + i * 0.1, duration: 0.5 }}
-                className="glass-card rounded-2xl p-5 hover:shadow-[0_12px_48px_0_rgba(242,216,220,0.5)] transition-all duration-300 group hover:-translate-y-1"
+                className="glass-panel rounded-2xl p-4 md:p-5 hover:shadow-lg transition-all duration-300 group hover:-translate-y-1 bg-white/70 border border-white"
               >
                 <div className="w-10 h-10 rounded-full bg-primary-container flex items-center justify-center mb-3">
                   <span className="material-symbols-outlined text-primary text-[20px]">{f.icon}</span>
                 </div>
                 <h3
-                  className="text-base font-medium text-primary mb-1"
+                  className="text-[13px] md:text-base font-semibold text-primary mb-1"
                   style={{ fontFamily: "'Noto Serif', serif" }}
                 >
                   {f.title}
                 </h3>
-                <p className="text-sm text-on-surface-variant" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
+                <p className="text-[11px] md:text-sm text-on-surface-variant leading-relaxed" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
                   {f.desc}
                 </p>
               </motion.div>
