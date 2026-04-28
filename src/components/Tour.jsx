@@ -1,26 +1,57 @@
 import { useState, useRef } from 'react';
 import { motion, AnimatePresence, useInView } from 'framer-motion';
+import { IMAGES } from '../constants/images';
 
 const tourData = [
   {
-    emoji: '🌴', state: 'California', month: 'June 2026', color: '#F2D8DC',
+    state: 'California',
+    month: 'June 2026',
+    type: 'Book Tour Premiere',
+    chipStyle: 'chip-pink',
+    featured: true,
     cities: ['Los Angeles', 'Beverly Hills', 'San Diego', 'San Francisco', 'Malibu'],
+    venue: 'The Hollywood Bowl',
+    image: IMAGES.gallery3,
   },
   {
-    emoji: '🗽', state: 'New York', month: 'June 2026', color: '#F2D8DC',
+    state: 'New York',
+    month: 'June 2026',
+    type: 'Speaking Engagement',
+    chipStyle: 'chip-gold',
+    featured: false,
     cities: ['Manhattan', 'Brooklyn', 'The Hamptons', 'Buffalo', 'Harlem'],
+    venue: 'The Town Hall',
+    image: IMAGES.gallery2,
   },
   {
-    emoji: '🌊', state: 'Florida', month: 'July 2026', color: '#E8A0AC',
+    state: 'Florida',
+    month: 'July 2026',
+    type: 'Fireside Chat',
+    chipStyle: 'chip-pink',
+    featured: false,
     cities: ['Miami', 'Orlando', 'Tampa', 'Fort Lauderdale', 'Jacksonville'],
+    venue: 'Adrienne Arsht Center',
+    image: IMAGES.gallery4,
   },
   {
-    emoji: '⭐', state: 'Texas', month: 'July 2026', color: '#E8A0AC',
+    state: 'Texas',
+    month: 'July 2026',
+    type: 'Book Tour',
+    chipStyle: 'chip-gold',
+    featured: false,
     cities: ['Houston', 'Dallas', 'Austin', 'San Antonio', 'Fort Worth'],
+    venue: 'Bass Concert Hall',
+    image: IMAGES.gallery5,
   },
   {
-    emoji: '🎰', state: 'Nevada', month: 'August 2026', color: '#C9A96E',
+    state: 'Nevada',
+    month: 'August 2026',
+    type: 'Fireside Chat',
+    chipStyle: 'chip-pink',
+    featured: false,
     cities: ['Las Vegas', 'Henderson', 'Reno', 'Lake Tahoe', 'Carson City'],
+    venue: 'The Smith Center',
+    image: IMAGES.gallery1,
   },
 ];
 
@@ -30,106 +61,143 @@ export default function Tour() {
   const isInView = useInView(ref, { once: true, margin: '-80px' });
 
   return (
-    <section id="tour" className="py-16 md:py-24 relative" style={{ background: '#F2D8DC' }} ref={ref}>
-      {/* Subtle texture overlay */}
-      <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'none\' fill-rule=\'evenodd\'%3E%3Cg fill=\'%23C9A96E\' fill-opacity=\'1\'%3E%3Cpath d=\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")' }} />
+    <section id="tour" className="py-16 md:py-24 relative overflow-hidden" ref={ref}>
+      {/* Background */}
+      <div className="absolute inset-0 bg-gradient-to-b from-surface via-surface-container-low to-surface" />
 
-      <div className="relative max-w-4xl mx-auto px-4 md:px-8">
+      {/* Ambient glow */}
+      <div className="absolute inset-0 -z-10 bg-gradient-to-b from-primary-container/20 to-transparent blur-3xl rounded-full" />
+
+      <div className="relative max-w-6xl mx-auto px-4 md:px-8">
+        {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          className="text-center mb-12"
+          className="text-center mb-14"
         >
-          <p className="text-[11px] tracking-[4px] uppercase mb-3" style={{ color: '#C9A96E', fontFamily: "'Jost', sans-serif", fontWeight: 500 }}>
-            2026 National Tour
-          </p>
-          <h2 className="text-3xl md:text-5xl font-light text-dark mb-3" style={{ fontFamily: "'Cormorant Garamond', serif" }}>
-            The Room Is Coming to <span className="italic gold-text">Your City</span>
+          <h2
+            className="text-4xl md:text-5xl font-semibold text-primary mb-4"
+            style={{ fontFamily: "'Noto Serif', serif", letterSpacing: '-0.02em' }}
+          >
+            On the Road
           </h2>
-          <p className="text-sm text-muted" style={{ fontFamily: "'Jost', sans-serif", fontWeight: 300 }}>
-            5 States · 5 Cities Each · 4 Months Only
+          <p
+            className="text-lg text-on-surface-variant max-w-2xl mx-auto leading-relaxed"
+            style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}
+          >
+            Join Reese for an evening of stories, inspiration, and connection. Explore upcoming dates below.
           </p>
         </motion.div>
 
-        <div className="space-y-3">
+        {/* Event Grid (Bento) */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {tourData.map((tour, i) => (
-            <motion.div
+            <motion.article
               key={tour.state}
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ delay: 0.2 + i * 0.08 }}
-              className="rounded-xl overflow-hidden transition-all duration-300 hover:shadow-lg"
-              style={{ background: 'rgba(253,246,240,0.85)', backdropFilter: 'blur(8px)', border: '1px solid rgba(201,169,110,0.15)' }}
+              className={`group relative overflow-hidden rounded-[24px] glass-panel flex flex-col transition-all hover:shadow-[0_12px_48px_0_rgba(242,216,220,0.5)] ${
+                i === 0 ? 'md:col-span-2 lg:col-span-2' : ''
+              }`}
             >
-              <button
-                onClick={() => setExpanded(expanded === i ? null : i)}
-                className="w-full px-5 md:px-6 py-4 md:py-5 flex items-center justify-between text-left"
-              >
-                <div className="flex items-center gap-3 md:gap-4">
-                  <span className="text-2xl md:text-3xl">{tour.emoji}</span>
-                  <div>
-                    <h3 className="text-lg md:text-xl font-light text-dark" style={{ fontFamily: "'Cormorant Garamond', serif" }}>
-                      {tour.state}
-                    </h3>
-                    <div className="flex items-center gap-3 mt-1">
-                      <span
-                        className="text-[10px] tracking-[2px] uppercase px-2 py-0.5 rounded-full"
-                        style={{ background: tour.color, fontFamily: "'Jost', sans-serif", fontWeight: 500, color: '#1C0E0E' }}
-                      >
-                        {tour.month}
-                      </span>
-                      <span className="text-[10px] tracking-[2px] uppercase text-gold" style={{ fontFamily: "'Jost', sans-serif" }}>
-                        Limited to 55 Seats
-                      </span>
-                    </div>
-                  </div>
-                </div>
-                <motion.span
-                  animate={{ rotate: expanded === i ? 180 : 0 }}
-                  transition={{ duration: 0.3 }}
-                  className="text-gold text-lg"
-                >
-                  ▾
-                </motion.span>
-              </button>
+              {/* Image */}
+              <div className={`relative overflow-hidden ${i === 0 ? 'h-64 md:h-80' : 'h-48'}`}>
+                <img
+                  src={tour.image}
+                  alt={tour.state}
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  style={{ opacity: i === 0 ? 0.7 : 0.65 }}
+                />
+                <div className={`absolute inset-0 ${
+                  i === 0
+                    ? 'bg-gradient-to-t from-surface/90 via-surface/50 to-transparent'
+                    : 'bg-gradient-to-t from-surface to-transparent'
+                }`} />
+              </div>
 
-              <AnimatePresence>
-                {expanded === i && (
-                  <motion.div
-                    initial={{ height: 0, opacity: 0 }}
-                    animate={{ height: 'auto', opacity: 1 }}
-                    exit={{ height: 0, opacity: 0 }}
-                    transition={{ duration: 0.3 }}
-                    className="overflow-hidden"
+              {/* Content */}
+              <div className={`flex-1 flex flex-col justify-between ${
+                i === 0 ? 'p-8 -mt-20 relative z-10' : 'p-6 -mt-12 relative z-10'
+              }`}>
+                <div>
+                  {/* Type Chip */}
+                  <div className={`chip ${tour.chipStyle} text-[12px] mb-4`}>
+                    {tour.type}
+                  </div>
+
+                  {/* City & Date */}
+                  <h3
+                    className={`font-medium text-primary mb-3 ${i === 0 ? 'text-3xl' : 'text-2xl'}`}
+                    style={{ fontFamily: "'Noto Serif', serif" }}
                   >
-                    <div className="px-5 md:px-6 pb-5 border-t" style={{ borderColor: 'rgba(201,169,110,0.15)' }}>
-                      <div className="flex flex-wrap gap-2 mt-4 mb-4">
-                        {tour.cities.map(city => (
-                          <span
-                            key={city}
-                            className="px-3 py-1.5 text-xs rounded-full text-dark"
-                            style={{ background: 'rgba(201,169,110,0.15)', fontFamily: "'Jost', sans-serif", fontWeight: 400 }}
-                          >
-                            {city}
-                          </span>
-                        ))}
-                      </div>
-                      <button
-                        className="text-[11px] tracking-[2px] uppercase px-5 py-2 rounded-sm transition-all duration-300 hover:shadow-md"
-                        style={{ background: '#C9A96E', color: '#1C0E0E', fontFamily: "'Jost', sans-serif", fontWeight: 500 }}
+                    {tour.state}
+                  </h3>
+
+                  <p className="text-on-surface-variant flex items-center gap-2 mb-2" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
+                    <span className="material-symbols-outlined text-[18px]">calendar_today</span>
+                    {tour.month}
+                  </p>
+                  <p className="text-on-surface-variant flex items-center gap-2 mb-4" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
+                    <span className="material-symbols-outlined text-[18px]">location_on</span>
+                    {tour.venue}
+                  </p>
+
+                  {/* City chips on expand */}
+                  <button
+                    onClick={() => setExpanded(expanded === i ? null : i)}
+                    className="text-sm font-semibold text-primary flex items-center gap-1 mb-2"
+                    style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", letterSpacing: '0.05em' }}
+                  >
+                    {expanded === i ? 'Hide Cities' : 'View All Cities'}
+                    <motion.span
+                      animate={{ rotate: expanded === i ? 180 : 0 }}
+                      className="material-symbols-outlined text-[18px]"
+                    >
+                      expand_more
+                    </motion.span>
+                  </button>
+
+                  <AnimatePresence>
+                    {expanded === i && (
+                      <motion.div
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: 'auto', opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        className="overflow-hidden"
                       >
-                        Notify Me for This City
-                      </button>
-                    </div>
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </motion.div>
+                        <div className="flex flex-wrap gap-2 mb-4">
+                          {tour.cities.map(city => (
+                            <span
+                              key={city}
+                              className="chip chip-pink text-[12px]"
+                            >
+                              {city}
+                            </span>
+                          ))}
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
+
+                {/* Button */}
+                <button
+                  className={`mt-4 w-full flex items-center justify-center gap-2 py-3 rounded-full text-sm font-semibold tracking-wider transition-colors ${
+                    i === 0
+                      ? 'bg-primary text-on-primary hover:bg-tertiary shadow-lg shadow-primary/20 ring-1 ring-white/30'
+                      : 'border border-primary/30 text-primary hover:bg-primary-fixed bg-white/50 backdrop-blur-sm'
+                  }`}
+                  style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", letterSpacing: '0.05em' }}
+                >
+                  Get Tickets
+                  {i === 0 && <span className="material-symbols-outlined text-[18px]">arrow_forward</span>}
+                </button>
+              </div>
+            </motion.article>
           ))}
         </div>
       </div>
-
-      <div className="mt-16 w-full h-[1px]" style={{ background: 'linear-gradient(90deg, transparent, #C9A96E, transparent)' }} />
     </section>
   );
 }

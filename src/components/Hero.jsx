@@ -1,8 +1,6 @@
 import { useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-scroll';
-import { FiChevronDown } from 'react-icons/fi';
-
 import { IMAGES } from '../constants/images';
 
 const HERO_IMG = IMAGES.hero;
@@ -40,36 +38,35 @@ export default function Hero() {
       {/* Parallax BG */}
       <div
         ref={bgRef}
-        className="absolute inset-0 -top-20 -bottom-20 bg-cover bg-center bg-no-repeat warm-filter will-change-transform"
+        className="absolute inset-0 -top-20 -bottom-20 bg-cover bg-center bg-no-repeat will-change-transform"
         style={{
           backgroundImage: `url(${HERO_IMG})`,
           filter: 'sepia(10%) brightness(105%) contrast(105%)',
         }}
       />
-      <div className="absolute inset-0" style={{ background: 'rgba(28,14,14,0.45)' }} />
+      <div className="absolute inset-0 bg-gradient-to-t from-[#1E1B18]/70 via-[#1E1B18]/40 to-transparent" />
 
       {/* Content */}
       <div className="relative z-10 text-center px-4 max-w-3xl mx-auto">
         <motion.p
           custom={0} variants={fadeUp} initial="hidden" animate="visible"
-          className="text-[11px] tracking-[4px] uppercase mb-4"
-          style={{ fontFamily: "'Jost', sans-serif", color: '#C9A96E', fontWeight: 500 }}
+          className="chip chip-gold uppercase tracking-widest text-[12px] mb-6 inline-block"
         >
           An Exclusive Experience — Room of 55
         </motion.p>
 
         <motion.h1
           custom={1} variants={fadeUp} initial="hidden" animate="visible"
-          className="text-5xl md:text-7xl lg:text-8xl font-light text-white leading-tight"
-          style={{ fontFamily: "'Cormorant Garamond', serif" }}
+          className="text-5xl md:text-7xl lg:text-8xl font-semibold text-white leading-tight"
+          style={{ fontFamily: "'Noto Serif', serif", letterSpacing: '-0.02em' }}
         >
           An Evening With
         </motion.h1>
 
         <motion.h1
           custom={2} variants={fadeUp} initial="hidden" animate="visible"
-          className="text-5xl md:text-7xl lg:text-8xl font-light italic leading-tight gold-text"
-          style={{ fontFamily: "'Cormorant Garamond', serif" }}
+          className="text-5xl md:text-7xl lg:text-8xl font-semibold italic leading-tight text-pink-200"
+          style={{ fontFamily: "'Noto Serif', serif", letterSpacing: '-0.02em' }}
         >
           Reese Witherspoon
         </motion.h1>
@@ -77,23 +74,23 @@ export default function Hero() {
         <motion.div
           custom={3} variants={fadeUp} initial="hidden" animate="visible"
           className="w-[120px] h-[1px] mx-auto my-6"
-          style={{ background: 'linear-gradient(90deg, transparent, #C9A96E, transparent)' }}
+          style={{ background: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.5), transparent)' }}
         />
 
         <motion.p
           custom={4} variants={fadeUp} initial="hidden" animate="visible"
-          className="text-lg md:text-xl tracking-[3px] text-cream/90 mb-4"
-          style={{ fontFamily: "'Jost', sans-serif", fontWeight: 300 }}
+          className="text-lg md:text-xl tracking-wide text-white/90 mb-3"
+          style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontWeight: 500 }}
         >
           Acting. Investments. Legacy.
         </motion.p>
 
         <motion.p
           custom={5} variants={fadeUp} initial="hidden" animate="visible"
-          className="text-sm md:text-base text-cream/70 max-w-[480px] mx-auto mb-8 leading-relaxed"
-          style={{ fontFamily: "'Jost', sans-serif", fontWeight: 300 }}
+          className="text-base text-white/70 max-w-[520px] mx-auto mb-10 leading-relaxed"
+          style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontWeight: 400 }}
         >
-          A limited gathering of 55 minds. Learn from one of Hollywood's most powerful women — actress, producer, entrepreneur, and investor. This is more than a meet & greet. This is a masterclass in life.
+          A limited gathering of 55 minds. Learn from one of Hollywood's most powerful women — actress, producer, entrepreneur, and investor.
         </motion.p>
 
         <motion.div
@@ -104,17 +101,17 @@ export default function Hero() {
             to="tickets"
             smooth
             duration={800}
-            className="px-8 py-3 text-[11px] tracking-[3px] uppercase cursor-pointer font-medium rounded-sm transition-all duration-300 hover:shadow-lg hover:shadow-gold/30"
-            style={{ background: '#C9A96E', color: '#1C0E0E', fontFamily: "'Jost', sans-serif" }}
+            className="bg-primary text-on-primary px-8 py-4 rounded-full font-semibold text-sm tracking-wider cursor-pointer shadow-[0_4px_20px_rgba(242,216,220,0.6)] hover:bg-tertiary transition-all hover:scale-105 inline-flex items-center gap-2 border border-white/30"
+            style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", letterSpacing: '0.05em' }}
           >
             Secure Your Seat
+            <span className="material-symbols-outlined text-[18px]">arrow_forward</span>
           </Link>
           <Link
             to="tour"
             smooth
             duration={800}
-            className="px-8 py-3 text-[11px] tracking-[3px] uppercase cursor-pointer font-medium rounded-sm border transition-all duration-300 hover:bg-white/10"
-            style={{ borderColor: 'rgba(253,246,240,0.4)', color: '#FDF6F0', fontFamily: "'Jost', sans-serif" }}
+            className="btn-secondary !border-white/40 !text-white hover:!bg-white/10 cursor-pointer"
           >
             View Tour Dates
           </Link>
@@ -129,13 +126,19 @@ export default function Hero() {
         className="absolute bottom-16 left-0 right-0"
       >
         <div className="max-w-4xl mx-auto px-4">
-          <div className="glass-dark rounded-lg py-4 px-6 grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+          <div className="glass-dark rounded-3xl py-5 px-6 grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
             {stats.map((s, i) => (
               <div key={i}>
-                <p className="text-2xl md:text-3xl font-light gold-text" style={{ fontFamily: "'Cormorant Garamond', serif" }}>
+                <p
+                  className="text-2xl md:text-3xl font-semibold text-pink-200"
+                  style={{ fontFamily: "'Noto Serif', serif" }}
+                >
                   {s.value}
                 </p>
-                <p className="text-[10px] tracking-[2px] uppercase text-cream/60" style={{ fontFamily: "'Jost', sans-serif" }}>
+                <p
+                  className="text-[11px] tracking-wider uppercase text-white/60"
+                  style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", letterSpacing: '0.05em' }}
+                >
                   {s.label}
                 </p>
               </div>
@@ -149,10 +152,10 @@ export default function Hero() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 3.8 }}
-        className="absolute bottom-4 left-1/2 -translate-x-1/2 text-gold/60"
+        className="absolute bottom-4 left-1/2 -translate-x-1/2 text-white/50"
         style={{ animation: 'chevronBounce 2s ease-in-out infinite' }}
       >
-        <FiChevronDown size={24} />
+        <span className="material-symbols-outlined text-[28px]">expand_more</span>
       </motion.div>
     </section>
   );

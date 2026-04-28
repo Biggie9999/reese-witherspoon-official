@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Reese Witherspoon - Lifestyle &amp; News Feed</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400..900;1,400..900&amp;family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary-container": "#fedb9b",
+                        "surface-tint": "#6d595d",
+                        "surface-container": "#f3ede7",
+                        "primary-container": "#f2d8dc",
+                        "primary-fixed": "#f6dce0",
+                        "primary": "#6d595d",
+                        "on-error-container": "#93000a",
+                        "on-primary-fixed": "#26181b",
+                        "on-background": "#1e1b18",
+                        "on-primary-container": "#705d60",
+                        "error-container": "#ffdad6",
+                        "on-primary": "#ffffff",
+                        "tertiary": "#6e5959",
+                        "tertiary-fixed": "#f9dcdb",
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary-container": "#725d5c",
+                        "inverse-on-surface": "#f6f0ea",
+                        "primary-fixed-dim": "#d9c0c4",
+                        "surface-bright": "#fff8f2",
+                        "inverse-primary": "#d9c0c4",
+                        "outline": "#807476",
+                        "on-tertiary-fixed-variant": "#554242",
+                        "surface-variant": "#e8e1dc",
+                        "on-secondary-fixed": "#261900",
+                        "surface": "#fff8f2",
+                        "on-secondary": "#ffffff",
+                        "error": "#ba1a1a",
+                        "secondary-fixed": "#ffdea4",
+                        "on-tertiary": "#ffffff",
+                        "surface-container-highest": "#e8e1dc",
+                        "on-tertiary-fixed": "#271817",
+                        "surface-container-low": "#f9f2ec",
+                        "on-surface": "#1e1b18",
+                        "on-error": "#ffffff",
+                        "on-primary-fixed-variant": "#544246",
+                        "tertiary-container": "#f4d8d7",
+                        "surface-container-high": "#eee7e1",
+                        "on-secondary-container": "#795f2b",
+                        "on-secondary-fixed-variant": "#5a4312",
+                        "secondary-fixed-dim": "#e4c285",
+                        "outline-variant": "#d1c3c5",
+                        "surface-dim": "#dfd9d3",
+                        "secondary": "#745a27",
+                        "on-surface-variant": "#4e4446",
+                        "background": "#fff8f2",
+                        "tertiary-fixed-dim": "#dbc0bf",
+                        "inverse-surface": "#33302c"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "lg": "48px",
+                        "gutter": "20px",
+                        "xs": "4px",
+                        "base": "8px",
+                        "xl": "80px",
+                        "md": "24px",
+                        "sm": "12px",
+                        "margin": "32px"
+                    },
+                    "fontFamily": {
+                        "headline-xl": ["notoSerif"],
+                        "body-md": ["plusJakartaSans"],
+                        "label-md": ["plusJakartaSans"],
+                        "headline-md": ["notoSerif"],
+                        "headline-lg": ["notoSerif"],
+                        "body-lg": ["plusJakartaSans"]
+                    },
+                    "fontSize": {
+                        "headline-xl": ["48px", { "lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+                        "body-md": ["16px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "label-md": ["14px", { "lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "headline-md": ["24px", { "lineHeight": "1.4", "fontWeight": "500" }],
+                        "headline-lg": ["32px", { "lineHeight": "1.3", "fontWeight": "500" }],
+                        "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .material-symbols-outlined[data-weight="fill"] {
+            font-variation-settings: 'FILL' 1;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background font-body-md text-body-md antialiased min-h-screen selection:bg-primary-container selection:text-on-primary-container">
+<!-- JSON Component: TopAppBar -->
+<header class="fixed top-0 w-full z-50 border-b border-white/40 bg-white/30 dark:bg-pink-950/30 backdrop-blur-xl border-b border-white/20 dark:border-pink-800/30 shadow-[0_8px_32px_0_rgba(242,216,220,0.3)] flex justify-between items-center px-6 py-4 max-w-full mx-auto hover:text-pink-600 transition-colors duration-300">
+<button class="text-pink-500 dark:text-pink-300 hover:text-pink-600 transition-colors duration-300 flex items-center justify-center p-2 rounded-full hover:bg-white/20">
+<span class="material-symbols-outlined" data-icon="menu">menu</span>
+</button>
+<div class="font-noto-serif tracking-widest uppercase text-2xl font-bold tracking-tighter text-pink-600 dark:text-pink-200">
+            REESE WITHERSPOON
+        </div>
+<div class="w-10 h-10 rounded-full overflow-hidden border-2 border-white/50 shadow-sm">
+<img alt="Reese Witherspoon Portrait" class="w-full h-full object-cover" data-alt="Portrait of a blonde woman smiling warmly, representing Reese Witherspoon" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCGYc-EPDWxlWDMTNL_D2LQSJpnLC5hTtPI4nB7GHOCKiHa0rpMXvjuvQ1r4jHwkoQbirX6rsIqSOddKuSb60mBr6dLinrgNMMA2umv-MMFEMX49hhEU6gBltIC6l6mcPAUxi_ndtJgIwDYZ-YyT7i-UeGBZ3emeQxnFPAHvbsAAMP73w7MPyr8HacJJ2biseGXg8PsoNNTEUpIuaopPcj1NHlWLeqsKokRd2qngXxloyC2Q44nQb8ZkCdpE_cFCgmryvZNMh2Lawzh"/>
+</div>
+</header>
+<!-- JSON Component: NavigationDrawer -->
+<!-- Displayed as a fixed sidebar on large screens to fulfill the component requirement while respecting the feed layout -->
+<nav class="hidden lg:flex bg-white/80 dark:bg-pink-900/90 backdrop-blur-2xl text-pink-500 dark:text-pink-300 font-noto-serif text-lg h-full w-80 rounded-r-3xl shadow-2xl divide-y divide-pink-100 dark:divide-pink-800 shadow-[20px_0_60px_-15px_rgba(242,216,220,0.5)] fixed inset-y-0 left-0 z-[60] flex flex-col transition-all duration-300" style="transition-timing-function: cubic-bezier(.4,0,.2,1);">
+<!-- Header Profile Layout -->
+<div class="p-8 flex flex-col items-start gap-4">
+<div class="w-20 h-20 rounded-full overflow-hidden border-4 border-white shadow-md">
+<img alt="Reese Witherspoon" class="w-full h-full object-cover" data-alt="Close up portrait of a smiling blonde woman" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBalwOo6CI6hfNTHuoGajkF1bArdbMOjbGTqDkwXONnxjX9nk4nKgYvb8cKywidLnpjBaEZvflQMjl1pN9s8czyS7farZiMyVUjxMcm2b-DUENVbs-GK5c_BKfVYNouMow8OZ6l7KiEwqIhOgrn6Jq0wKNjuLreSnKQfg_IkaAOYWZv0LKNqDL3K-XDz0Jd8rLRaStFISrg5YNK9OIQr1dFmcXN8sTTvZvIgb6NYgI57aoCjh5cENn4e2nI6syEgy5tDH3ZNSVPVXtm"/>
+</div>
+<div>
+<h2 class="text-xl font-black text-pink-600 tracking-tight">Reese Witherspoon</h2>
+<p class="text-pink-400 text-sm font-sans mt-1">Actress &amp; Producer</p>
+<p class="text-pink-500/70 text-xs font-sans italic mt-2">Welcome to the Inner Circle</p>
+</div>
+</div>
+<!-- Navigation Links -->
+<div class="flex-1 py-6 flex flex-col px-4 gap-2">
+<a class="text-pink-400 dark:text-pink-300 px-4 py-3 m-2 flex items-center gap-4 hover:bg-pink-100/50 dark:hover:bg-pink-700/30 transition-all rounded-xl" href="#">
+<span class="material-symbols-outlined" data-icon="favorite">favorite</span>
+<span class="font-body-md text-body-md">The Giving Heart</span>
+</a>
+<a class="text-pink-400 dark:text-pink-300 px-4 py-3 m-2 flex items-center gap-4 hover:bg-pink-100/50 dark:hover:bg-pink-700/30 transition-all rounded-xl" href="#">
+<span class="material-symbols-outlined" data-icon="event">event</span>
+<span class="font-body-md text-body-md">On the Road</span>
+</a>
+<!-- Active State -->
+<a class="bg-pink-50 dark:bg-pink-800/40 text-pink-700 dark:text-pink-100 rounded-xl m-2 px-4 py-3 font-bold flex items-center gap-4 hover:bg-pink-100/50 dark:hover:bg-pink-700/30 transition-all opacity-70 transition-opacity" href="#">
+<span class="material-symbols-outlined" data-icon="stars" data-weight="fill">stars</span>
+<span class="font-body-md text-body-md">Inner Circle</span>
+</a>
+<a class="text-pink-400 dark:text-pink-300 px-4 py-3 m-2 flex items-center gap-4 hover:bg-pink-100/50 dark:hover:bg-pink-700/30 transition-all rounded-xl" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-body-md text-body-md">About Reese</span>
+</a>
+</div>
+</nav>
+<!-- Main Canvas / Content -->
+<main class="pt-[100px] pb-24 px-6 lg:pl-[360px] max-w-[1600px] mx-auto w-full">
+<!-- Header / Greeting -->
+<div class="mb-md">
+<h1 class="font-headline-xl text-headline-xl text-primary mb-xs">Welcome to my world.</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">A curated glimpse into life in Nashville, upcoming projects, and the things that inspire me every day.</p>
+</div>
+<!-- Bento Grid Feed -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-6 auto-rows-[280px]">
+<!-- Large Hero Card: Blog/Lifestyle -->
+<article class="md:col-span-8 md:row-span-2 relative rounded-3xl overflow-hidden group shadow-[0_12px_40px_-15px_rgba(242,216,220,0.6)] border border-white/60">
+<img alt="Beautiful Nashville home interior" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="Bright, airy living room with soft pink accents, white furniture, and large windows spilling sunlight" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDw-TVpa_QgOCYhCdiUw20GYB6ITEOv3WyrBM17S6A5Qsr5fC0_viPQ6bYofaM9nv8y-IiIKiH4TbiI3f4oNBs1fMT5i9iLxevm7haN0ZxYdH8OzmuZf1zYkZLmLqhgn2XO8bWt53qfa5oxFHLSDbk0e9RwCg4BodtR2Dm_RC_ayd9LVSwsu-NMp-k4A40i2SeGDGpA8rJFUDu_ljpuE_FMFF9yIvrFkFT_5z7sDO3qS3Wp5__eTkeNaRiaGwZehYg_MMQyQEdwNRK4"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/80 via-primary/20 to-transparent"></div>
+<div class="absolute inset-x-0 bottom-0 p-8 flex flex-col justify-end">
+<div class="flex items-center gap-2 mb-4">
+<span class="bg-white/30 backdrop-blur-md text-white px-3 py-1 rounded-full font-label-md text-label-md border border-white/40 uppercase tracking-widest text-xs">Lifestyle</span>
+<span class="text-white/80 font-body-md text-body-md text-sm">Just Now</span>
+</div>
+<h2 class="font-headline-xl text-headline-xl text-white mb-3 drop-shadow-sm">Southern Summer Nights</h2>
+<p class="font-body-lg text-body-lg text-white/90 max-w-lg mb-6">My definitive guide to hosting the perfect porch party. Think sweet tea, fairy lights, and endless laughter with friends.</p>
+<div>
+<button class="bg-white text-primary font-label-md text-label-md px-6 py-3 rounded-full hover:bg-primary-container hover:text-primary transition-colors shadow-lg flex items-center gap-2 inline-flex">
+                            Read the Story
+                            <span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</div>
+</article>
+<!-- Membership CTA Card -->
+<div class="md:col-span-4 md:row-span-1 bg-primary-container rounded-3xl p-8 relative overflow-hidden border border-white/50 shadow-[0_8px_30px_-10px_rgba(242,216,220,0.8)] flex flex-col justify-center">
+<div class="absolute -right-12 -top-12 w-48 h-48 bg-white/40 rounded-full blur-3xl"></div>
+<div class="relative z-10">
+<div class="w-12 h-12 bg-white rounded-full flex items-center justify-center text-primary mb-6 shadow-sm">
+<span class="material-symbols-outlined" data-icon="stars" data-weight="fill">stars</span>
+</div>
+<h3 class="font-headline-lg text-headline-lg text-on-primary-container mb-2">Join the Inner Circle</h3>
+<p class="font-body-md text-body-md text-on-primary-container/80 mb-6">Unlock exclusive behind-the-scenes content, early ticket access, and private book club discussions.</p>
+<button class="w-full bg-primary text-on-primary font-label-md text-label-md py-3 rounded-xl hover:bg-tertiary transition-colors shadow-md relative overflow-hidden">
+<span class="relative z-10">Become a Member</span>
+<div class="absolute inset-0 bg-white/20 opacity-0 hover:opacity-100 transition-opacity"></div>
+</button>
+</div>
+</div>
+<!-- Tour Announcement Card -->
+<article class="md:col-span-4 md:row-span-1 bg-surface-container rounded-3xl p-2 relative overflow-hidden border border-white/60 shadow-sm flex flex-col group">
+<div class="h-3/5 rounded-2xl overflow-hidden relative mb-4">
+<img alt="Concert stage lights" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Soft pink and purple stage lights illuminating an empty concert stage" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDVtFQI0qlxpV1EnU15j8ov8kjN9ZOe4Hoa-T-VezjBtjJg05vSpdx_O_qMLrd4SXSWdIds3CI76j-cHwiQk_OgSiQqERP-6Gq3CmZErQuhu52kIWXYU8LXEVUUEBlJ6KffUES99VT9OIUDBk5OEfAtHQyYOyJJhuEQyNaa5pigtiFiw8CerW-hko9Cek6cpHubt9ZZrAEbv47SiXW97doIloa66w-Ozg_5O9E2Y4lPqQKiju4cdUDmHZFnZYk0qI3RdmkHdOkZqRtu"/>
+<div class="absolute top-4 left-4 bg-white/80 backdrop-blur-sm text-primary px-3 py-1 rounded-full font-label-md text-label-md text-xs font-bold uppercase shadow-sm">
+                        On the Road
+                    </div>
+</div>
+<div class="px-4 pb-4 flex-1 flex flex-col justify-between">
+<div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-1">The 2024 Book Tour</h3>
+<p class="font-body-md text-body-md text-on-surface-variant text-sm">New dates added! Dallas, Austin, and Houston.</p>
+</div>
+<div class="flex justify-between items-center mt-4">
+<span class="font-label-md text-label-md text-primary">View Dates</span>
+<span class="material-symbols-outlined text-primary bg-primary-container w-8 h-8 rounded-full flex items-center justify-center" data-icon="arrow_outward">arrow_outward</span>
+</div>
+</div>
+</article>
+<!-- Milestone / Donation Card -->
+<div class="md:col-span-4 md:row-span-1 bg-secondary-container rounded-3xl p-8 flex flex-col justify-between border border-white/40 shadow-[0_8px_24px_-12px_rgba(254,219,155,0.6)]">
+<div>
+<div class="flex items-center gap-3 mb-4 text-secondary">
+<span class="material-symbols-outlined" data-icon="volunteer_activism" data-weight="fill">volunteer_activism</span>
+<span class="font-label-md text-label-md uppercase tracking-wider text-sm">The Giving Heart</span>
+</div>
+<h3 class="font-headline-lg text-headline-lg text-on-secondary-container mb-2">$500k Raised!</h3>
+<p class="font-body-md text-body-md text-on-secondary-container/80">Thank you for supporting our youth literacy initiative. The impact is truly incredible.</p>
+</div>
+<div class="mt-6">
+<div class="flex justify-between font-label-md text-label-md text-secondary mb-2 text-sm">
+<span>Progress</span>
+<span>100%</span>
+</div>
+<div class="w-full bg-white/40 h-3 rounded-full overflow-hidden border border-white/50">
+<div class="bg-secondary h-full rounded-full w-full relative overflow-hidden">
+<div class="absolute inset-0 bg-white/20 animate-pulse"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Small Image/Quote Card -->
+<article class="md:col-span-4 md:row-span-1 relative rounded-3xl overflow-hidden shadow-sm border border-white/50 group">
+<img alt="Coffee and books" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="Aesthetically pleasing overhead shot of a latte, a notebook, and fresh peonies on a marble table" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBG8wX-8VL9go4E6G_4xGagsmrjKkylxgWv7vUzJZNpmirXJAabl_CnO-YToURYAv2OgsOwEtYnShktmE9bXxMcd9z1lTpjupGv7LPHEjU-CPhY57Y9jBhLXsVRePoU0IayttmVAgZO8HzSw7Kp9Tf_27tg5OgBBFCJIAgyOcQtaKIp4ivUe7cEYBQ9GKG5apvhBstMw9PJPaNq6D27LvpmGaDB00ldijHdE4ZS_y45ikeZrusDVk6D8OIEeJInE1yq4q91vStmPAgz"/>
+<div class="absolute inset-0 bg-primary/30 mix-blend-multiply"></div>
+<div class="absolute inset-0 p-8 flex flex-col justify-center items-center text-center">
+<span class="material-symbols-outlined text-white/80 text-4xl mb-4" data-icon="format_quote">format_quote</span>
+<p class="font-headline-md text-headline-md text-white drop-shadow-md leading-snug">"Read something that makes you look like a weirdo when you laugh out loud in public."</p>
+</div>
+</article>
+<!-- Book Club Card -->
+<article class="md:col-span-4 md:row-span-1 bg-surface rounded-3xl p-6 flex flex-col sm:flex-row gap-6 items-center border border-surface-variant shadow-sm hover:shadow-md transition-shadow">
+<div class="w-32 h-40 rounded-xl overflow-hidden flex-shrink-0 shadow-sm border border-outline-variant/30">
+<img alt="Book cover" class="w-full h-full object-cover" data-alt="Close up of a hardcover book with a pastel abstract cover design" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCZm1d5O4aujBun1KtTdSd7BmGQQFH08YCqm2GV9Zp7gT33nEnsu_pSQW9p9e6Rw_geM2PUYTXkcAlWx-90hXKwNQhIP-MGN3D9PjaEtqhY6hx7Vfy7jWBnny7xCWxhpS93kKAIlrntInOTFS22V6gViFO0RHtzEbBD2uEXtVS3mU1QSMRtVISv29ltgNkzGY-QCYQm7yAQSugkv67vp9yGWeT6t91LNZqEKR_D8CTqiiQd8ABPO30zzUpX3JXCvLfkaywnJc1CcBTl"/>
+</div>
+<div class="flex-1 text-center sm:text-left">
+<span class="text-tertiary font-label-md text-label-md uppercase text-xs mb-2 block tracking-widest">Book of the Month</span>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-2">The Sweetness of Water</h3>
+<p class="font-body-md text-body-md text-on-surface-variant text-sm mb-4 line-clamp-2">A profound and beautifully written debut novel that we absolutely couldn't put down.</p>
+<button class="font-label-md text-label-md text-primary border-b border-primary pb-0.5 hover:text-tertiary transition-colors">Join the Discussion</button>
+</div>
+</article>
+</div>
+</main>
+</body></html>

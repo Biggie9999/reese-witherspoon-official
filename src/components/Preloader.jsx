@@ -28,8 +28,7 @@ export default function Preloader({ onComplete }) {
         <motion.div
           exit={{ opacity: 0 }}
           transition={{ duration: 0.6 }}
-          className="fixed inset-0 z-[9999] flex flex-col items-center justify-center"
-          style={{ background: '#F2D8DC' }}
+          className="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-surface"
         >
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -38,26 +37,26 @@ export default function Preloader({ onComplete }) {
             className="text-center"
           >
             <h1
-              className="text-4xl md:text-6xl font-light tracking-wide"
-              style={{ fontFamily: "'Cormorant Garamond', serif", color: '#1C0E0E' }}
+              className="text-4xl md:text-6xl font-bold tracking-tighter text-pink-600"
+              style={{ fontFamily: "'Noto Serif', serif" }}
             >
-              Reese Witherspoon
+              REESE WITHERSPOON
             </h1>
             <motion.p
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.5, duration: 0.6 }}
-              className="mt-2 text-xs tracking-[4px] uppercase font-medium"
-              style={{ fontFamily: "'Jost', sans-serif", color: '#C9A96E' }}
+              className="mt-2 text-[11px] tracking-[4px] uppercase font-semibold text-pink-400"
+              style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}
             >
               Official
             </motion.p>
           </motion.div>
 
-          <div className="mt-10 w-48 h-[2px] rounded-full overflow-hidden" style={{ background: 'rgba(201,169,110,0.3)' }}>
+          <div className="mt-10 w-48 h-[2px] rounded-full overflow-hidden bg-primary-container">
             <motion.div
-              className="h-full rounded-full"
-              style={{ background: 'linear-gradient(90deg, #C9A96E, #E8D5B0, #C9A96E)', width: `${progress}%` }}
+              className="h-full rounded-full bg-pink-500"
+              style={{ width: `${progress}%` }}
             />
           </div>
         </motion.div>

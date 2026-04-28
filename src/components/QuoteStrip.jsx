@@ -1,6 +1,5 @@
 import { useRef, useEffect } from 'react';
 import { motion, useInView } from 'framer-motion';
-
 import { IMAGES } from '../constants/images';
 
 const QUOTE_IMG = IMAGES.portrait2;
@@ -32,35 +31,20 @@ export default function QuoteStrip() {
           filter: 'sepia(10%) brightness(105%) contrast(105%)',
         }}
       />
-      <div className="absolute inset-0" style={{ background: 'rgba(28,14,14,0.7)' }} />
+      <div className="absolute inset-0 bg-primary/70 mix-blend-multiply" />
 
-      {/* Decorative quotes */}
-      <div className="absolute top-8 left-1/2 -translate-x-1/2 text-[180px] md:text-[250px] leading-none opacity-10 gold-text pointer-events-none select-none" style={{ fontFamily: "'Playfair Display', serif" }}>
-        &ldquo;
+      {/* Quote icon */}
+      <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+        <span className="material-symbols-outlined text-white/10 text-[200px] md:text-[300px]">format_quote</span>
       </div>
-
-      {/* Sparkle particles */}
-      {[...Array(8)].map((_, i) => (
-        <div
-          key={i}
-          className="absolute w-1 h-1 rounded-full opacity-40"
-          style={{
-            background: '#C9A96E',
-            top: `${15 + Math.random() * 70}%`,
-            left: `${5 + Math.random() * 90}%`,
-            animation: `float ${3 + Math.random() * 4}s ease-in-out infinite`,
-            animationDelay: `${Math.random() * 3}s`,
-          }}
-        />
-      ))}
 
       <div className="relative z-10 max-w-3xl mx-auto px-6 text-center">
         <motion.blockquote
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
-          className="text-2xl md:text-4xl lg:text-[42px] italic leading-snug text-cream/90"
-          style={{ fontFamily: "'Playfair Display', serif", fontWeight: 400 }}
+          className="text-2xl md:text-4xl lg:text-[42px] italic leading-snug text-white drop-shadow-md"
+          style={{ fontFamily: "'Noto Serif', serif", fontWeight: 500 }}
         >
           "I've learned that being powerful, being feminine, and being ambitious are not opposites. They are the same thing."
         </motion.blockquote>
@@ -68,8 +52,8 @@ export default function QuoteStrip() {
           initial={{ opacity: 0 }}
           animate={isInView ? { opacity: 1 } : {}}
           transition={{ delay: 0.4, duration: 0.6 }}
-          className="mt-6 text-xs tracking-[4px] uppercase"
-          style={{ color: '#C9A96E', fontFamily: "'Jost', sans-serif" }}
+          className="mt-6 text-sm tracking-wider uppercase text-white/70"
+          style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", letterSpacing: '0.05em', fontWeight: 600 }}
         >
           — Reese Witherspoon
         </motion.p>

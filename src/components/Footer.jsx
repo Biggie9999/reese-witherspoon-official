@@ -1,6 +1,4 @@
 import { Link } from 'react-scroll';
-import { FaInstagram, FaXTwitter, FaFacebookF, FaYoutube } from 'react-icons/fa6';
-
 import { IMAGES } from '../constants/images';
 
 const PORTRAIT = IMAGES.hero;
@@ -35,40 +33,36 @@ const columns = [
   },
 ];
 
-const socials = [
-  { icon: <FaInstagram />, href: '#' },
-  { icon: <FaXTwitter />, href: '#' },
-  { icon: <FaFacebookF />, href: '#' },
-  { icon: <FaYoutube />, href: '#' },
-];
-
 export default function Footer() {
   return (
-    <footer className="relative pt-16 pb-8 overflow-hidden" style={{ background: '#1C0E0E' }}>
-      {/* Gold top border */}
-      <div className="absolute top-0 left-0 right-0 h-[1px]" style={{ background: 'linear-gradient(90deg, transparent, #C9A96E, transparent)' }} />
+    <footer className="relative pt-16 pb-8 overflow-hidden bg-inverse-surface">
+      {/* Top border line */}
+      <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-white/20 to-transparent" />
 
       {/* Faint portrait bg */}
       <div
-        className="absolute inset-0 bg-cover bg-center opacity-[0.06] pointer-events-none"
+        className="absolute inset-0 bg-cover bg-center opacity-[0.05] pointer-events-none mix-blend-luminosity"
         style={{ backgroundImage: `url(${PORTRAIT})` }}
       />
 
       <div className="relative max-w-6xl mx-auto px-4 md:px-8">
         {/* Logo + Tagline */}
-        <div className="text-center mb-12">
+        <div className="text-center mb-16">
           <h2
-            className="text-2xl md:text-3xl font-light text-white tracking-[4px]"
-            style={{ fontFamily: "'Cormorant Garamond', serif" }}
+            className="text-2xl md:text-3xl font-bold tracking-tighter text-white"
+            style={{ fontFamily: "'Noto Serif', serif" }}
           >
             REESE WITHERSPOON
           </h2>
-          <p className="text-[10px] tracking-[4px] uppercase mt-1" style={{ color: '#C9A96E', fontFamily: "'Jost', sans-serif" }}>
+          <p
+            className="text-[10px] tracking-[4px] uppercase mt-2 text-white/50 font-semibold"
+            style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}
+          >
             Official
           </p>
           <p
-            className="mt-4 text-sm italic text-cream/40"
-            style={{ fontFamily: "'Playfair Display', serif" }}
+            className="mt-6 text-sm italic text-white/70 font-medium"
+            style={{ fontFamily: "'Noto Serif', serif" }}
           >
             "Where Icons Meet Their People"
           </p>
@@ -79,20 +73,20 @@ export default function Footer() {
           {columns.map(col => (
             <div key={col.title}>
               <h4
-                className="text-[11px] tracking-[3px] uppercase mb-4"
-                style={{ color: '#C9A96E', fontFamily: "'Jost', sans-serif", fontWeight: 500 }}
+                className="text-[11px] tracking-widest uppercase mb-6 text-white/50 font-semibold"
+                style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}
               >
                 {col.title}
               </h4>
-              <ul className="space-y-2">
+              <ul className="space-y-4">
                 {col.links.map(link => (
                   <li key={link.label}>
                     <Link
                       to={link.to}
                       smooth
                       duration={800}
-                      className="text-sm text-cream/40 hover:text-gold cursor-pointer transition-colors duration-300"
-                      style={{ fontFamily: "'Jost', sans-serif", fontWeight: 300 }}
+                      className="text-sm text-white/80 hover:text-white cursor-pointer transition-colors duration-300"
+                      style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}
                     >
                       {link.label}
                     </Link>
@@ -102,23 +96,22 @@ export default function Footer() {
             </div>
           ))}
 
-          {/* Social Column */}
+          {/* Social Column using Material Icons instead of React Icons */}
           <div>
             <h4
-              className="text-[11px] tracking-[3px] uppercase mb-4"
-              style={{ color: '#C9A96E', fontFamily: "'Jost', sans-serif", fontWeight: 500 }}
+              className="text-[11px] tracking-widest uppercase mb-6 text-white/50 font-semibold"
+              style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}
             >
               Social
             </h4>
-            <div className="flex gap-3">
-              {socials.map((s, i) => (
+            <div className="flex gap-4">
+              {['photo_camera', 'alternate_email', 'thumb_up', 'play_arrow'].map((icon, i) => (
                 <a
                   key={i}
-                  href={s.href}
-                  className="w-9 h-9 rounded-full flex items-center justify-center text-cream/40 hover:text-gold transition-all duration-300 hover:scale-110"
-                  style={{ border: '1px solid rgba(201,169,110,0.2)' }}
+                  href="#"
+                  className="w-10 h-10 rounded-full flex items-center justify-center text-white/80 border border-white/20 hover:text-white hover:bg-white/10 hover:border-white/40 transition-all duration-300 hover:scale-105"
                 >
-                  {s.icon}
+                  <span className="material-symbols-outlined text-[20px]">{icon}</span>
                 </a>
               ))}
             </div>
@@ -126,14 +119,14 @@ export default function Footer() {
         </div>
 
         {/* Divider */}
-        <div className="w-full h-[1px] mb-6" style={{ background: 'rgba(201,169,110,0.15)' }} />
+        <div className="w-full h-[1px] mb-8 bg-white/10" />
 
         {/* Copyright */}
-        <div className="text-center space-y-2">
-          <p className="text-xs text-cream/30" style={{ fontFamily: "'Jost', sans-serif", fontWeight: 300 }}>
+        <div className="text-center space-y-3">
+          <p className="text-xs text-white/40" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
             © 2026 Reese Witherspoon Official. All rights reserved.
           </p>
-          <p className="text-[10px] text-cream/20" style={{ fontFamily: "'Jost', sans-serif", fontWeight: 300 }}>
+          <p className="text-[10px] text-white/30" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
             Official tour management platform. All experiences curated by AKA Management.
           </p>
         </div>

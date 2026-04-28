@@ -1,51 +1,52 @@
 import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 
-import { IMAGES } from '../constants/images';
-
-const TICKET_BG = IMAGES.portrait3;
-
 const tiers = [
   {
-    name: 'Regular',
-    price: '$25 – $50',
+    name: 'Sunshine Member',
+    price: '$25',
+    period: '/ticket',
     featured: false,
+    description: 'The perfect starting point for admirers.',
     perks: [
       'Meet Reese Witherspoon in person',
       'Personal photo session',
       'Free customized polo shirt & cap',
       'Merchandise delivered 3–7 days after payment',
     ],
-    btn: 'Book Regular',
+    btn: 'Join Sunshine',
   },
   {
-    name: 'VIP',
-    price: '$70 – $100',
+    name: 'The Elite',
+    price: '$70',
+    period: '/ticket',
     featured: true,
     badge: 'Most Popular',
+    description: 'Enhanced access and exclusive perks.',
     perks: [
-      'Meet Reese Witherspoon in person',
+      'All Sunshine perks',
       'Photo & video access',
-      'Free customized polo shirt & cap',
       'Exclusive after-party access',
       'Award presentation',
+      'Invites to Virtual Q&As',
     ],
-    btn: 'Book VIP',
+    btn: 'Become Elite',
   },
   {
-    name: 'VVIP',
-    price: '$150 – $200',
+    name: 'Southern Belle VIP',
+    price: '$150',
+    period: '/ticket',
     featured: false,
+    description: 'The ultimate, intimate Room of 55 experience.',
     perks: [
-      'Meet Reese Witherspoon in person',
-      'Photo & video access',
-      'Free customized polo shirt & cap',
-      'Exclusive after-party access',
-      'Award presentation',
+      'All Elite perks',
+      'Signed merchandise & exclusive merch box',
+      'Intimate Virtual Meet & Greets',
+      'VIP Access at Live Events',
       "Reese's private contact details",
       'Unlimited call/video chat with Reese post-event',
     ],
-    btn: 'Book VVIP',
+    btn: 'Join VIP',
   },
 ];
 
@@ -54,85 +55,128 @@ export default function Tickets() {
   const isInView = useInView(ref, { once: true, margin: '-80px' });
 
   return (
-    <section id="tickets" className="relative py-20 md:py-28" ref={ref}>
-      <div
-        className="absolute inset-0 bg-cover bg-center bg-fixed"
-        style={{
-          backgroundImage: `url(${TICKET_BG})`,
-          filter: 'sepia(10%) brightness(105%) contrast(105%)',
-        }}
-      />
-      <div className="absolute inset-0" style={{ background: 'rgba(28,14,14,0.78)' }} />
+    <section id="tickets" className="relative py-20 md:py-28 overflow-hidden" ref={ref}>
+      {/* Background */}
+      <div className="absolute inset-0 bg-gradient-to-b from-primary-container/20 via-surface to-surface" />
+
+      {/* Ambient glows */}
+      <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-primary-container/30 rounded-full blur-[100px] -translate-x-1/2 -translate-y-1/2 pointer-events-none" />
+      <div className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-secondary-container/20 rounded-full blur-[120px] translate-x-1/3 translate-y-1/3 pointer-events-none" />
 
       <div className="relative z-10 max-w-6xl mx-auto px-4 md:px-8">
+        {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           className="text-center mb-14"
         >
-          <p className="text-[11px] tracking-[4px] uppercase mb-3" style={{ color: '#C9A96E', fontFamily: "'Jost', sans-serif", fontWeight: 500 }}>
-            Secure Your Seat
-          </p>
-          <h2 className="text-3xl md:text-5xl font-light text-white" style={{ fontFamily: "'Cormorant Garamond', serif" }}>
-            Choose Your Room of 55 <span className="italic gold-text">Experience</span>
+          <span className="chip chip-gold uppercase tracking-widest text-[12px] mb-4 inline-block">
+            Exclusive Access
+          </span>
+          <h2
+            className="text-4xl md:text-5xl font-semibold text-primary mb-4"
+            style={{ fontFamily: "'Noto Serif', serif", letterSpacing: '-0.02em' }}
+          >
+            Choose Your <span className="italic gold-text">Experience</span>
           </h2>
+          <p
+            className="text-lg text-on-surface-variant max-w-2xl mx-auto leading-relaxed"
+            style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}
+          >
+            Step into a world of exclusive gatherings and unforgettable moments. Choose the tier that fits your journey.
+          </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-5 md:gap-6">
+        {/* Tier Grid */}
+        <div className="grid md:grid-cols-3 gap-8 items-stretch">
           {tiers.map((tier, i) => (
             <motion.div
               key={tier.name}
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ delay: 0.2 + i * 0.12 }}
-              className={`relative rounded-xl p-6 md:p-8 transition-all duration-400 hover:-translate-y-2 ${
-                tier.featured ? 'hover:shadow-2xl hover:shadow-gold/20' : 'hover:shadow-xl hover:shadow-gold/10'
+              className={`glass-card rounded-3xl p-8 flex flex-col relative overflow-hidden transition-all duration-500 ${
+                tier.featured
+                  ? 'glow-pink md:-translate-y-4 border-white/60'
+                  : 'group hover:-translate-y-2'
               }`}
-              style={{
-                background: 'rgba(253,246,240,0.08)',
-                backdropFilter: 'blur(20px)',
-                WebkitBackdropFilter: 'blur(20px)',
-                border: tier.featured ? '2px solid rgba(201,169,110,0.6)' : '1px solid rgba(201,169,110,0.15)',
-                boxShadow: tier.featured ? '0 0 30px rgba(201,169,110,0.15)' : 'none',
-              }}
             >
-              {tier.badge && (
-                <div
-                  className="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full text-[10px] tracking-[2px] uppercase"
-                  style={{ background: '#C9A96E', color: '#1C0E0E', fontFamily: "'Jost', sans-serif", fontWeight: 600 }}
-                >
-                  {tier.badge}
-                </div>
+              {/* Decorative blur */}
+              {tier.featured ? (
+                <>
+                  <div className="absolute top-0 inset-x-0 h-2 bg-gradient-to-r from-primary-container via-secondary-container to-primary-container" />
+                  <div className="absolute -top-20 -right-20 w-64 h-64 bg-secondary-container/30 rounded-full blur-3xl pointer-events-none" />
+                </>
+              ) : (
+                <div className="absolute top-0 right-0 w-32 h-32 bg-white/20 rounded-full blur-2xl -mr-10 -mt-10" />
               )}
 
-              <h3
-                className="text-2xl md:text-3xl font-light text-white mb-1"
-                style={{ fontFamily: "'Cormorant Garamond', serif" }}
-              >
-                {tier.name}
-              </h3>
-              <p className="text-xl gold-text mb-6" style={{ fontFamily: "'Cormorant Garamond', serif", fontWeight: 500 }}>
-                {tier.price}
-              </p>
+              {/* Badge */}
+              {tier.badge && (
+                <span className="absolute top-6 right-6 bg-secondary text-on-secondary text-[10px] uppercase tracking-wider py-1 px-3 rounded-full font-semibold">
+                  {tier.badge}
+                </span>
+              )}
 
-              <ul className="space-y-3 mb-8">
+              {/* Name & Description */}
+              <div className="mb-8">
+                <h3
+                  className={`text-2xl font-medium mb-2 ${tier.featured ? 'text-primary font-semibold' : 'text-tertiary'}`}
+                  style={{ fontFamily: "'Noto Serif', serif" }}
+                >
+                  {tier.name}
+                </h3>
+                <p
+                  className="text-on-surface-variant min-h-[48px]"
+                  style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}
+                >
+                  {tier.description}
+                </p>
+              </div>
+
+              {/* Price */}
+              <div className="mb-8 flex items-baseline gap-2">
+                <span
+                  className={`${tier.featured ? 'text-5xl' : 'text-4xl'} font-semibold text-primary`}
+                  style={{ fontFamily: "'Noto Serif', serif" }}
+                >
+                  {tier.price}
+                </span>
+                <span className="text-outline" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
+                  {tier.period}
+                </span>
+              </div>
+
+              {/* Perks */}
+              <ul className="space-y-4 mb-10 flex-1">
                 {tier.perks.map((perk, j) => (
-                  <li key={j} className="flex items-start gap-2 text-sm text-cream/80" style={{ fontFamily: "'Jost', sans-serif", fontWeight: 300 }}>
-                    <span className="text-gold mt-0.5 flex-shrink-0">✦</span>
-                    {perk}
+                  <li key={j} className="flex items-start gap-3">
+                    <span
+                      className={`material-symbols-outlined mt-0.5 text-[20px] ${
+                        tier.featured ? 'text-secondary' : 'text-tertiary'
+                      }`}
+                      style={tier.featured ? { fontVariationSettings: "'FILL' 1" } : {}}
+                    >
+                      {tier.featured && j === 0 ? 'stars' : 'check_circle'}
+                    </span>
+                    <span
+                      className="text-on-surface"
+                      style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}
+                    >
+                      {perk}
+                    </span>
                   </li>
                 ))}
               </ul>
 
+              {/* Button */}
               <button
-                className="w-full py-3 rounded-sm text-[11px] tracking-[2px] uppercase transition-all duration-300 hover:shadow-lg"
-                style={{
-                  background: tier.featured ? '#C9A96E' : 'transparent',
-                  color: tier.featured ? '#1C0E0E' : '#C9A96E',
-                  border: tier.featured ? 'none' : '1px solid rgba(201,169,110,0.4)',
-                  fontFamily: "'Jost', sans-serif",
-                  fontWeight: 500,
-                }}
+                className={`w-full py-4 rounded-xl text-sm font-semibold tracking-wider transition-colors duration-300 ${
+                  tier.featured
+                    ? 'bg-primary text-on-primary hover:bg-primary/90 shadow-lg shadow-primary/20'
+                    : 'border border-primary/30 text-primary hover:bg-primary/5'
+                }`}
+                style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", letterSpacing: '0.05em' }}
               >
                 {tier.btn}
               </button>
@@ -144,8 +188,8 @@ export default function Tickets() {
           initial={{ opacity: 0 }}
           animate={isInView ? { opacity: 1 } : {}}
           transition={{ delay: 0.8 }}
-          className="text-center mt-10 text-sm text-cream/60"
-          style={{ fontFamily: "'Jost', sans-serif", fontWeight: 300 }}
+          className="text-center mt-10 text-sm text-on-surface-variant"
+          style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}
         >
           We accept Cryptocurrency & Wire Transfer. Payment details sent upon booking confirmation.
         </motion.p>

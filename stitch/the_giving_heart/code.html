@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>The Giving Heart - Reese Witherspoon</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "secondary-container": "#fedb9b",
+                        "surface-tint": "#6d595d",
+                        "surface-container": "#f3ede7",
+                        "primary-container": "#f2d8dc",
+                        "primary-fixed": "#f6dce0",
+                        "primary": "#6d595d",
+                        "on-error-container": "#93000a",
+                        "on-primary-fixed": "#26181b",
+                        "on-background": "#1e1b18",
+                        "on-primary-container": "#705d60",
+                        "error-container": "#ffdad6",
+                        "on-primary": "#ffffff",
+                        "tertiary": "#6e5959",
+                        "tertiary-fixed": "#f9dcdb",
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary-container": "#725d5c",
+                        "inverse-on-surface": "#f6f0ea",
+                        "primary-fixed-dim": "#d9c0c4",
+                        "surface-bright": "#fff8f2",
+                        "inverse-primary": "#d9c0c4",
+                        "outline": "#807476",
+                        "on-tertiary-fixed-variant": "#554242",
+                        "surface-variant": "#e8e1dc",
+                        "on-secondary-fixed": "#261900",
+                        "surface": "#fff8f2",
+                        "on-secondary": "#ffffff",
+                        "error": "#ba1a1a",
+                        "secondary-fixed": "#ffdea4",
+                        "on-tertiary": "#ffffff",
+                        "surface-container-highest": "#e8e1dc",
+                        "on-tertiary-fixed": "#271817",
+                        "surface-container-low": "#f9f2ec",
+                        "on-surface": "#1e1b18",
+                        "on-error": "#ffffff",
+                        "on-primary-fixed-variant": "#544246",
+                        "tertiary-container": "#f4d8d7",
+                        "surface-container-high": "#eee7e1",
+                        "on-secondary-container": "#795f2b",
+                        "on-secondary-fixed-variant": "#5a4312",
+                        "secondary-fixed-dim": "#e4c285",
+                        "outline-variant": "#d1c3c5",
+                        "surface-dim": "#dfd9d3",
+                        "secondary": "#745a27",
+                        "on-surface-variant": "#4e4446",
+                        "background": "#fff8f2",
+                        "tertiary-fixed-dim": "#dbc0bf",
+                        "inverse-surface": "#33302c"
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    spacing: {
+                        "lg": "48px",
+                        "gutter": "20px",
+                        "xs": "4px",
+                        "base": "8px",
+                        "xl": "80px",
+                        "md": "24px",
+                        "sm": "12px",
+                        "margin": "32px"
+                    },
+                    fontFamily: {
+                        "headline-xl": ["Noto Serif", "serif"],
+                        "body-md": ["Plus Jakarta Sans", "sans-serif"],
+                        "label-md": ["Plus Jakarta Sans", "sans-serif"],
+                        "headline-md": ["Noto Serif", "serif"],
+                        "headline-lg": ["Noto Serif", "serif"],
+                        "body-lg": ["Plus Jakarta Sans", "sans-serif"]
+                    },
+                    fontSize: {
+                        "headline-xl": ["48px", { lineHeight: "1.2", letterSpacing: "-0.02em", fontWeight: "600" }],
+                        "body-md": ["16px", { lineHeight: "1.6", fontWeight: "400" }],
+                        "label-md": ["14px", { lineHeight: "1.2", letterSpacing: "0.05em", fontWeight: "600" }],
+                        "headline-md": ["24px", { lineHeight: "1.4", fontWeight: "500" }],
+                        "headline-lg": ["32px", { lineHeight: "1.3", fontWeight: "500" }],
+                        "body-lg": ["18px", { lineHeight: "1.6", fontWeight: "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            box-shadow: 0 8px 32px 0 rgba(242, 216, 220, 0.4);
+        }
+        .text-glow {
+            text-shadow: 0 0 10px rgba(255,255,255,0.8);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background min-h-screen font-body-md selection:bg-primary-container selection:text-primary">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 border-b border-white/40 bg-white/30 dark:bg-pink-950/30 backdrop-blur-xl shadow-[0_8px_32px_0_rgba(242,216,220,0.3)]">
+<div class="flex justify-between items-center px-6 py-4 max-w-full mx-auto border-b border-white/20 dark:border-pink-800/30">
+<button class="text-pink-500 dark:text-pink-300 hover:text-pink-600 transition-colors duration-300 flex items-center justify-center p-2 rounded-full hover:bg-white/20">
+<span class="material-symbols-outlined text-[28px]">menu</span>
+</button>
+<div class="font-headline-md text-headline-md uppercase tracking-[0.2em] text-pink-600 dark:text-pink-200 font-bold text-center flex-grow">
+                REESE WITHERSPOON
+            </div>
+<button class="w-10 h-10 rounded-full overflow-hidden border-2 border-white/60 shadow-sm hover:opacity-80 transition-opacity">
+<img alt="Reese Witherspoon Portrait" class="w-full h-full object-cover" data-alt="Portrait of blonde woman smiling softly in studio lighting, professional headshot" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCU9L2dM4vg4bn-HbthVoGR_kSGLPNdQA6Q8Ryc1uWIIo9bFONPLjOFyVKzs-Q2Lg6uzkvhnWX8taJENyA8yRTYXJSV9WkZqcR74rftPp9N6cMTHYxlP8RQd1ww-0-cGLtdqw0JwbA3LcSgsN3mhp42JRG2UjB-IUrKYi8c5sQH1EMtBST4JzoIMxQl360hljHXBGEJtvVvRAvDrKo2THJepdEf9AAysM5b665d8t02m-WHYze7UL9Vnpw_vO-SIZ5HP6G2MzLBYFX1"/>
+</button>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="pt-[90px] pb-xl px-gutter md:px-margin max-w-7xl mx-auto">
+<!-- Hero Section -->
+<section class="relative rounded-[2rem] overflow-hidden mb-xl mt-lg h-[530px] min-h-[500px] flex items-center justify-center glass-panel">
+<img alt="Philanthropy Hero" class="absolute inset-0 w-full h-full object-cover opacity-60 mix-blend-overlay" data-alt="Group of diverse children smiling brightly in a sunny outdoor classroom setting, warm golden light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBSwVLZBVY6KzF0mTW6ROIUXG3q09fLMa0377m0tJ0--cmLv1ezTK-VAHdllpl8rjux_a-bwjTfJwsANqMWUYIJt8UAWlAuy-GcbXqfokJVTO_M4W0R9fxTrHBZttTBNiUSCq0K7V9JEkdN0V2aMntQvZMjZJ_ShoTWzvSd8EPcK0R6VcA4ff7kB4g6d2AbBKjZSrxHToY_pZhHoAtDV03YemT-vPlr6sDkc5-L2psCECb_oUO-IM2nMVVyGKJBlv7cMS-rAJW5nOuv"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary-container/80 via-white/40 to-transparent"></div>
+<div class="relative z-10 text-center max-w-3xl px-6">
+<h1 class="font-headline-xl text-headline-xl text-primary mb-6 text-glow">The Giving Heart</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-8 px-md">Empowering women, educating children, and building stronger communities through compassionate action.</p>
+<button class="bg-primary text-on-primary px-8 py-4 rounded-full font-label-md text-label-md shadow-[0_4px_20px_rgba(242,216,220,0.8)] hover:bg-tertiary transition-all hover:scale-105 inline-flex items-center gap-2 border border-white/40">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">favorite</span>
+                    Make a Donation
+                </button>
+</div>
+</section>
+<!-- Impact Bento Grid -->
+<section class="mb-xl">
+<h2 class="font-headline-lg text-headline-lg text-primary text-center mb-12">Our Impact</h2>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- Large Card -->
+<div class="md:col-span-2 glass-panel rounded-3xl p-8 relative overflow-hidden group">
+<div class="absolute top-0 right-0 w-64 h-64 bg-primary-container rounded-full blur-3xl opacity-50 -mr-20 -mt-20 transition-transform group-hover:scale-110"></div>
+<h3 class="font-headline-md text-headline-md text-primary mb-2">$5.2M+</h3>
+<p class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider mb-4">Funds Raised Globally</p>
+<p class="font-body-md text-body-md text-on-surface">Supporting initiatives for early childhood education and women's entrepreneurial grants across 12 countries.</p>
+<div class="mt-6 flex gap-2">
+<span class="px-4 py-2 rounded-full bg-secondary-container/50 text-secondary font-label-md text-label-md border border-white/50 shadow-sm">Education</span>
+<span class="px-4 py-2 rounded-full bg-primary-fixed/50 text-primary font-label-md text-label-md border border-white/50 shadow-sm">Empowerment</span>
+</div>
+</div>
+<!-- Small Card 1 -->
+<div class="glass-panel rounded-3xl p-8 flex flex-col justify-center items-center text-center">
+<span class="material-symbols-outlined text-[48px] text-primary mb-4" style="font-variation-settings: 'FILL' 1;">group</span>
+<h3 class="font-headline-md text-headline-md text-primary mb-1">250k+</h3>
+<p class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Lives Touched</p>
+</div>
+<!-- Small Card 2 -->
+<div class="glass-panel rounded-3xl p-8 flex flex-col justify-center items-center text-center">
+<span class="material-symbols-outlined text-[48px] text-tertiary mb-4" style="font-variation-settings: 'FILL' 1;">volunteer_activism</span>
+<h3 class="font-headline-md text-headline-md text-primary mb-1">14</h3>
+<p class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Active Partner Charities</p>
+</div>
+<!-- Wide Image Card -->
+<div class="md:col-span-2 rounded-3xl overflow-hidden relative h-64 shadow-[0_8px_32px_0_rgba(242,216,220,0.4)] border border-white/60">
+<img alt="Community Work" class="w-full h-full object-cover" data-alt="Women collaborating in a bright, modern workshop space, soft pink lighting, positive energy" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC38JgNy-JivGLvgpiyiHJtinRHDaJ9kJGhW07r63T8j2XyZoIIQqt2FO_YV-x_ywOmPaXQCpRrsmVbFCzoTLZfFkXxUQub1Cs8vwmOP1szXSHygH8S2f3Tq_lr5Y4TvtBYWPWbJcx9GUM2R8_x68K6f7do3cfDfGkF66vG5WWumGOFMpOsb-U8yJit8i189yi-vP-rylnpkL7ESn8pnSrM5eMfNmM5KhBPqCxYLJEvYi1FVoLVlzHm4z8pTN0rFZYJkVvSq7CNXzE_"/>
+<div class="absolute inset-0 bg-gradient-to-r from-primary/80 to-transparent flex items-end p-8">
+<h3 class="font-headline-md text-headline-md text-white drop-shadow-md">Building Futures Project</h3>
+</div>
+</div>
+</div>
+</section>
+</main>
+</body></html>

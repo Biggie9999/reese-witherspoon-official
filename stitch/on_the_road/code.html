@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>On the Road - Reese Witherspoon</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400..700;1,400..700&amp;family=Plus+Jakarta+Sans:wght@400..700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary-container": "#fedb9b",
+                        "surface-tint": "#6d595d",
+                        "surface-container": "#f3ede7",
+                        "primary-container": "#f2d8dc",
+                        "primary-fixed": "#f6dce0",
+                        "primary": "#6d595d",
+                        "on-error-container": "#93000a",
+                        "on-primary-fixed": "#26181b",
+                        "on-background": "#1e1b18",
+                        "on-primary-container": "#705d60",
+                        "error-container": "#ffdad6",
+                        "on-primary": "#ffffff",
+                        "tertiary": "#6e5959",
+                        "tertiary-fixed": "#f9dcdb",
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary-container": "#725d5c",
+                        "inverse-on-surface": "#f6f0ea",
+                        "primary-fixed-dim": "#d9c0c4",
+                        "surface-bright": "#fff8f2",
+                        "inverse-primary": "#d9c0c4",
+                        "outline": "#807476",
+                        "on-tertiary-fixed-variant": "#554242",
+                        "surface-variant": "#e8e1dc",
+                        "on-secondary-fixed": "#261900",
+                        "surface": "#fff8f2",
+                        "on-secondary": "#ffffff",
+                        "error": "#ba1a1a",
+                        "secondary-fixed": "#ffdea4",
+                        "on-tertiary": "#ffffff",
+                        "surface-container-highest": "#e8e1dc",
+                        "on-tertiary-fixed": "#271817",
+                        "surface-container-low": "#f9f2ec",
+                        "on-surface": "#1e1b18",
+                        "on-error": "#ffffff",
+                        "on-primary-fixed-variant": "#544246",
+                        "tertiary-container": "#f4d8d7",
+                        "surface-container-high": "#eee7e1",
+                        "on-secondary-container": "#795f2b",
+                        "on-secondary-fixed-variant": "#5a4312",
+                        "secondary-fixed-dim": "#e4c285",
+                        "outline-variant": "#d1c3c5",
+                        "surface-dim": "#dfd9d3",
+                        "secondary": "#745a27",
+                        "on-surface-variant": "#4e4446",
+                        "background": "#fff8f2",
+                        "tertiary-fixed-dim": "#dbc0bf",
+                        "inverse-surface": "#33302c"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "lg": "48px",
+                        "gutter": "20px",
+                        "xs": "4px",
+                        "base": "8px",
+                        "xl": "80px",
+                        "md": "24px",
+                        "sm": "12px",
+                        "margin": "32px"
+                    },
+                    "fontFamily": {
+                        "headline-xl": ["Noto Serif", "serif"],
+                        "body-md": ["Plus Jakarta Sans", "sans-serif"],
+                        "label-md": ["Plus Jakarta Sans", "sans-serif"],
+                        "headline-md": ["Noto Serif", "serif"],
+                        "headline-lg": ["Noto Serif", "serif"],
+                        "body-lg": ["Plus Jakarta Sans", "sans-serif"]
+                    },
+                    "fontSize": {
+                        "headline-xl": ["48px", { "lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+                        "body-md": ["16px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "label-md": ["14px", { "lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "headline-md": ["24px", { "lineHeight": "1.4", "fontWeight": "500" }],
+                        "headline-lg": ["32px", { "lineHeight": "1.3", "fontWeight": "500" }],
+                        "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            box-shadow: 0 8px 32px 0 rgba(242, 216, 220, 0.3);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background font-body-md min-h-screen flex flex-col pt-20 overflow-x-hidden">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 border-b border-white/40 bg-white/30 dark:bg-pink-950/30 backdrop-blur-xl border-white/20 dark:border-pink-800/30 shadow-[0_8px_32px_0_rgba(242,216,220,0.3)]">
+<div class="flex justify-between items-center px-6 py-4 max-w-full mx-auto">
+<button class="text-pink-500 dark:text-pink-300 hover:text-pink-600 transition-colors duration-300 p-2">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">menu</span>
+</button>
+<h1 class="font-noto-serif tracking-widest uppercase text-2xl font-bold tracking-tighter text-pink-600 dark:text-pink-200">
+                REESE WITHERSPOON
+            </h1>
+<div class="w-10 h-10 rounded-full overflow-hidden border-2 border-white shadow-sm">
+<img alt="Reese Witherspoon Portrait" data-alt="Professional smiling portrait of an elegant woman resembling Reese Witherspoon, soft lighting, neutral background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDFdmhoiKzhk9tDxg1dcFJH62LEVyVV-5-KlL6rZSAcAfKyX6svU5yOtCWN7ti_S1GgR_NeHR22fc1MLyrD8tyvfGr0BwpQTMfxkJ_hlcvug2Nzl8KJVIvwt6B86_CchK2u0NEcUKRK_vWXPRBTFX1wf6zwWRhEE7TmaXUx71adZUSPUR1Ei_gtmbIE45Vq-Q5F7lOOUps5cDMXSI3d024g2Vzq2zt1su_nLYemynoo2FHyqdqOuYYzoaOHLi1sAmFS6Af3p7vNJyiM"/>
+</div>
+</div>
+</header>
+<!-- NavigationDrawer (Hidden by default on mobile, illustrative for desktop if needed, but per rules focusing on main content, we'll keep it hidden structure) -->
+<!-- Assuming this is hidden off-canvas usually, but structured as requested -->
+<aside class="fixed inset-y-0 left-0 z-[60] flex flex-col h-full w-80 rounded-r-3xl shadow-2xl shadow-[20px_0_60px_-15px_rgba(242,216,220,0.5)] bg-white/80 dark:bg-pink-900/90 backdrop-blur-2xl hidden lg:flex transform -translate-x-full lg:translate-x-0 transition-transform duration-300">
+<div class="p-6 border-b divide-pink-100 dark:divide-pink-800 flex items-center space-x-4">
+<div class="w-16 h-16 rounded-full overflow-hidden border-2 border-pink-200">
+<img alt="Reese Witherspoon" data-alt="Professional smiling portrait of an elegant woman resembling Reese Witherspoon, soft lighting, neutral background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBhUwraBQRl6nQLMx5DB75QHxfewct8UNrM_aQJVmrJEahdwDcVU3XdEsUZxfr6pYPlLB0zZB4Gr9qwf6pgzJIZKhlFvdJWJ47JuRZ6Ijq59myoAcjD01vSe_B9o_CKAob9RdRnSHdwtMjmTbXNlKVUs_vLJDWim4B8MlLg7jz2_9WECNe7xaXwNwN3uYSVWWoJaPS1UKFLxXkjhIdFLirZ-OZ1WlGSRH5DMHFzEiuixrxiWfGWZRwIxsCFW3nygqhCo9AYu4-zcJWr"/>
+</div>
+<div>
+<h2 class="text-xl font-black text-pink-600 font-noto-serif">Reese Witherspoon</h2>
+<p class="text-sm text-pink-500 dark:text-pink-300">Actress &amp; Producer</p>
+<p class="text-xs text-pink-400 mt-1">Welcome to the Inner Circle</p>
+</div>
+</div>
+<nav class="flex-1 overflow-y-auto py-4 flex flex-col divide-y divide-pink-100 dark:divide-pink-800">
+<a class="flex items-center space-x-4 text-pink-400 dark:text-pink-300 px-4 py-3 m-2 hover:bg-pink-100/50 dark:hover:bg-pink-700/30 transition-all font-noto-serif text-lg rounded-xl" href="#">
+<span class="material-symbols-outlined">favorite</span>
+<span>The Giving Heart</span>
+</a>
+<!-- Active State Applied Here based on 'On the Road' intent -->
+<a class="flex items-center space-x-4 bg-pink-50 dark:bg-pink-800/40 text-pink-700 dark:text-pink-100 rounded-xl m-2 px-4 py-3 font-bold font-noto-serif text-lg hover:bg-pink-100/50 dark:hover:bg-pink-700/30 transition-all" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">event</span>
+<span>On the Road</span>
+</a>
+<a class="flex items-center space-x-4 text-pink-400 dark:text-pink-300 px-4 py-3 m-2 hover:bg-pink-100/50 dark:hover:bg-pink-700/30 transition-all font-noto-serif text-lg rounded-xl" href="#">
+<span class="material-symbols-outlined">stars</span>
+<span>Inner Circle</span>
+</a>
+<a class="flex items-center space-x-4 text-pink-400 dark:text-pink-300 px-4 py-3 m-2 hover:bg-pink-100/50 dark:hover:bg-pink-700/30 transition-all font-noto-serif text-lg rounded-xl" href="#">
+<span class="material-symbols-outlined">person</span>
+<span>About Reese</span>
+</a>
+</nav>
+</aside>
+<!-- Main Content -->
+<main class="flex-1 w-full max-w-7xl mx-auto px-6 py-12 lg:pl-80">
+<header class="text-center mb-16 relative">
+<div class="absolute inset-0 -z-10 bg-gradient-to-b from-primary-container/20 to-transparent blur-3xl rounded-full"></div>
+<h1 class="font-headline-xl text-headline-xl text-primary mb-4">On the Road</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto">Join Reese for an evening of stories, inspiration, and connection. Explore upcoming dates below.</p>
+</header>
+<!-- Events Grid (Bento Style) -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+<!-- Event Card 1 - Featured/Large -->
+<article class="col-span-1 md:col-span-2 lg:col-span-2 group relative overflow-hidden rounded-[24px] glass-panel transition-all hover:shadow-[0_12px_48px_0_rgba(242,216,220,0.5)]">
+<div class="absolute inset-0 -z-10">
+<img alt="New York City Skyline at sunset" class="w-full h-full object-cover opacity-60 transition-transform duration-700 group-hover:scale-105" data-alt="New York City skyline viewed from across the water at warm golden hour sunset with pink hues in sky, elegant aesthetic" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAC3UYv2DjJZXy4bYX_kKQZ2ARPm76w4_UHCF_Vl2xN3O543AuC6BVsfmE9rTgo0xCHVgCsDj40ZDOoqLeEXoFlCjuQh6xXQhvNra-8rUaC5rufUSoW3co2ueJX3OJ1Gpq7iwaMc_PEXwTICoyzKyDURE83QSUz7UEeCNtK95AmPgLlRgRZlQ08Q2BoXtKmpfdS-nSpyAjdhS2I33clOrJR3nmC-Fgs9YhT09f5SNhqPVPtcz673N9v88CIIaWFIp8JSDDD8ix43NzR"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-bright/90 via-surface-bright/50 to-transparent"></div>
+</div>
+<div class="p-8 h-full flex flex-col justify-end">
+<div class="bg-primary-container text-on-primary-container font-label-md text-label-md px-4 py-1.5 rounded-full inline-flex w-max mb-4">
+                        Book Tour Premiere
+                    </div>
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
+<div>
+<h2 class="font-headline-lg text-headline-lg text-primary mb-2">New York City, NY</h2>
+<p class="font-body-md text-body-md text-surface-tint flex items-center gap-2 mb-1">
+<span class="material-symbols-outlined text-[20px]">calendar_today</span>
+                                October 15, 2024
+                            </p>
+<p class="font-body-md text-body-md text-surface-tint flex items-center gap-2">
+<span class="material-symbols-outlined text-[20px]">location_on</span>
+                                The Town Hall
+                            </p>
+</div>
+<button class="bg-primary hover:bg-tertiary text-on-primary font-label-md text-label-md px-8 py-4 rounded-full transition-colors whitespace-nowrap shadow-lg shadow-primary/20 ring-1 ring-white/30 flex items-center gap-2">
+                            Get Tickets
+                            <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+</div>
+</div>
+</article>
+<!-- Event Card 2 -->
+<article class="col-span-1 group relative overflow-hidden rounded-[24px] glass-panel flex flex-col transition-all hover:shadow-[0_12px_48px_0_rgba(242,216,220,0.5)]">
+<div class="h-48 relative overflow-hidden shrink-0">
+<img alt="London architecture" class="w-full h-full object-cover opacity-70 transition-transform duration-700 group-hover:scale-105" data-alt="Elegant pale stone architecture in London with soft overcast daylight, sophisticated neutral aesthetic" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDi-C1jmcyQjnyyvgxGAsahsfVUzGO067AhaON9gxqA7Dj8he4zCwhv2lfBc5Y5Lz9itiSWIm4fE0sQvsYSIO-5hru9BUqdd60Zvp0jKhD__bEqA4vtcWMs2nQkabBBtg_aCfQ9FgE4OJxYQDWTmTJGPhKf6AujOV7yC9hroHcDZEjl-SXklZ8mRTI94MJtA8eEPpxcqNXqP2MebUrpbl04S1qAHi5KeQN-lgQOHpKXJYO2DXBqqJxo820KuYVzj4e_NjyTYWB_ndDQ"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-bright to-transparent"></div>
+</div>
+<div class="p-6 flex-1 flex flex-col justify-between -mt-12 relative z-10">
+<div>
+<div class="bg-secondary-container text-on-secondary-container font-label-md text-label-md px-3 py-1 rounded-full inline-flex w-max mb-4 shadow-sm">
+                            Speaking Engagement
+                        </div>
+<h3 class="font-headline-md text-headline-md text-primary mb-3">London, UK</h3>
+<p class="font-body-md text-body-md text-surface-tint flex items-center gap-2 mb-2">
+<span class="material-symbols-outlined text-[18px]">calendar_today</span>
+                            November 2, 2024
+                        </p>
+<p class="font-body-md text-body-md text-surface-tint flex items-center gap-2 mb-6">
+<span class="material-symbols-outlined text-[18px]">location_on</span>
+                            Royal Festival Hall
+                        </p>
+</div>
+<button class="w-full border border-primary/30 text-primary hover:bg-primary-fixed font-label-md text-label-md px-6 py-3 rounded-full transition-colors flex items-center justify-center gap-2 bg-white/50 backdrop-blur-sm">
+                        Learn More
+                    </button>
+</div>
+</article>
+<!-- Event Card 3 -->
+<article class="col-span-1 group relative overflow-hidden rounded-[24px] glass-panel flex flex-col transition-all hover:shadow-[0_12px_48px_0_rgba(242,216,220,0.5)]">
+<div class="h-48 relative overflow-hidden shrink-0">
+<img alt="Sydney Opera house view" class="w-full h-full object-cover opacity-70 transition-transform duration-700 group-hover:scale-105" data-alt="Soft ethereal view of Sydney harbor and architecture at early dawn with pastel pink skies" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDr85cTkDW3pcxXiFNRd604eQGhPxl0DiiLkrg6PvCkvfZ9MipFrsUMfHfn50qLHiu7x84gs4srQVRyAxCk2oEHfR_qZNGXa8slk9nOnzeIkl4NGpGgZiDQrrey0Hr1FmMSliT3zbFRUWYaqe5nnvV_o2areNeJDaLK214A-bXBVJBaNMssW4esY6hBywDQldE3A06IpHhJUeBVpMHRjfjeaMJvzPh_KmXaumvpQQ2Nfcwe6tRORSKDT99AvanQxYrNSHcxDSBwPHvG"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-bright to-transparent"></div>
+</div>
+<div class="p-6 flex-1 flex flex-col justify-between -mt-12 relative z-10">
+<div>
+<div class="bg-tertiary-fixed text-on-tertiary-fixed-variant font-label-md text-label-md px-3 py-1 rounded-full inline-flex w-max mb-4 shadow-sm">
+                            Fireside Chat
+                        </div>
+<h3 class="font-headline-md text-headline-md text-primary mb-3">Sydney, AUS</h3>
+<p class="font-body-md text-body-md text-surface-tint flex items-center gap-2 mb-2">
+<span class="material-symbols-outlined text-[18px]">calendar_today</span>
+                            December 10, 2024
+                        </p>
+<p class="font-body-md text-body-md text-surface-tint flex items-center gap-2 mb-6">
+<span class="material-symbols-outlined text-[18px]">location_on</span>
+                            Sydney Opera House
+                        </p>
+</div>
+<button class="w-full border border-primary/30 text-primary hover:bg-primary-fixed font-label-md text-label-md px-6 py-3 rounded-full transition-colors flex items-center justify-center gap-2 bg-white/50 backdrop-blur-sm">
+                        Get Tickets
+                    </button>
+</div>
+</article>
+</div>
+</main>
+</body></html>

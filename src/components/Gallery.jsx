@@ -1,6 +1,5 @@
 import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
-
 import { IMAGES } from '../constants/images';
 
 const images = [
@@ -16,24 +15,23 @@ export default function Gallery() {
   const isInView = useInView(ref, { once: true, margin: '-50px' });
 
   return (
-    <section id="room55" className="py-16 md:py-20 overflow-hidden" style={{ background: '#FFFAF7' }} ref={ref}>
+    <section id="room55" className="py-16 md:py-20 overflow-hidden bg-surface-container-low" ref={ref}>
       <div className="max-w-7xl mx-auto px-4 md:px-8 mb-10 text-center">
-        <motion.p
+        <motion.span
           initial={{ opacity: 0 }}
           animate={isInView ? { opacity: 1 } : {}}
-          className="text-[11px] tracking-[4px] uppercase mb-3"
-          style={{ color: '#C9A96E', fontFamily: "'Jost', sans-serif", fontWeight: 500 }}
+          className="chip chip-pink uppercase tracking-widest text-[12px] mb-4 inline-block"
         >
           Reese's World
-        </motion.p>
+        </motion.span>
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ delay: 0.1 }}
-          className="text-3xl md:text-5xl font-light text-dark"
-          style={{ fontFamily: "'Cormorant Garamond', serif" }}
+          className="text-3xl md:text-5xl font-semibold text-primary"
+          style={{ fontFamily: "'Noto Serif', serif", letterSpacing: '-0.02em' }}
         >
-          A Life in <span className="italic gold-text">Focus</span>
+          A Life in <span className="italic text-pink-600">Focus</span>
         </motion.h2>
       </div>
 
@@ -51,31 +49,29 @@ export default function Gallery() {
             transition={{ delay: 0.3 + i * 0.1 }}
             className="flex-shrink-0 group cursor-pointer snap-center"
           >
-            <div className="relative overflow-hidden rounded-lg" style={{ height: '420px', aspectRatio: '3/4' }}>
+            <div
+              className="relative overflow-hidden rounded-3xl shadow-[0_8px_32px_0_rgba(242,216,220,0.3)] border border-white/60"
+              style={{ height: '420px', aspectRatio: '3/4' }}
+            >
               <img
                 src={img.src}
                 alt={img.label}
-                className="w-full h-full object-cover transition-all duration-500 group-hover:scale-105"
+                className="w-full h-full object-cover transition-all duration-700 group-hover:scale-105"
                 style={{ filter: 'sepia(10%) brightness(105%) contrast(105%)' }}
                 loading="lazy"
               />
-              <div
-                className="absolute inset-0 border-2 border-transparent group-hover:border-gold/60 rounded-lg transition-all duration-500"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-dark/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <div className="absolute inset-0 bg-gradient-to-t from-primary/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <div className="absolute inset-x-0 bottom-0 p-5 translate-y-full group-hover:translate-y-0 transition-transform duration-500">
+                <span
+                  className="chip bg-white/30 backdrop-blur-md text-white border-white/40 text-[12px] uppercase tracking-widest"
+                >
+                  {img.label}
+                </span>
+              </div>
             </div>
-            <p
-              className="mt-3 text-center text-[11px] tracking-[3px] uppercase text-muted group-hover:text-gold transition-colors duration-300"
-              style={{ fontFamily: "'Jost', sans-serif", fontWeight: 400 }}
-            >
-              {img.label}
-            </p>
           </motion.div>
         ))}
       </motion.div>
-
-      {/* Gold divider */}
-      <div className="mt-16 w-full h-[1px]" style={{ background: 'linear-gradient(90deg, transparent, #C9A96E, transparent)' }} />
     </section>
   );
 }

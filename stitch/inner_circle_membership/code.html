@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Inner Circle Membership Tiers</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "secondary-container": "#fedb9b",
+                      "surface-tint": "#6d595d",
+                      "surface-container": "#f3ede7",
+                      "primary-container": "#f2d8dc",
+                      "primary-fixed": "#f6dce0",
+                      "primary": "#6d595d",
+                      "on-error-container": "#93000a",
+                      "on-primary-fixed": "#26181b",
+                      "on-background": "#1e1b18",
+                      "on-primary-container": "#705d60",
+                      "error-container": "#ffdad6",
+                      "on-primary": "#ffffff",
+                      "tertiary": "#6e5959",
+                      "tertiary-fixed": "#f9dcdb",
+                      "surface-container-lowest": "#ffffff",
+                      "on-tertiary-container": "#725d5c",
+                      "inverse-on-surface": "#f6f0ea",
+                      "primary-fixed-dim": "#d9c0c4",
+                      "surface-bright": "#fff8f2",
+                      "inverse-primary": "#d9c0c4",
+                      "outline": "#807476",
+                      "on-tertiary-fixed-variant": "#554242",
+                      "surface-variant": "#e8e1dc",
+                      "on-secondary-fixed": "#261900",
+                      "surface": "#fff8f2",
+                      "on-secondary": "#ffffff",
+                      "error": "#ba1a1a",
+                      "secondary-fixed": "#ffdea4",
+                      "on-tertiary": "#ffffff",
+                      "surface-container-highest": "#e8e1dc",
+                      "on-tertiary-fixed": "#271817",
+                      "surface-container-low": "#f9f2ec",
+                      "on-surface": "#1e1b18",
+                      "on-error": "#ffffff",
+                      "on-primary-fixed-variant": "#544246",
+                      "tertiary-container": "#f4d8d7",
+                      "surface-container-high": "#eee7e1",
+                      "on-secondary-container": "#795f2b",
+                      "on-secondary-fixed-variant": "#5a4312",
+                      "secondary-fixed-dim": "#e4c285",
+                      "outline-variant": "#d1c3c5",
+                      "surface-dim": "#dfd9d3",
+                      "secondary": "#745a27",
+                      "on-surface-variant": "#4e4446",
+                      "background": "#fff8f2",
+                      "tertiary-fixed-dim": "#dbc0bf",
+                      "inverse-surface": "#33302c"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "lg": "48px",
+                      "gutter": "20px",
+                      "xs": "4px",
+                      "base": "8px",
+                      "xl": "80px",
+                      "md": "24px",
+                      "sm": "12px",
+                      "margin": "32px"
+              },
+              "fontFamily": {
+                      "headline-xl": [
+                              "notoSerif"
+                      ],
+                      "body-md": [
+                              "plusJakartaSans"
+                      ],
+                      "label-md": [
+                              "plusJakartaSans"
+                      ],
+                      "headline-md": [
+                              "notoSerif"
+                      ],
+                      "headline-lg": [
+                              "notoSerif"
+                      ],
+                      "body-lg": [
+                              "plusJakartaSans"
+                      ]
+              },
+              "fontSize": {
+                      "headline-xl": [
+                              "48px",
+                              {
+                                      "lineHeight": "1.2",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "body-md": [
+                              "16px",
+                              {
+                                      "lineHeight": "1.6",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "label-md": [
+                              "14px",
+                              {
+                                      "lineHeight": "1.2",
+                                      "letterSpacing": "0.05em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "headline-md": [
+                              "24px",
+                              {
+                                      "lineHeight": "1.4",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "headline-lg": [
+                              "32px",
+                              {
+                                      "lineHeight": "1.3",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "body-lg": [
+                              "18px",
+                              {
+                                      "lineHeight": "1.6",
+                                      "fontWeight": "400"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+      </script>
+<style>
+        .glass-card {
+            background: rgba(246, 220, 224, 0.15);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            box-shadow: 0 8px 32px 0 rgba(242, 216, 220, 0.3);
+        }
+        .glow-effect {
+            box-shadow: 0 0 20px rgba(242, 216, 220, 0.5);
+        }
+      </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background font-body-md text-body-md antialiased min-h-screen relative overflow-x-hidden">
+<!-- Ambient Background Glows -->
+<div class="fixed top-0 left-0 w-[500px] h-[500px] bg-primary-container/30 rounded-full blur-[100px] -z-10 pointer-events-none -translate-x-1/2 -translate-y-1/2"></div>
+<div class="fixed bottom-0 right-0 w-[600px] h-[600px] bg-secondary-container/20 rounded-full blur-[120px] -z-10 pointer-events-none translate-x-1/3 translate-y-1/3"></div>
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 border-b border-white/40 bg-white/30 dark:bg-pink-950/30 backdrop-blur-xl border-b border-white/20 dark:border-pink-800/30 shadow-[0_8px_32px_0_rgba(242,216,220,0.3)]">
+<div class="flex justify-between items-center px-6 py-4 max-w-full mx-auto">
+<button class="text-pink-500 dark:text-pink-300 hover:text-pink-600 transition-colors duration-300 flex items-center justify-center w-10 h-10 rounded-full hover:bg-white/50 focus:outline-none">
+<span class="material-symbols-outlined" data-icon="menu">menu</span>
+</button>
+<h1 class="font-noto-serif tracking-widest uppercase text-2xl font-bold tracking-tighter text-pink-600 dark:text-pink-200">REESE WITHERSPOON</h1>
+<div class="w-10 h-10 rounded-full overflow-hidden border-2 border-white/60 shadow-sm cursor-pointer hover:opacity-80 transition-opacity">
+<img alt="Reese Witherspoon Portrait" class="w-full h-full object-cover" data-alt="Portrait of Reese Witherspoon style blonde woman smiling warmly" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDUSmmKzMaJI8qs4Oh75Tf9_xFYNv3v5qDDtNAAP60zBrsBqIwtf1tOkidCB7j_wOrULbbPaLTDD2Yn75gXADnGoh8zswXVl6fEl0BkZXHeNssZ_E7Zk85Cp5zgNiC7OpkPYqvds6EuZTjpteqz-AM_8jTUzNpB2QdP1b5fR1UWrkkxuL-DlaHeo8GmnPJKPugza3vDQKSn7915kGUfDdcuTzvUaf__JlkkBXtLRI8_1506AvfBQ0rJZP6wKfVQXyJUEyfuTKE044Rj"/>
+</div>
+</div>
+</header>
+<!-- Side Navigation Drawer (Hidden on mobile by default, semantic shell mapping) -->
+<nav class="fixed inset-y-0 left-0 z-[60] flex flex-col hidden lg:flex mt-[73px] bg-white/80 dark:bg-pink-900/90 backdrop-blur-2xl h-full w-80 rounded-r-3xl shadow-[20px_0_60px_-15px_rgba(242,216,220,0.5)] divide-y divide-pink-100 dark:divide-pink-800 transition-transform duration-300 ease-[cubic-bezier(.4,0,.2,1)] -translate-x-full lg:translate-x-0">
+<div class="p-6 flex items-center gap-4">
+<div class="w-14 h-14 rounded-full overflow-hidden border-2 border-white shadow-sm">
+<img alt="Reese Witherspoon" class="w-full h-full object-cover" data-alt="Portrait of Reese Witherspoon style blonde woman smiling warmly" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBfdl7mZuMHWXj3tDOLJesPeI1C-TxMDDg5PvSvNAkMd3DXwKp6iFwnCkV9p9ycADGvk2gigLZ9dzEZTYpWc2nhvy7iB_vAb8hYn6S7v9wkeLVF4fRP1MsTn7gKz0S9C2OQwz17WZ1PC36IIYE21eN3KumjkBGmlwlPTA5bdx2b09N30PLMufh9upEudqiXS__xzz2anxyNYvdO6WFd0fukwtmTwizjMYfe_tE1dsFJOu7sF5vAoG5Mvj1lcnWc2xgJXx_7R7Nh1r_o"/>
+</div>
+<div>
+<h2 class="font-noto-serif text-lg font-black text-pink-600">Reese Witherspoon</h2>
+<p class="text-sm text-pink-400">Actress &amp; Producer</p>
+<p class="text-xs text-pink-300 mt-1 italic">Welcome to the Inner Circle</p>
+</div>
+</div>
+<div class="flex-1 overflow-y-auto py-4">
+<ul class="space-y-1">
+<li>
+<a class="flex items-center gap-4 text-pink-400 dark:text-pink-300 px-4 py-3 m-2 hover:bg-pink-100/50 dark:hover:bg-pink-700/30 transition-all rounded-xl font-noto-serif text-lg" href="#">
+<span class="material-symbols-outlined" data-icon="favorite">favorite</span>
+<span>The Giving Heart</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-4 text-pink-400 dark:text-pink-300 px-4 py-3 m-2 hover:bg-pink-100/50 dark:hover:bg-pink-700/30 transition-all rounded-xl font-noto-serif text-lg" href="#">
+<span class="material-symbols-outlined" data-icon="event">event</span>
+<span>On the Road</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-4 bg-pink-50 dark:bg-pink-800/40 text-pink-700 dark:text-pink-100 rounded-xl m-2 px-4 py-3 font-bold hover:bg-pink-100/50 dark:hover:bg-pink-700/30 transition-all font-noto-serif text-lg" href="#">
+<span class="material-symbols-outlined" data-icon="stars" style="font-variation-settings: 'FILL' 1;">stars</span>
+<span>Inner Circle</span>
+</a>
+</li>
+<li>
+<a class="flex items-center gap-4 text-pink-400 dark:text-pink-300 px-4 py-3 m-2 hover:bg-pink-100/50 dark:hover:bg-pink-700/30 transition-all rounded-xl font-noto-serif text-lg" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span>About Reese</span>
+</a>
+</li>
+</ul>
+</div>
+</nav>
+<!-- Main Content Canvas -->
+<main class="pt-[100px] pb-margin px-gutter lg:pl-[340px] max-w-[1440px] mx-auto min-h-screen">
+<!-- Hero Section -->
+<section class="text-center mb-16 pt-8">
+<span class="inline-block py-1 px-4 rounded-full bg-secondary-container/50 text-secondary font-label-md text-label-md uppercase tracking-widest mb-4 border border-secondary/20">Exclusive Access</span>
+<h2 class="font-headline-xl text-headline-xl text-primary mb-6">Join the Inner Circle</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto leading-relaxed">
+                Step into a world of curated stories, exclusive gatherings, and a community of passionate readers and dreamers. Choose the membership that fits your journey.
+            </p>
+</section>
+<!-- Pricing Bento Grid -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch mb-24">
+<!-- Tier 1: Sunshine Member -->
+<div class="glass-card rounded-3xl p-8 flex flex-col relative overflow-hidden group hover:-translate-y-2 transition-transform duration-500">
+<div class="absolute top-0 right-0 w-32 h-32 bg-white/20 rounded-full blur-2xl -mr-10 -mt-10"></div>
+<div class="mb-8">
+<h3 class="font-headline-md text-headline-md text-tertiary mb-2">Sunshine Member</h3>
+<p class="font-body-md text-body-md text-on-surface-variant min-h-[48px]">The perfect starting point for book lovers.</p>
+</div>
+<div class="mb-8 flex items-baseline gap-2">
+<span class="font-headline-lg text-headline-lg text-primary">$9</span>
+<span class="font-body-md text-body-md text-outline">/month</span>
+</div>
+<ul class="space-y-4 mb-10 flex-1">
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-tertiary mt-1 text-[20px]" data-icon="check_circle">check_circle</span>
+<span class="font-body-md text-body-md text-on-background">Monthly Book Club Pick Reveal</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-tertiary mt-1 text-[20px]" data-icon="check_circle">check_circle</span>
+<span class="font-body-md text-body-md text-on-background">Access to Community Forums</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-tertiary mt-1 text-[20px]" data-icon="check_circle">check_circle</span>
+<span class="font-body-md text-body-md text-on-background">Digital Reading Guide</span>
+</li>
+</ul>
+<button class="w-full py-4 rounded-xl border border-primary/30 text-primary font-label-md text-label-md hover:bg-primary/5 transition-colors">Join Sunshine</button>
+</div>
+<!-- Tier 2: The Hello Sunshine Elite (Highlighted) -->
+<div class="glass-card rounded-3xl p-8 flex flex-col relative overflow-hidden transform md:-translate-y-4 glow-effect border-white/60">
+<div class="absolute top-0 inset-x-0 h-2 bg-gradient-to-r from-primary-container via-secondary-container to-primary-container"></div>
+<div class="absolute -top-20 -right-20 w-64 h-64 bg-secondary-container/30 rounded-full blur-3xl pointer-events-none"></div>
+<span class="absolute top-6 right-6 bg-secondary text-on-secondary font-label-md text-[10px] uppercase tracking-wider py-1 px-3 rounded-full">Most Popular</span>
+<div class="mb-8">
+<h3 class="font-headline-md text-headline-md text-primary font-semibold mb-2">The Elite</h3>
+<p class="font-body-md text-body-md text-on-surface-variant min-h-[48px]">Enhanced access and exclusive merchandise.</p>
+</div>
+<div class="mb-8 flex items-baseline gap-2">
+<span class="font-headline-xl text-headline-xl text-primary">$29</span>
+<span class="font-body-md text-body-md text-outline">/month</span>
+</div>
+<ul class="space-y-4 mb-10 flex-1">
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-secondary mt-1 text-[20px]" data-icon="stars" style="font-variation-settings: 'FILL' 1;">stars</span>
+<span class="font-body-md text-body-md text-on-background">All Sunshine perks</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary mt-1 text-[20px]" data-icon="check_circle">check_circle</span>
+<span class="font-body-md text-body-md text-on-background">Early Access to Book Picks</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary mt-1 text-[20px]" data-icon="check_circle">check_circle</span>
+<span class="font-body-md text-body-md text-on-background">Quarterly Exclusive Merch Box</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary mt-1 text-[20px]" data-icon="check_circle">check_circle</span>
+<span class="font-body-md text-body-md text-on-background">Invites to Virtual Q&amp;As</span>
+</li>
+</ul>
+<button class="w-full py-4 rounded-xl bg-primary text-on-primary font-label-md text-label-md hover:bg-primary/90 transition-colors shadow-lg shadow-primary/20">Become Elite</button>
+</div>
+<!-- Tier 3: Southern Belle VIP -->
+<div class="glass-card rounded-3xl p-8 flex flex-col relative overflow-hidden group hover:-translate-y-2 transition-transform duration-500">
+<div class="absolute bottom-0 left-0 w-32 h-32 bg-primary-container/40 rounded-full blur-2xl -ml-10 -mb-10"></div>
+<div class="mb-8">
+<h3 class="font-headline-md text-headline-md text-tertiary mb-2">Southern Belle VIP</h3>
+<p class="font-body-md text-body-md text-on-surface-variant min-h-[48px]">The ultimate, intimate Inner Circle experience.</p>
+</div>
+<div class="mb-8 flex items-baseline gap-2">
+<span class="font-headline-lg text-headline-lg text-primary">$99</span>
+<span class="font-body-md text-body-md text-outline">/month</span>
+</div>
+<ul class="space-y-4 mb-10 flex-1">
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-tertiary mt-1 text-[20px]" data-icon="check_circle">check_circle</span>
+<span class="font-body-md text-body-md text-on-background">All Elite perks</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-tertiary mt-1 text-[20px]" data-icon="check_circle">check_circle</span>
+<span class="font-body-md text-body-md text-on-background">Signed Copies of Book Picks</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-tertiary mt-1 text-[20px]" data-icon="check_circle">check_circle</span>
+<span class="font-body-md text-body-md text-on-background">Intimate Virtual Meet &amp; Greets</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-tertiary mt-1 text-[20px]" data-icon="check_circle">check_circle</span>
+<span class="font-body-md text-body-md text-on-background">VIP Access at Live Events</span>
+</li>
+</ul>
+<button class="w-full py-4 rounded-xl border border-primary/30 text-primary font-label-md text-label-md hover:bg-primary/5 transition-colors">Join VIP</button>
+</div>
+</div>
+</main>
+</body></html>
