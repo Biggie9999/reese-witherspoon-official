@@ -16,9 +16,9 @@
   --color-muted: #7A5C5C;
   --color-border: #EDD8CC;
 
-  --font-cormorant: 'Cormorant Garamond', serif;
-  --font-jost: 'Jost', sans-serif;
-  --font-playfair: 'Playfair Display', serif;
+  --font-cormorant: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-jost: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-playfair: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 }
 
 body {
