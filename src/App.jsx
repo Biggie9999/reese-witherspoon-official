@@ -2,15 +2,16 @@ import React, { useState, useEffect, useRef } from 'react';
 import { motion, useScroll, useSpring, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-scroll';
 
+import { IMAGES } from './constants/images';
+
 // === CONSTANTS & ASSETS ===
-const HERO_IMG = "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a1/Reese_Witherspoon_2023.jpg/800px-Reese_Witherspoon_2023.jpg";
-const ABOUT_IMG = "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/Reese_Witherspoon_at_the_2012_Vanity_Fair_Oscar_Party.jpg/800px-Reese_Witherspoon_at_the_2012_Vanity_Fair_Oscar_Party.jpg";
-const TICKETS_IMG = "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Reese_Witherspoon_2019_by_Glenn_Francis.jpg/800px-Reese_Witherspoon_2019_by_Glenn_Francis.jpg";
+const HERO_IMG = IMAGES.gallery6;
+const ABOUT_IMG = IMAGES.gallery7;
+const TICKETS_IMG = IMAGES.gallery10;
 
 const GALLERY_IMAGES = [
-  HERO_IMG, ABOUT_IMG, TICKETS_IMG,
-  "https://picsum.photos/seed/reese4/600/800",
-  "https://picsum.photos/seed/reese5/600/800"
+  IMAGES.gallery6, IMAGES.gallery7, IMAGES.gallery10,
+  IMAGES.gallery8, IMAGES.gallery9
 ];
 
 const GALLERY_LABELS = ["The Icon", "The Producer", "The Author", "The Entrepreneur", "The Inspiration"];
