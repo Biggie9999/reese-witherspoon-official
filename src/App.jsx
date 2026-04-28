@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, useScroll, useSpring, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-scroll';
+import PaymentPage from './PaymentPage';
 
 import { IMAGES } from './constants/images';
 
@@ -42,6 +43,9 @@ const fadeUp = {
 };
 
 export default function App() {
+  const [currentView, setCurrentView] = useState('LANDING');
+  const [paymentOrder, setPaymentOrder] = useState(null);
+
   const [loading, setLoading] = useState(true);
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -93,6 +97,65 @@ export default function App() {
       clearInterval(interval);
     };
   }, []);
+
+  const handleBookingSubmit = (e) => {
+    e.preventDefault();
+    const fd = new FormData(e.target);
+    const basePrice = bookingForm.tier === 'Regular' ? 50 : bookingForm.tier === 'VIP' ? 100 : 200;
+    
+    setPaymentOrder({
+      type: 'TICKET',
+      amount: basePrice * bookingForm.guests,
+      details: {
+        event: "An Evening With Reese — 2026 National Tour",
+        tier: bookingForm.tier + " Experience",
+        location: bookingForm.state ? `${bookingForm.state} · ${fd.get('city') || 'General Admission'}` : "Virtual Access",
+        date: "June 2026",
+        guests: bookingForm.guests,
+        fee: (basePrice * bookingForm.guests) * 0.05
+      },
+      buyer: {
+        name: fd.get('fullName'),
+        email: fd.get('email'),
+        phone: fd.get('phone')
+      }
+    });
+    window.scrollTo({ top: 0, behavior: 'instant' });
+    setCurrentView('PAYMENT');
+  };
+
+  const handleDonationSubmit = (e) => {
+    e.preventDefault();
+    const amountStr = donationAmount === 'Custom' ? donationCustom : donationAmount;
+    const amountNum = parseFloat(amountStr.replace(/[^0-9.]/g, '')) || 0;
+    
+    setPaymentOrder({
+      type: 'DONATION',
+      amount: amountNum,
+      details: {},
+      buyer: {
+        name: "Anonymous Fan",
+        email: "guest@reesewitherspoon.com",
+        phone: "-"
+      }
+    });
+    window.scrollTo({ top: 0, behavior: 'instant' });
+    setCurrentView('PAYMENT');
+  };
+
+  if (currentView === 'PAYMENT') {
+    return (
+      <div className="relative">
+        <button 
+          onClick={() => setCurrentView('LANDING')} 
+          className="absolute top-6 left-[6%] z-50 text-dark font-jost text-[12px] font-semibold tracking-[2px] uppercase hover:text-gold transition-colors flex items-center gap-2"
+        >
+          <i className="ri-arrow-left-line"></i> Return to Site
+        </button>
+        <PaymentPage order={paymentOrder} />
+      </div>
+    );
+  }
 
   return (
     <div className="bg-dark text-cream font-jost antialiased relative">
@@ -501,13 +564,13 @@ export default function App() {
               Book Your Personal<br/><em>Meet & Greet</em>
             </h2>
 
-            <form className="space-y-6" onSubmit={(e) => { e.preventDefault(); alert("Booking request submitted! We will contact you within 24 hours."); }}>
+            <form className="space-y-6" onSubmit={handleBookingSubmit}>
               <div className="grid md:grid-cols-2 gap-6">
-                <input type="text" placeholder="Full Name" required className="w-full bg-transparent border-b border-dark/30 py-[16px] text-[15px] focus:outline-none focus:border-dark transition-colors placeholder:text-dark/50" />
-                <input type="email" placeholder="Email Address" required className="w-full bg-transparent border-b border-dark/30 py-[16px] text-[15px] focus:outline-none focus:border-dark transition-colors placeholder:text-dark/50" />
+                <input name="fullName" type="text" placeholder="Full Name" required className="w-full bg-transparent border-b border-dark/30 py-[16px] text-[15px] focus:outline-none focus:border-dark transition-colors placeholder:text-dark/50" />
+                <input name="email" type="email" placeholder="Email Address" required className="w-full bg-transparent border-b border-dark/30 py-[16px] text-[15px] focus:outline-none focus:border-dark transition-colors placeholder:text-dark/50" />
               </div>
               <div className="grid md:grid-cols-2 gap-6">
-                <input type="tel" placeholder="Phone Number" required className="w-full bg-transparent border-b border-dark/30 py-[16px] text-[15px] focus:outline-none focus:border-dark transition-colors placeholder:text-dark/50" />
+                <input name="phone" type="tel" placeholder="Phone Number" required className="w-full bg-transparent border-b border-dark/30 py-[16px] text-[15px] focus:outline-none focus:border-dark transition-colors placeholder:text-dark/50" />
                 <select 
                   value={bookingForm.state} onChange={e => setBookingForm({...bookingForm, state: e.target.value})} required 
                   className="w-full bg-transparent border-b border-dark/30 py-[16px] text-[15px] focus:outline-none focus:border-dark transition-colors appearance-none text-dark/70"
@@ -517,7 +580,7 @@ export default function App() {
                 </select>
               </div>
               <div className="grid md:grid-cols-2 gap-6">
-                <select required className="w-full bg-transparent border-b border-dark/30 py-[16px] text-[15px] focus:outline-none focus:border-dark transition-colors appearance-none text-dark/70">
+                <select name="city" required className="w-full bg-transparent border-b border-dark/30 py-[16px] text-[15px] focus:outline-none focus:border-dark transition-colors appearance-none text-dark/70">
                   <option value="" disabled selected={!bookingForm.state}>Select City</option>
                   {bookingForm.state && STATES.find(s => s.name === bookingForm.state)?.cities.map(c => <option key={c} value={c} className="text-dark">{c}</option>)}
                 </select>
@@ -594,7 +657,7 @@ export default function App() {
               Your support means the world. Every gesture, big or small, fuels the mission.
             </p>
 
-            <form onSubmit={(e) => { e.preventDefault(); alert("Thank you for your generosity!"); }} className="w-full max-w-[500px] mx-auto bg-cream/30 p-8 rounded-[8px] backdrop-blur-sm border border-dark/10">
+            <form onSubmit={handleDonationSubmit} className="w-full max-w-[500px] mx-auto bg-cream/30 p-8 rounded-[8px] backdrop-blur-sm border border-dark/10">
               <div className="flex flex-wrap justify-center gap-3 mb-8">
                 {['$5', '$10', '$25', '$50', 'Custom'].map(amt => (
                   <button key={amt} type="button" onClick={() => { setDonationAmount(amt); if(amt!=='Custom') setDonationCustom(''); }}
