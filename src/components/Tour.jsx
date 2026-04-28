@@ -183,14 +183,9 @@ export default function Tour() {
 
                 {/* Button */}
                 <button
-                  className={`mt-4 w-full flex items-center justify-center gap-2 py-3 rounded-full text-sm font-semibold tracking-wider transition-colors ${
-                    i === 0
-                      ? 'bg-primary text-on-primary hover:bg-tertiary shadow-lg shadow-primary/20 ring-1 ring-white/30'
-                      : 'border border-primary/30 text-primary hover:bg-primary-fixed bg-white/50 backdrop-blur-sm'
-                  }`}
-                  style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", letterSpacing: '0.05em' }}
+                  className={`mt-4 w-full flex items-center justify-center gap-2 ${i === 0 ? 'btn-primary' : 'btn-secondary'} !py-3`}
                 >
-                  Get Tickets
+                  {tour.btn ? tour.btn : 'Get Tickets'}
                   {i === 0 && <span className="material-symbols-outlined text-[18px]">arrow_forward</span>}
                 </button>
               </div>

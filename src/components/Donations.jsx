@@ -123,12 +123,12 @@ export default function Donations() {
               </p>
 
               {/* Amount buttons */}
-              <div className="flex flex-wrap gap-3 mb-6">
+              <div className="flex flex-wrap gap-2 mb-6">
                 {amounts.map(amt => (
                   <button
                     key={amt}
                     onClick={() => { setSelected(amt); setCustom(''); }}
-                    className={`px-6 py-3 rounded-full text-sm font-semibold transition-all duration-300 ${
+                    className={`px-5 py-2.5 rounded-full text-[13px] font-semibold transition-all duration-300 ${
                       selected === amt
                         ? 'bg-primary text-on-primary shadow-lg shadow-primary/20'
                         : 'border border-primary/30 text-primary hover:bg-primary/5'
@@ -143,7 +143,7 @@ export default function Donations() {
                   placeholder="Custom"
                   value={custom}
                   onChange={e => { setCustom(e.target.value); setSelected(null); }}
-                  className="px-5 py-3 w-28 rounded-full text-sm text-center text-on-surface placeholder-outline focus:outline-none border border-primary/30 bg-white/50 backdrop-blur-sm focus:border-primary focus:ring-2 focus:ring-primary-container transition-all"
+                  className="px-4 py-2.5 w-24 rounded-full text-[13px] text-center text-on-surface placeholder-outline focus:outline-none border border-primary/30 bg-white/50 backdrop-blur-sm focus:border-primary focus:ring-2 focus:ring-primary-container transition-all"
                   style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}
                 />
               </div>

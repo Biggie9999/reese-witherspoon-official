@@ -82,7 +82,7 @@ export default function Navbar() {
             ))}
           </div>
 
-          {/* CTA + Avatar + Hamburger */}
+          {/* CTA + Hamburger */}
           <div className="flex items-center gap-4">
             <Link
               to="booking"
@@ -92,15 +92,6 @@ export default function Navbar() {
             >
               Book Your Seat
             </Link>
-
-            {/* Avatar */}
-            <div className="w-10 h-10 rounded-full overflow-hidden border-2 border-white/60 shadow-sm cursor-pointer hover:opacity-80 transition-opacity">
-              <img
-                src={IMAGES.hero}
-                alt="Reese Witherspoon"
-                className="w-full h-full object-cover"
-              />
-            </div>
 
             <button
               onClick={() => setMobileOpen(true)}

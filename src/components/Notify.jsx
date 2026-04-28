@@ -52,7 +52,7 @@ export default function Notify() {
             onChange={e => setEmail(e.target.value)}
             placeholder="Enter your email"
             required
-            className="flex-1 px-5 py-3.5 rounded-full text-sm text-on-surface placeholder-outline focus:outline-none border border-primary/20 bg-white/50 backdrop-blur-sm focus:border-primary focus:ring-2 focus:ring-primary-container transition-all"
+            className="flex-1 px-5 py-3 rounded-full text-sm text-on-surface placeholder-outline focus:outline-none border border-primary/20 bg-white/50 backdrop-blur-sm focus:border-primary focus:ring-2 focus:ring-primary-container transition-all"
             style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}
           />
           <button

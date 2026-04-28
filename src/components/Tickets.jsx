@@ -171,12 +171,7 @@ export default function Tickets() {
 
               {/* Button */}
               <button
-                className={`w-full py-4 rounded-xl text-sm font-semibold tracking-wider transition-colors duration-300 ${
-                  tier.featured
-                    ? 'bg-primary text-on-primary hover:bg-primary/90 shadow-lg shadow-primary/20'
-                    : 'border border-primary/30 text-primary hover:bg-primary/5'
-                }`}
-                style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", letterSpacing: '0.05em' }}
+                className={`w-full ${tier.featured ? 'btn-primary' : 'btn-secondary !w-full'} !py-3.5`}
               >
                 {tier.btn}
               </button>

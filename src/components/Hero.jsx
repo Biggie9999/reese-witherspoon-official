@@ -13,10 +13,10 @@ const stats = [
 ];
 
 const fadeUp = {
-  hidden: { opacity: 0, y: 40 },
+  hidden: { opacity: 0, y: 30 },
   visible: (i) => ({
     opacity: 1, y: 0,
-    transition: { delay: 2.4 + i * 0.15, duration: 0.7, ease: 'easeOut' },
+    transition: { delay: 2.2 + i * 0.1, duration: 0.8, ease: [0.25, 0.1, 0.25, 1] },
   }),
 };
 
@@ -26,7 +26,7 @@ export default function Hero() {
   useEffect(() => {
     const handleScroll = () => {
       if (bgRef.current) {
-        bgRef.current.style.transform = `translateY(${window.scrollY * 0.4}px)`;
+        bgRef.current.style.transform = `translateY(${window.scrollY * 0.35}px)`;
       }
     };
     window.addEventListener('scroll', handleScroll, { passive: true });
@@ -34,7 +34,7 @@ export default function Hero() {
   }, []);
 
   return (
-    <section id="hero" className="relative h-screen min-h-[700px] overflow-hidden flex items-center justify-center">
+    <section id="hero" className="relative h-screen min-h-[750px] overflow-hidden flex flex-col justify-end pb-28">
       {/* Parallax BG */}
       <div
         ref={bgRef}
@@ -44,118 +44,104 @@ export default function Hero() {
           filter: 'sepia(10%) brightness(105%) contrast(105%)',
         }}
       />
-      <div className="absolute inset-0 bg-gradient-to-t from-[#1E1B18]/70 via-[#1E1B18]/40 to-transparent" />
+      
+      {/* Beautiful smooth gradient for text readability without darkening the whole image */}
+      <div className="absolute inset-0 bg-gradient-to-t from-[#26181B]/90 via-[#26181B]/40 to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-r from-[#26181B]/40 via-transparent to-[#26181B]/40" />
 
-      {/* Content */}
-      <div className="relative z-10 text-center px-4 max-w-3xl mx-auto">
-        <motion.p
-          custom={0} variants={fadeUp} initial="hidden" animate="visible"
-          className="chip chip-gold uppercase tracking-widest text-[12px] mb-6 inline-block"
-        >
-          An Exclusive Experience — Room of 55
-        </motion.p>
+      {/* Content Container */}
+      <div className="relative z-10 px-6 md:px-12 max-w-7xl mx-auto w-full flex flex-col lg:flex-row lg:items-end justify-between gap-12">
+        
+        {/* Left Side: Typography & CTA */}
+        <div className="max-w-3xl">
+          <motion.div
+            custom={0} variants={fadeUp} initial="hidden" animate="visible"
+            className="mb-5"
+          >
+            <span className="chip chip-gold uppercase tracking-widest text-[11px] font-bold">
+              Room of 55 — Exclusive Tour
+            </span>
+          </motion.div>
 
-        <motion.h1
-          custom={1} variants={fadeUp} initial="hidden" animate="visible"
-          className="text-5xl md:text-7xl lg:text-8xl font-semibold text-white leading-tight"
-          style={{ fontFamily: "'Noto Serif', serif", letterSpacing: '-0.02em' }}
-        >
-          An Evening With
-        </motion.h1>
+          <motion.h1
+            custom={1} variants={fadeUp} initial="hidden" animate="visible"
+            className="text-5xl md:text-7xl lg:text-[84px] font-bold text-white leading-[1.05]"
+            style={{ fontFamily: "'Noto Serif', serif", letterSpacing: '-0.02em' }}
+          >
+            An Evening With
+          </motion.h1>
 
-        <motion.h1
-          custom={2} variants={fadeUp} initial="hidden" animate="visible"
-          className="text-5xl md:text-7xl lg:text-8xl font-semibold italic leading-tight text-pink-200"
-          style={{ fontFamily: "'Noto Serif', serif", letterSpacing: '-0.02em' }}
-        >
-          Reese Witherspoon
-        </motion.h1>
+          <motion.h1
+            custom={2} variants={fadeUp} initial="hidden" animate="visible"
+            className="text-5xl md:text-7xl lg:text-[84px] font-semibold italic text-pink-200 leading-[1.05] mb-6"
+            style={{ fontFamily: "'Noto Serif', serif", letterSpacing: '-0.02em' }}
+          >
+            Reese Witherspoon
+          </motion.h1>
 
+          <motion.p
+            custom={3} variants={fadeUp} initial="hidden" animate="visible"
+            className="text-base md:text-lg text-white/80 max-w-xl mb-10 leading-relaxed"
+            style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}
+          >
+            A limited gathering of 55 minds. Learn from one of Hollywood's most powerful women — actress, producer, entrepreneur, and investor.
+          </motion.p>
+
+          <motion.div
+            custom={4} variants={fadeUp} initial="hidden" animate="visible"
+            className="flex flex-wrap gap-4 items-center"
+          >
+            <Link
+              to="tickets"
+              smooth
+              duration={800}
+              className="btn-primary"
+            >
+              Secure Your Seat
+            </Link>
+            <Link
+              to="tour"
+              smooth
+              duration={800}
+              className="btn-secondary !text-white !border-white/30 hover:!bg-white/10"
+            >
+              View Tour Dates
+            </Link>
+          </motion.div>
+        </div>
+
+        {/* Right Side: Stats Block */}
         <motion.div
-          custom={3} variants={fadeUp} initial="hidden" animate="visible"
-          className="w-[120px] h-[1px] mx-auto my-6"
-          style={{ background: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.5), transparent)' }}
-        />
-
-        <motion.p
-          custom={4} variants={fadeUp} initial="hidden" animate="visible"
-          className="text-lg md:text-xl tracking-wide text-white/90 mb-3"
-          style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontWeight: 500 }}
-        >
-          Acting. Investments. Legacy.
-        </motion.p>
-
-        <motion.p
           custom={5} variants={fadeUp} initial="hidden" animate="visible"
-          className="text-base text-white/70 max-w-[520px] mx-auto mb-10 leading-relaxed"
-          style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontWeight: 400 }}
+          className="hidden lg:flex flex-col gap-6 backdrop-blur-xl bg-white/10 border border-white/20 p-8 rounded-[32px] shadow-2xl min-w-[240px]"
         >
-          A limited gathering of 55 minds. Learn from one of Hollywood's most powerful women — actress, producer, entrepreneur, and investor.
-        </motion.p>
-
-        <motion.div
-          custom={6} variants={fadeUp} initial="hidden" animate="visible"
-          className="flex flex-col sm:flex-row gap-4 justify-center"
-        >
-          <Link
-            to="tickets"
-            smooth
-            duration={800}
-            className="bg-primary text-on-primary px-8 py-4 rounded-full font-semibold text-sm tracking-wider cursor-pointer shadow-[0_4px_20px_rgba(242,216,220,0.6)] hover:bg-tertiary transition-all hover:scale-105 inline-flex items-center gap-2 border border-white/30"
-            style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", letterSpacing: '0.05em' }}
-          >
-            Secure Your Seat
-            <span className="material-symbols-outlined text-[18px]">arrow_forward</span>
-          </Link>
-          <Link
-            to="tour"
-            smooth
-            duration={800}
-            className="btn-secondary !border-white/40 !text-white hover:!bg-white/10 cursor-pointer"
-          >
-            View Tour Dates
-          </Link>
+          {stats.map((s, i) => (
+            <div key={i} className="flex flex-col">
+              <span className="text-3xl font-bold text-pink-200 mb-1" style={{ fontFamily: "'Noto Serif', serif" }}>
+                {s.value}
+              </span>
+              <span className="text-xs uppercase tracking-widest text-white/60 font-semibold" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
+                {s.label}
+              </span>
+              {i !== stats.length - 1 && <div className="w-8 h-[1px] bg-white/20 mt-6" />}
+            </div>
+          ))}
         </motion.div>
       </div>
 
-      {/* Stats Bar */}
-      <motion.div
-        initial={{ opacity: 0, y: 40 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 3.4, duration: 0.6 }}
-        className="absolute bottom-16 left-0 right-0"
-      >
-        <div className="max-w-4xl mx-auto px-4">
-          <div className="glass-dark rounded-3xl py-5 px-6 grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
-            {stats.map((s, i) => (
-              <div key={i}>
-                <p
-                  className="text-2xl md:text-3xl font-semibold text-pink-200"
-                  style={{ fontFamily: "'Noto Serif', serif" }}
-                >
-                  {s.value}
-                </p>
-                <p
-                  className="text-[11px] tracking-wider uppercase text-white/60"
-                  style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", letterSpacing: '0.05em' }}
-                >
-                  {s.label}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </motion.div>
-
-      {/* Scroll Chevron */}
+      {/* Mobile Stats (only visible on small screens) */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ delay: 3.8 }}
-        className="absolute bottom-4 left-1/2 -translate-x-1/2 text-white/50"
-        style={{ animation: 'chevronBounce 2s ease-in-out infinite' }}
+        transition={{ delay: 3.2 }}
+        className="lg:hidden absolute bottom-0 left-0 right-0 bg-[#26181B]/80 backdrop-blur-lg border-t border-white/10 py-4 px-6 flex justify-between items-center z-10"
       >
-        <span className="material-symbols-outlined text-[28px]">expand_more</span>
+        {stats.map((s, i) => (
+          <div key={i} className="text-center">
+            <p className="text-lg font-bold text-pink-200" style={{ fontFamily: "'Noto Serif', serif" }}>{s.value}</p>
+            <p className="text-[9px] uppercase tracking-wider text-white/60 font-semibold" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>{s.label}</p>
+          </div>
+        ))}
       </motion.div>
     </section>
   );
