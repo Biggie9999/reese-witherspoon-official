@@ -41,51 +41,55 @@ export default function Contact() {
 
   return (
     <section id="contact" className="py-16 md:py-24 bg-surface" ref={ref}>
-      <div className="max-w-5xl mx-auto px-4 md:px-8">
+      <div className="max-w-6xl mx-auto px-4 md:px-8">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          className="text-center mb-14"
+          className="text-center mb-16"
         >
-          <span className="chip chip-pink uppercase tracking-widest text-[12px] mb-4 inline-block">
+          <span className="chip chip-pink uppercase tracking-widest text-[11px] mb-4 inline-block font-semibold">
             Get in Touch
           </span>
           <h2
-            className="text-3xl md:text-5xl font-semibold text-primary"
+            className="text-4xl md:text-5xl lg:text-6xl font-semibold text-primary"
             style={{ fontFamily: "'Noto Serif', serif", letterSpacing: '-0.02em' }}
           >
             We're Here for <span className="italic text-pink-600">You</span>
           </h2>
         </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-3 gap-6 md:gap-8 items-stretch">
           {contacts.map((c, i) => (
             <motion.div
               key={c.title}
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ delay: 0.2 + i * 0.1 }}
-              className="glass-panel rounded-3xl p-8 text-center transition-all duration-300 hover:shadow-[0_12px_48px_0_rgba(242,216,220,0.5)] hover:-translate-y-1"
+              className="glass-panel rounded-[28px] p-6 md:p-8 flex flex-col transition-all duration-300 hover:shadow-[0_12px_48px_0_rgba(242,216,220,0.5)] hover:-translate-y-1 bg-white/40"
             >
-              <div className="w-14 h-14 mx-auto mb-5 rounded-full bg-primary-container flex items-center justify-center">
-                <span className="material-symbols-outlined text-primary text-[24px]">{c.icon}</span>
+              <div className="flex items-center gap-4 mb-6">
+                <div className="w-12 h-12 rounded-full bg-primary-container flex items-center justify-center shrink-0 border border-primary/10 shadow-sm">
+                  <span className="material-symbols-outlined text-primary text-[24px]">{c.icon}</span>
+                </div>
+                <h3
+                  className="text-xl md:text-2xl font-medium text-primary leading-tight"
+                  style={{ fontFamily: "'Noto Serif', serif" }}
+                >
+                  {c.title}
+                </h3>
               </div>
-              <h3
-                className="text-lg font-medium text-primary mb-3"
-                style={{ fontFamily: "'Noto Serif', serif" }}
-              >
-                {c.title}
-              </h3>
-              {c.lines.map((line, j) => (
-                <p key={j} className="text-sm text-on-surface-variant mb-1" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
-                  {line}
-                </p>
-              ))}
+              <div className="flex-grow space-y-2 mb-8">
+                {c.lines.map((line, j) => (
+                  <p key={j} className="text-sm md:text-base text-on-surface-variant" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
+                    {line}
+                  </p>
+                ))}
+              </div>
               <a
                 href={c.action}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-block mt-5 btn-secondary !py-2.5 !px-6 !text-[12px]"
+                className="btn-secondary w-full text-center mt-auto shadow-sm !py-3.5 bg-white/50"
               >
                 {c.btn}
               </a>

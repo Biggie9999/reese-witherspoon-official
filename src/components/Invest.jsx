@@ -38,52 +38,55 @@ export default function Invest() {
           filter: 'sepia(10%) brightness(60%)',
         }}
       />
-      <div className="absolute inset-0 bg-inverse-surface/85" />
+      <div className="absolute inset-0 bg-[#26181B]/85" />
 
-      <div className="relative z-10 max-w-5xl mx-auto px-4 md:px-8">
+      <div className="relative z-10 max-w-6xl mx-auto px-4 md:px-8">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          className="text-center mb-14"
+          className="text-center mb-16"
         >
-          <span className="chip chip-gold uppercase tracking-widest text-[12px] mb-4 inline-block">
+          <span className="chip chip-gold uppercase tracking-widest text-[11px] mb-4 inline-block font-semibold">
             Investment Opportunities
           </span>
           <h2
-            className="text-3xl md:text-5xl font-semibold text-white"
+            className="text-4xl md:text-5xl lg:text-6xl font-semibold text-white leading-tight"
             style={{ fontFamily: "'Noto Serif', serif", letterSpacing: '-0.02em' }}
           >
-            Projects Seeking <span className="italic text-pink-200">Visionary Investors</span>
+            Projects Seeking <br className="hidden md:block" />
+            <span className="italic text-pink-300 font-medium drop-shadow-md">Visionary Investors</span>
           </h2>
         </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-3 gap-6 md:gap-8 items-stretch">
           {projects.map((p, i) => (
             <motion.div
               key={p.title}
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ delay: 0.2 + i * 0.12 }}
-              className="glass-dark rounded-3xl p-8 transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_12px_48px_0_rgba(242,216,220,0.3)] group"
+              transition={{ delay: 0.2 + i * 0.1 }}
+              className="glass-dark rounded-[28px] p-6 md:p-8 transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_12px_48px_0_rgba(242,216,220,0.15)] flex flex-col"
             >
-              <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center mb-5">
-                <span className="material-symbols-outlined text-pink-200 text-[24px]">{p.icon}</span>
+              <div className="flex items-center gap-4 mb-5">
+                <div className="w-12 h-12 rounded-full bg-pink-300/10 flex items-center justify-center shrink-0 border border-pink-300/20">
+                  <span className="material-symbols-outlined text-pink-300 text-[24px]">{p.icon}</span>
+                </div>
+                <h3
+                  className="text-xl md:text-2xl font-medium text-white leading-tight"
+                  style={{ fontFamily: "'Noto Serif', serif" }}
+                >
+                  {p.title}
+                </h3>
               </div>
-              <h3
-                className="text-xl font-medium text-white mb-3"
-                style={{ fontFamily: "'Noto Serif', serif" }}
-              >
-                {p.title}
-              </h3>
               <p
-                className="text-sm text-white/60 leading-relaxed mb-6"
+                className="text-sm md:text-base text-white/70 leading-relaxed flex-grow mb-8"
                 style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}
               >
                 {p.desc}
               </p>
               <button
-                className="w-full py-3 rounded-full text-sm font-semibold tracking-wider text-white border border-white/30 hover:bg-white/10 transition-colors backdrop-blur-sm"
-                style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", letterSpacing: '0.05em' }}
+                className="mt-auto w-full py-4 rounded-full text-sm font-semibold tracking-widest uppercase text-white border border-white/20 hover:bg-white/10 hover:border-white/40 transition-all backdrop-blur-md"
+                style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", letterSpacing: '0.1em' }}
               >
                 {p.btn}
               </button>
@@ -95,7 +98,7 @@ export default function Invest() {
           initial={{ opacity: 0 }}
           animate={isInView ? { opacity: 1 } : {}}
           transition={{ delay: 0.8 }}
-          className="text-center mt-10 text-sm text-white/40"
+          className="text-center mt-12 text-sm text-white/40"
           style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}
         >
           All investment inquiries handled privately.
