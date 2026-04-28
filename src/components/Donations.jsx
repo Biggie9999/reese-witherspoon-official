@@ -34,24 +34,24 @@ export default function Donations() {
             className="absolute inset-0 w-full h-full object-cover"
             style={{ filter: 'sepia(10%) brightness(105%) contrast(105%)' }}
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-primary-container/95 via-surface/60 to-transparent mix-blend-multiply" />
-          <div className="absolute inset-0 bg-gradient-to-t from-surface via-transparent to-transparent opacity-80" />
+          <div className="absolute inset-0 bg-[#26181B]/50" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#26181B]/90 via-transparent to-transparent" />
           
           <div className="relative z-10 text-center max-w-3xl px-6 mt-32">
             <h2
-              className="text-4xl md:text-5xl lg:text-7xl font-semibold text-primary mb-6"
+              className="text-4xl md:text-5xl lg:text-7xl font-semibold text-white mb-6 drop-shadow-md"
               style={{ fontFamily: "'Noto Serif', serif", letterSpacing: '-0.02em' }}
             >
               The Giving Heart
             </h2>
             <p
-              className="text-base md:text-lg text-on-surface-variant font-medium mb-8 max-w-xl mx-auto"
+              className="text-base md:text-lg text-white/90 font-medium mb-8 max-w-xl mx-auto drop-shadow-md"
               style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}
             >
               Empowering women, educating children, and building stronger communities through compassionate action.
             </p>
             <button
-              className="btn-primary inline-flex items-center gap-2 shadow-xl"
+              className="btn-primary inline-flex items-center gap-2 shadow-2xl !bg-white !text-primary hover:!bg-pink-50"
               onClick={() => document.getElementById('donation-form')?.scrollIntoView({ behavior: 'smooth' })}
             >
               <span className="material-symbols-outlined text-[20px]" style={{ fontVariationSettings: "'FILL' 1" }}>favorite</span>

@@ -8,6 +8,11 @@ const images = [
   { src: IMAGES.gallery3, label: 'The Author' },
   { src: IMAGES.gallery4, label: 'The Entrepreneur' },
   { src: IMAGES.gallery5, label: 'The Inspiration' },
+  { src: IMAGES.gallery6, label: 'The Visionary' },
+  { src: IMAGES.gallery7, label: 'The Star' },
+  { src: IMAGES.gallery8, label: 'The Trailblazer' },
+  { src: IMAGES.gallery9, label: 'The Reader' },
+  { src: IMAGES.gallery10, label: 'The Muse' },
 ];
 
 export default function Gallery() {

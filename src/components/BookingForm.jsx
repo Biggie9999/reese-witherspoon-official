@@ -36,7 +36,7 @@ export default function BookingForm() {
     setTimeout(() => setSubmitted(false), 4000);
   };
 
-  const inputClasses = "px-5 py-3.5 rounded-xl text-sm text-on-surface placeholder-outline focus:outline-none border border-primary/20 bg-white/50 backdrop-blur-sm focus:border-primary focus:ring-2 focus:ring-primary-container transition-all";
+  const inputClasses = "w-full appearance-none px-6 py-4 rounded-2xl text-base text-on-surface placeholder-outline focus:outline-none border border-primary/20 bg-white/80 backdrop-blur-sm focus:border-primary focus:ring-2 focus:ring-primary-container transition-all shadow-sm";
 
   return (
     <section id="booking" className="py-16 md:py-24 relative bg-surface" ref={ref}>
@@ -51,14 +51,15 @@ export default function BookingForm() {
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           className="text-center mb-10"
         >
-          <span className="chip chip-gold uppercase tracking-widest text-[12px] mb-4 inline-block">
+          <span className="chip chip-gold uppercase tracking-widest text-[11px] mb-4 inline-block font-semibold">
             Reserve Your Spot
           </span>
           <h2
-            className="text-3xl md:text-5xl font-semibold text-primary"
+            className="text-4xl md:text-5xl lg:text-6xl font-semibold text-primary"
             style={{ fontFamily: "'Noto Serif', serif", letterSpacing: '-0.02em' }}
           >
-            Book Your Personal <span className="italic text-pink-600">Meet & Greet</span>
+            Book Your Personal <br className="md:hidden" />
+            <span className="italic text-pink-600">Meet & Greet</span>
           </h2>
         </motion.div>
 
@@ -67,9 +68,9 @@ export default function BookingForm() {
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ delay: 0.2 }}
           onSubmit={handleSubmit}
-          className="glass-panel rounded-3xl p-8 md:p-10"
+          className="glass-panel rounded-[28px] p-6 md:p-12 border border-white/60 shadow-[0_12px_48px_0_rgba(242,216,220,0.4)] bg-white/60 backdrop-blur-xl"
         >
-          <div className="grid md:grid-cols-2 gap-4">
+          <div className="grid md:grid-cols-2 gap-5">
             <input name="name" value={form.name} onChange={handleChange} placeholder="Full Name" required
               className={inputClasses}
               style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }} />
@@ -79,46 +80,78 @@ export default function BookingForm() {
             <input name="phone" value={form.phone} onChange={handleChange} placeholder="Phone Number" required
               className={inputClasses}
               style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }} />
-            <select name="state" value={form.state} onChange={handleChange} required
-              className={inputClasses}
-              style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
-              <option value="">Select State</option>
-              {Object.keys(statesData).map(s => <option key={s} value={s}>{s}</option>)}
-            </select>
-            <select name="city" value={form.city} onChange={handleChange} required disabled={!form.state}
-              className={`${inputClasses} disabled:opacity-50`}
-              style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
-              <option value="">Select City</option>
-              {form.state && statesData[form.state]?.map(c => <option key={c} value={c}>{c}</option>)}
-            </select>
-            <select name="tier" value={form.tier} onChange={handleChange} required
-              className={inputClasses}
-              style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
-              <option value="">Ticket Tier</option>
-              <option value="sunshine">Sunshine — $25</option>
-              <option value="elite">Elite — $70</option>
-              <option value="vip">Southern Belle VIP — $150</option>
-            </select>
-            <select name="guests" value={form.guests} onChange={handleChange}
-              className={inputClasses}
-              style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
-              {[1, 2, 3, 4].map(n => <option key={n} value={n}>{n} Guest{n > 1 ? 's' : ''}</option>)}
-            </select>
-            <select name="payment" value={form.payment} onChange={handleChange} required
-              className={inputClasses}
-              style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
-              <option value="">Payment Method</option>
-              <option value="crypto">Cryptocurrency</option>
-              <option value="wire">Wire Transfer</option>
-            </select>
+            
+            <div className="relative">
+              <select name="state" value={form.state} onChange={handleChange} required
+                className={inputClasses}
+                style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
+                <option value="" disabled>Select State</option>
+                {Object.keys(statesData).map(s => <option key={s} value={s}>{s}</option>)}
+              </select>
+              <div className="absolute inset-y-0 right-4 flex items-center pointer-events-none">
+                <span className="material-symbols-outlined text-primary/50 text-[24px]">expand_more</span>
+              </div>
+            </div>
+
+            <div className="relative">
+              <select name="city" value={form.city} onChange={handleChange} required disabled={!form.state}
+                className={`${inputClasses} disabled:opacity-50`}
+                style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
+                <option value="" disabled>Select City</option>
+                {form.state && statesData[form.state]?.map(c => <option key={c} value={c}>{c}</option>)}
+              </select>
+              <div className="absolute inset-y-0 right-4 flex items-center pointer-events-none">
+                <span className="material-symbols-outlined text-primary/50 text-[24px]">expand_more</span>
+              </div>
+            </div>
+
+            <div className="relative">
+              <select name="tier" value={form.tier} onChange={handleChange} required
+                className={inputClasses}
+                style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
+                <option value="" disabled>Ticket Tier</option>
+                <option value="sunshine">Sunshine — $25</option>
+                <option value="elite">Elite — $70</option>
+                <option value="vip">Southern Belle VIP — $150</option>
+              </select>
+              <div className="absolute inset-y-0 right-4 flex items-center pointer-events-none">
+                <span className="material-symbols-outlined text-primary/50 text-[24px]">expand_more</span>
+              </div>
+            </div>
+
+            <div className="relative">
+              <select name="guests" value={form.guests} onChange={handleChange}
+                className={inputClasses}
+                style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
+                <option value="" disabled>Number of Guests</option>
+                {[1, 2, 3, 4].map(n => <option key={n} value={n}>{n} Guest{n > 1 ? 's' : ''}</option>)}
+              </select>
+              <div className="absolute inset-y-0 right-4 flex items-center pointer-events-none">
+                <span className="material-symbols-outlined text-primary/50 text-[24px]">expand_more</span>
+              </div>
+            </div>
+
+            <div className="relative">
+              <select name="payment" value={form.payment} onChange={handleChange} required
+                className={inputClasses}
+                style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
+                <option value="" disabled>Payment Method</option>
+                <option value="crypto">Cryptocurrency</option>
+                <option value="wire">Wire Transfer</option>
+              </select>
+              <div className="absolute inset-y-0 right-4 flex items-center pointer-events-none">
+                <span className="material-symbols-outlined text-primary/50 text-[24px]">expand_more</span>
+              </div>
+            </div>
+
             <textarea name="message" value={form.message} onChange={handleChange} placeholder="Message (optional)" rows={3}
               className={`md:col-span-2 resize-none ${inputClasses}`}
               style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }} />
 
-            <div className="md:col-span-2">
+            <div className="md:col-span-2 mt-2">
               <button
                 type="submit"
-                className="w-full btn-primary !rounded-xl !py-4"
+                className="btn-primary w-full !py-4 md:!py-5 !text-base shadow-xl flex items-center justify-center gap-2 hover:shadow-2xl !rounded-2xl"
               >
                 {submitted ? '✓ Request Sent!' : 'Request My Booking'}
               </button>
@@ -126,7 +159,7 @@ export default function BookingForm() {
           </div>
         </motion.form>
 
-        <p className="text-center mt-6 text-sm text-on-surface-variant" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
+        <p className="text-center mt-6 text-sm text-on-surface-variant font-medium" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
           All bookings are confirmed manually within 24 hours.
         </p>
       </div>
