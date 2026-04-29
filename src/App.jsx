@@ -333,15 +333,17 @@ export default function App() {
             
             <ul className="space-y-6 mb-12 max-w-[540px]">
               {[
-                { i: '🎬', t: 'Acting Masterclass', d: 'Direct insights from a working Hollywood professional' },
-                { i: '💼', t: 'Investment Wisdom', d: 'How Reese built her empire beyond acting' },
-                { i: '🏆', t: 'Award Ceremony', d: 'Every attendee recognized at a live awards moment' },
-                { i: '🤝', t: 'Exclusive Network', d: 'Ambitious people in one room, by design' }
+                { i: 'ri-movie-2-line', t: 'Acting Masterclass', d: 'Direct insights from a working Hollywood professional' },
+                { i: 'ri-briefcase-4-line', t: 'Investment Wisdom', d: 'How Reese built her empire beyond acting' },
+                { i: 'ri-trophy-line', t: 'Award Ceremony', d: 'Every attendee recognized at a live awards moment' },
+                { i: 'ri-group-line', t: 'Exclusive Network', d: 'Ambitious people in one room, by design' }
               ].map((f, i) => (
                 <li key={i} className="flex gap-4 items-start">
                   <span className="text-gold mt-1 text-[8px]">●</span>
                   <div>
-                    <strong className="block font-jost font-medium text-[16px] text-dark">{f.i} {f.t}</strong>
+                    <strong className="flex items-center gap-2 font-jost font-medium text-[16px] text-dark">
+                      <i className={`${f.i} text-gold text-[18px]`}></i> {f.t}
+                    </strong>
                     <span className="text-[15px] font-light text-muted">{f.d}</span>
                   </div>
                 </li>
