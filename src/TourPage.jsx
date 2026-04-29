@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { IMAGES } from './constants/images';
 
 // --- ASSETS ---
-const HERO_IMG = IMAGES.gallery6;
+const HERO_IMG = IMAGES.tourPoster;
 const VIP_IMG_1 = IMAGES.gallery8;
 const VIP_IMG_2 = IMAGES.gallery9;
 

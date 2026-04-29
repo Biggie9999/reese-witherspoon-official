@@ -11,6 +11,7 @@ import reeseSag from '../assets/reese-sag.jpg';
 import reeseEmmys from '../assets/reese-emmys.jpg';
 import reeseBookDog from '../assets/reese-book-dog.jpg';
 import reeseMetGala from '../assets/reese-met-gala.jpg';
+import tourPoster from '../assets/tour-poster.png';
 
 // Extra Images (the newly uploaded screenshots)
 import img1 from '../assets/extraimg/img-1.png';
@@ -51,4 +52,5 @@ export const IMAGES = {
   gallery8: reeseEmmys,       // New slot 8
   gallery9: reeseBookDog,     // New slot 9
   gallery10: reeseMetGala,    // New slot 10
+  tourPoster: tourPoster,
 };

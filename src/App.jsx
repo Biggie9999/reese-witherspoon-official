@@ -303,6 +303,20 @@ export default function App() {
           <i className="ri-arrow-down-line"></i>
         </motion.div>
       </section>
+      
+      {/* 4.5. OFFICIAL TOUR POSTER */}
+      <section className="bg-dark py-[80px] md:py-[120px] flex justify-center overflow-hidden">
+        <motion.div 
+          initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 1 }}
+          className="relative w-full max-w-[1100px] px-[6%] group"
+        >
+          <img src={IMAGES.tourPoster} alt="Official Tour Poster" className="w-full h-auto rounded-[8px] shadow-[0_40px_120px_rgba(0,0,0,0.7)] border border-gold/20" />
+          <div className="absolute inset-0 bg-gradient-to-t from-dark/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 rounded-[8px]" />
+          <div className="absolute bottom-[40px] left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-700">
+            <span className="text-gold text-[10px] uppercase tracking-[4px] font-semibold">The 2026 World Journey</span>
+          </div>
+        </motion.div>
+      </section>
 
       {/* 5. CINEMATIC QUOTE STRIP */}
       <section className="relative min-h-[60vh] flex items-center justify-center py-[120px] overflow-hidden">
