@@ -29,12 +29,12 @@ const FILMOGRAPHY = [
   { title: "Reese's Book Club", type: "Brand" }
 ];
 
-const STATES = [
-  { name: "CALIFORNIA", emoji: "🌴", date: "June 2026", percent: 78, cities: ["Los Angeles", "Beverly Hills", "San Diego", "San Francisco", "Malibu"] },
-  { name: "NEW YORK", emoji: "🗽", date: "June 2026", percent: 65, cities: ["Manhattan", "Brooklyn", "The Hamptons", "Buffalo", "Harlem"] },
-  { name: "FLORIDA", emoji: "🌊", date: "July 2026", percent: 52, cities: ["Miami", "Orlando", "Tampa", "Fort Lauderdale", "Jacksonville"] },
-  { name: "TEXAS", emoji: "⭐", date: "July 2026", percent: 44, cities: ["Houston", "Dallas", "Austin", "San Antonio", "Fort Worth"] },
-  { name: "NEVADA", emoji: "🎰", date: "August 2026", percent: 38, cities: ["Las Vegas", "Henderson", "Reno", "Lake Tahoe", "Carson City"] }
+const COUNTRIES = [
+  { name: "Japan", percent: 85 },
+  { name: "Dubai", percent: 92 },
+  { name: "Italy", percent: 78 },
+  { name: "France", percent: 64 },
+  { name: "South Africa", percent: 55 }
 ];
 
 // === ANIMATION VARIANTS ===
@@ -77,8 +77,8 @@ export default function App() {
     const handleScroll = () => setScrolled(window.scrollY > 80);
     window.addEventListener('scroll', handleScroll);
 
-    // Countdown logic (Target: June 1, 2026)
-    const targetDate = new Date('2026-06-01T00:00:00').getTime();
+    // Countdown logic (Target: March 1, 2026)
+    const targetDate = new Date('2026-03-01T00:00:00').getTime();
     const interval = setInterval(() => {
       const now = new Date().getTime();
       const distance = targetDate - now;
@@ -267,7 +267,7 @@ export default function App() {
             <motion.p variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} transition={{ delay: 0.75 }}
               className="text-[16px] font-light leading-[1.9] text-cream opacity-75 max-w-[420px] mb-[40px]"
             >
-              A limited, intimate gathering. Learn from one of Hollywood's most powerful women — actress, producer, entrepreneur. This is not a concert. This is a masterclass in life.
+              This is not a meet & greet. You will cruise together, live together in private mansions, meet kings, ministers, and governors — and have the time of your life with Reese and 54 other extraordinary people. Only 55 spots exist in the entire world.
             </motion.p>
             
             <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} transition={{ delay: 0.9 }}
@@ -286,9 +286,15 @@ export default function App() {
         <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} transition={{ delay: 1.1 }}
           className="absolute bottom-0 left-0 right-0 bg-[#1C0E0EB3] backdrop-blur-[8px] py-[20px] px-[6%] lg:px-[5%] md:px-[20px] flex flex-wrap justify-between gap-8 border-t border-white/10"
         >
-          {[{v: '55', l: 'Guests Max'}, {v: '5', l: 'States'}, {v: '4', l: 'Month Tour'}, {v: '3', l: 'Ticket Tiers'}].map((s, i) => (
+          {[
+            {v: '55', l: 'Fans Only'}, 
+            {v: '5', l: 'Countries'}, 
+            {v: <i className="ri-building-4-line text-[24px]"></i>, l: 'Private Mansions'}, 
+            {v: <i className="ri-vip-crown-line text-[24px]"></i>, l: 'World Leaders'}, 
+            {v: <i className="ri-ship-line text-[24px]"></i>, l: 'March Cruise'}
+          ].map((s, i) => (
             <div key={i} className="flex items-baseline gap-3">
-              <span className="font-cormorant text-gold text-[32px]">{s.v}</span>
+              <span className="font-cormorant text-gold text-[32px] flex items-center">{s.v}</span>
               <span className="text-[11px] text-cream uppercase tracking-[2px]">{s.l}</span>
             </div>
           ))}
@@ -327,16 +333,18 @@ export default function App() {
             <h2 className="font-cormorant font-light text-[64px] leading-[1.1] mb-8 gold-italic-emphasis">
               More Than a<br/><em>Meet & Greet</em>
             </h2>
-            <p className="text-[16px] font-light leading-[1.9] text-muted mb-8 max-w-[540px]">
-              The experience is an intimate, deeply personal gathering — limited to just 55 attendees per city. This isn't a stadium show or a distant photo-op. It's an evening where you sit with Reese, learn her craft, hear her investment philosophy, and walk away with a personal connection to one of Hollywood's most extraordinary women. Not a fan event — an elevation event.
-            </p>
+            <div className="space-y-6 mb-8 text-[16px] font-light leading-[1.9] text-muted max-w-[540px]">
+              <p>55 fans. 5 countries. One extraordinary woman. For the first time ever, Reese Witherspoon is opening her entire world to a group of 55 hand-selected people for a full multi-country luxury experience unlike anything on earth.</p>
+              <p>You won't just meet Reese — you'll live with her. Cruise the seas together in March, stay in private mansions in every country, play games, attend exclusive parties, and be personally introduced to kings, ministers, and governors across Japan, Dubai, Italy, France, and South Africa.</p>
+              <p>This is a masterclass in life, luxury, connection, and ambition. The 55 people in this room will leave transformed. Friendships, connections, and memories that last a lifetime.</p>
+            </div>
             
             <ul className="space-y-6 mb-12 max-w-[540px]">
               {[
-                { i: 'ri-movie-2-line', t: 'Acting Masterclass', d: 'Direct insights from a working Hollywood professional' },
-                { i: 'ri-briefcase-4-line', t: 'Investment Wisdom', d: 'How Reese built her empire beyond acting' },
-                { i: 'ri-trophy-line', t: 'Award Ceremony', d: 'Every attendee recognized at a live awards moment' },
-                { i: 'ri-group-line', t: 'Exclusive Network', d: 'Ambitious people in one room, by design' }
+                { i: 'ri-ship-line', t: 'Private March Cruise', d: 'Set sail together before the tour begins. Games, fine dining, sunsets — just you, Reese, and your 54 new friends.' },
+                { i: 'ri-building-4-line', t: 'Private Mansion Stays', d: 'No hotels. In every country the entire group lives together in an exclusive private residence handpicked by Reese.' },
+                { i: 'ri-vip-crown-line', t: 'Meet World Leaders', d: 'Reese personally introduces you to ministers, governors, kings, and global icons through her private network.' },
+                { i: 'ri-goblet-line', t: 'Parties in Every Country', d: 'Every stop ends with an exclusive after-party. Five countries. Five unforgettable nights.' }
               ].map((f, i) => (
                 <li key={i} className="flex gap-4 items-start">
                   <span className="text-gold mt-1 text-[8px]">●</span>
@@ -366,6 +374,42 @@ export default function App() {
         </div>
       </section>
 
+      {/* ACTIVITIES & EXPERIENCES */}
+      <section className="bg-dark py-[120px]">
+        <div className="max-w-[1280px] mx-auto px-[6%] lg:px-[5%] md:px-[20px] text-center">
+          <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
+            <span className="text-gold text-[11px] uppercase tracking-[4px] font-semibold block mb-4">Activities & Experiences</span>
+            <h2 className="font-cormorant font-light text-[48px] md:text-[64px] text-cream leading-[1.1] mb-6">
+              Every Day is an <em className="text-gold italic font-cormorant">Adventure</em>
+            </h2>
+            <p className="font-jost text-cream/75 text-[16px] leading-[1.9] max-w-[600px] mx-auto mb-16">
+              Each country brings a new set of unforgettable experiences. From boat cruises along stunning coastlines to private mansion dinners, games with Reese, and exclusive parties — every single day of this tour is designed to blow your mind.
+            </p>
+          </motion.div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+            {[
+              { i: 'ri-ship-line', t: 'Boat Cruise', d: 'Sail together along the coastline of one of the most beautiful places on earth with Reese.' },
+              { i: 'ri-gamepad-line', t: 'Games with Reese', d: 'Group competitions, trivia, and pure fun — Reese plays too. No sitting on the sidelines.' },
+              { i: 'ri-goblet-line', t: 'Exclusive Parties', d: 'Private after-parties in every country. Five countries. Five unforgettable nights.' },
+              { i: 'ri-building-4-line', t: 'Mansion Living', d: 'The whole group lives together in a private residence every stop — no hotels, ever.' }
+            ].map((c, i) => (
+              <motion.div key={i} variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} transition={{ delay: i * 0.1 }}
+                className="bg-[#FFFFFF14] backdrop-blur-[12px] border border-[rgba(201,169,110,0.3)] rounded-[4px] p-[32px_24px]"
+              >
+                <i className={`${c.i} text-gold text-[36px] mb-4 inline-block`}></i>
+                <h4 className="font-jost text-cream font-semibold text-[18px] mb-2">{c.t}</h4>
+                <p className="font-jost text-cream/70 text-[14px] leading-[1.6]">{c.d}</p>
+              </motion.div>
+            ))}
+          </div>
+
+          <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
+            <p className="font-jost text-[13px] text-gold uppercase tracking-[2px]">Activities vary by country. Full itinerary shared upon booking confirmation.</p>
+          </motion.div>
+        </div>
+      </section>
+
       {/* 7. GALLERY STRIP */}
       <section className="bg-dark pt-[80px] overflow-hidden">
         <div className="px-[6%] lg:px-[5%] md:px-[20px] mb-8">
@@ -392,11 +436,49 @@ export default function App() {
         <TourPage />
       </div>
 
+      {/* MEET THE ICONS */}
+      <section className="bg-cream text-dark py-[120px]">
+        <div className="max-w-[1280px] mx-auto px-[6%] lg:px-[5%] md:px-[20px]">
+          <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} className="text-center mb-16">
+            <span className="text-gold text-[11px] uppercase tracking-[4px] font-semibold block mb-4">Exclusive Access</span>
+            <h2 className="font-cormorant font-light text-[48px] md:text-[64px] leading-[1.1] mb-6">
+              You'll Be Introduced to <em className="text-gold italic font-cormorant">the World</em>
+            </h2>
+            <p className="font-jost text-muted text-[16px] leading-[1.9] max-w-[600px] mx-auto">
+              This isn't just about meeting Reese. Through her extraordinary global network, she personally introduces every fan to some of the most powerful people on the planet. Ministers. Governors. Kings. Icons.
+            </p>
+          </motion.div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+            {[
+              { i: 'ri-vip-crown-line', t: 'Royalty & Heads of State', d: 'Private audiences with kings and royal families across the tour countries.' },
+              { i: 'ri-government-line', t: 'Government Ministers', d: 'Meet and dine with senior government officials in Japan, UAE, Italy, France, and South Africa.' },
+              { i: 'ri-earth-line', t: 'Governors & Regional Leaders', d: "Face-to-face with the decision-makers who shape the regions you'll be experiencing." },
+              { i: 'ri-briefcase-4-line', t: 'Business Titans', d: "Reese's personal network of entrepreneurs, investors, and industry leaders — all in one room." },
+              { i: 'ri-movie-2-line', t: 'Hollywood & Entertainment Icons', d: "Fellow actors, directors, and creators who share Reese's world at the highest level." },
+              { i: 'ri-plant-line', t: 'Philanthropists & Changemakers', d: "People using power to change the world — and now you'll know them personally." }
+            ].map((c, i) => (
+              <motion.div key={i} variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} transition={{ delay: i * 0.1 }}
+                className="bg-[#FFFFFF] border border-border border-l-4 border-l-gold rounded-r-[4px] p-[32px_24px] hover:-translate-y-[4px] hover:shadow-[0_0_20px_rgba(201,169,110,0.2)] transition-all"
+              >
+                <i className={`${c.i} text-gold text-[36px] mb-4 inline-block`}></i>
+                <h4 className="font-jost text-dark font-semibold text-[18px] mb-2">{c.t}</h4>
+                <p className="font-jost text-muted text-[14px] leading-[1.6]">{c.d}</p>
+              </motion.div>
+            ))}
+          </div>
+
+          <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
+            <p className="font-jost text-[13px] text-muted italic text-center">All introductions are personally facilitated by Reese Witherspoon through her private network.</p>
+          </motion.div>
+        </div>
+      </section>
+
       {/* 9. COUNTDOWN + URGENCY BAR */}
       <section className="bg-dark-2 py-[48px] px-[6%] lg:px-[5%] md:px-[20px]">
         <div className="max-w-[1280px] mx-auto grid lg:grid-cols-[auto_1fr] gap-[64px] items-center">
           <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
-            <span className="text-gold text-[11px] uppercase tracking-[3px] font-semibold block mb-4">First Event Begins In</span>
+            <span className="text-gold text-[11px] uppercase tracking-[3px] font-semibold block mb-4">The Cruise Begins In</span>
             <div className="flex items-start gap-4 md:gap-8">
               {Object.entries(timeLeft).map(([label, val], i, arr) => (
                 <React.Fragment key={label}>
@@ -413,7 +495,7 @@ export default function App() {
           <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} transition={{ delay: 0.2 }} className="w-full">
             <h3 className="font-cormorant italic text-cream text-[32px] mb-6">Seats Are Filling Fast</h3>
             <div className="space-y-4">
-              {STATES.map(state => (
+              {COUNTRIES.map(state => (
                 <div key={state.name} className="flex flex-col gap-1">
                   <div className="flex justify-between text-[12px] text-cream opacity-90">
                     <span className="capitalize">{state.name.toLowerCase()}</span>
@@ -454,7 +536,10 @@ export default function App() {
               <div className="text-gold text-[12px] uppercase tracking-[4px] font-semibold mb-6">REGULAR</div>
               <div className="w-full h-[1px] bg-gold opacity-30 mb-8" />
               <ul className="space-y-4 mb-12 min-h-[220px]">
-                {["Meet Reese Witherspoon in person", "Personal photo session", "Free customized polo shirt & cap", "Merchandise delivered 3–7 days after payment"].map((f, i) => (
+                {[
+                  "Full 5-country world tour with Reese", "March cruise included", "Private mansion stays every country",
+                  "Meet Reese personally", "Personal photo session", "Free customized polo shirt & cap", "Award ceremony attendance", "Merch delivered 3–7 days after payment"
+                ].map((f, i) => (
                   <li key={i} className="flex gap-3 text-cream font-light text-[14px]">
                     <i className="ri-check-line text-gold mt-1"></i> <span>{f}</span>
                   </li>
@@ -476,7 +561,10 @@ export default function App() {
               <div className="text-gold text-[12px] uppercase tracking-[4px] font-semibold mb-6">VIP</div>
               <div className="w-full h-[1px] bg-gold opacity-50 mb-8" />
               <ul className="space-y-4 mb-12 min-h-[220px]">
-                {["Meet Reese Witherspoon in person", "Photo & video access", "Free customized polo shirt & cap", "Exclusive after-party access", "Award presentation"].map((f, i) => (
+                {[
+                  "Everything in Regular, plus:", "Photo & video access throughout the tour", "Exclusive after-party access every country",
+                  "VIP seating at all events & dinners", "Personal introduction to world leaders", "Award presented at live ceremony"
+                ].map((f, i) => (
                   <li key={i} className="flex gap-3 text-cream font-light text-[14px]">
                     <i className="ri-check-line text-gold mt-1"></i> <span>{f}</span>
                   </li>
@@ -495,7 +583,10 @@ export default function App() {
               <div className="text-gold text-[12px] uppercase tracking-[4px] font-semibold mb-6">VVIP</div>
               <div className="w-full h-[1px] bg-gold opacity-30 mb-8" />
               <ul className="space-y-4 mb-12 min-h-[220px]">
-                {["Meet Reese Witherspoon in person", "Photo & video access", "Free customized polo shirt & cap", "Exclusive after-party access", "Award presentation", "Reese's private contact details", "Unlimited call/video chat with Reese post-event"].map((f, i) => (
+                {[
+                  "Everything in VIP, plus:", "Reese's private contact details", "Unlimited 1-on-1 call/video chat with Reese post-tour",
+                  "Private 1-on-1 dinner with Reese in each country", "Dedicated personal concierge throughout entire tour", "First-row access at all masterclass sessions"
+                ].map((f, i) => (
                   <li key={i} className="flex gap-3 text-cream font-light text-[14px]">
                     <i className="ri-check-line text-gold mt-1"></i> <span>{f}</span>
                   </li>
@@ -508,7 +599,7 @@ export default function App() {
           </div>
           
           <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} className="mt-[48px] text-center opacity-70">
-            <p className="text-[13px] text-cream max-w-[400px] mx-auto">We accept Cryptocurrency & Wire Transfer. Payment instructions are sent upon booking confirmation.</p>
+            <p className="text-[13px] text-cream max-w-[400px] mx-auto">We accept Cryptocurrency & Wire Transfer.<br/>Full payment instructions sent upon booking confirmation.</p>
           </motion.div>
         </div>
       </section>
@@ -529,18 +620,20 @@ export default function App() {
               </div>
               <div className="grid md:grid-cols-2 gap-6">
                 <input name="phone" type="tel" placeholder="Phone Number" required className="w-full bg-transparent border-b border-dark/30 py-[16px] text-[15px] focus:outline-none focus:border-dark transition-colors placeholder:text-dark/50" />
+                <input name="countryResidence" type="text" placeholder="Country of Residence" required className="w-full bg-transparent border-b border-dark/30 py-[16px] text-[15px] focus:outline-none focus:border-dark transition-colors placeholder:text-dark/50" />
+              </div>
+              <div className="grid md:grid-cols-2 gap-6">
                 <select 
                   value={bookingForm.state} onChange={e => setBookingForm({...bookingForm, state: e.target.value})} required 
                   className="w-full bg-transparent border-b border-dark/30 py-[16px] text-[15px] focus:outline-none focus:border-dark transition-colors appearance-none text-dark/70"
                 >
-                  <option value="" disabled>Select State</option>
-                  {STATES.map(s => <option key={s.name} value={s.name} className="text-dark">{s.name}</option>)}
-                </select>
-              </div>
-              <div className="grid md:grid-cols-2 gap-6">
-                <select name="city" required className="w-full bg-transparent border-b border-dark/30 py-[16px] text-[15px] focus:outline-none focus:border-dark transition-colors appearance-none text-dark/70">
-                  <option value="" disabled selected={!bookingForm.state}>Select City</option>
-                  {bookingForm.state && STATES.find(s => s.name === bookingForm.state)?.cities.map(c => <option key={c} value={c} className="text-dark">{c}</option>)}
+                  <option value="" disabled>Preferred Tour Country</option>
+                  <option value="Japan" className="text-dark">Japan</option>
+                  <option value="Dubai" className="text-dark">Dubai</option>
+                  <option value="Italy" className="text-dark">Italy</option>
+                  <option value="France" className="text-dark">France</option>
+                  <option value="South Africa" className="text-dark">South Africa</option>
+                  <option value="No Preference" className="text-dark">No Preference</option>
                 </select>
                 <select value={bookingForm.tier} onChange={e => setBookingForm({...bookingForm, tier: e.target.value})} required className="w-full bg-transparent border-b border-dark/30 py-[16px] text-[15px] focus:outline-none focus:border-dark transition-colors appearance-none text-dark">
                   <option value="Regular" className="text-dark">Regular Tier</option>
@@ -564,7 +657,7 @@ export default function App() {
                 Request My Booking
               </button>
               <p className="text-muted italic text-[12px] text-center mt-4">
-                Bookings confirmed manually within 24 hours. Payment details sent via email.
+                Only 55 spots available worldwide across all tiers.<br/>All bookings are confirmed manually within 24 hours.
               </p>
             </form>
           </motion.div>

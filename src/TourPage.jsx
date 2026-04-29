@@ -11,58 +11,53 @@ const VIP_IMG_2 = IMAGES.gallery9;
 // --- DATA ---
 const TOUR_DATA = [
   {
-    state: "CALIFORNIA", emoji: "🌴", month: "June 2026",
-    cities: [
-      { name: "Los Angeles", seats: 42 },
-      { name: "Beverly Hills", seats: 38 },
-      { name: "San Diego", seats: 52 },
-      { name: "San Francisco", seats: 45 },
-      { name: "Malibu", seats: 40 }
-    ]
+    country: "JAPAN", month: "March 2026", city: "Tokyo",
+    highlights: [
+      "Private ryokan mansion in Tokyo",
+      "Meeting with Japanese ministers & cultural leaders",
+      "March cruise departure from Yokohama"
+    ],
+    seats: 12
   },
   {
-    state: "NEW YORK", emoji: "🗽", month: "June 2026",
-    cities: [
-      { name: "Manhattan", seats: 50 },
-      { name: "Brooklyn", seats: 48 },
-      { name: "The Hamptons", seats: 39 },
-      { name: "Buffalo", seats: 51 },
-      { name: "Harlem", seats: 44 }
-    ]
+    country: "DUBAI", month: "April 2026", city: "Dubai City",
+    highlights: [
+      "Private palace on Palm Jumeirah",
+      "Exclusive meeting with UAE royalty & dignitaries",
+      "Desert safari + luxury yacht party"
+    ],
+    seats: 8
   },
   {
-    state: "FLORIDA", emoji: "🌊", month: "July 2026",
-    cities: [
-      { name: "Miami", seats: 22 },
-      { name: "Orlando", seats: 35 },
-      { name: "Tampa", seats: 40 },
-      { name: "Fort Lauderdale", seats: 28 },
-      { name: "Jacksonville", seats: 42 }
-    ]
+    country: "ITALY", month: "May 2026", city: "Rome & Milan",
+    highlights: [
+      "Private villa in the Roman countryside",
+      "Audience with Italian governors & cultural figures",
+      "Exclusive Vatican access + Milan fashion week"
+    ],
+    seats: 5
   },
   {
-    state: "TEXAS", emoji: "⭐", month: "July 2026",
-    cities: [
-      { name: "Houston", seats: 25 },
-      { name: "Dallas", seats: 20 },
-      { name: "Austin", seats: 32 },
-      { name: "San Antonio", seats: 41 },
-      { name: "Fort Worth", seats: 30 }
-    ]
+    country: "FRANCE", month: "June 2026", city: "Paris",
+    highlights: [
+      "Private château in French countryside",
+      "Meeting with French ministers & cultural leaders",
+      "Private dinner at the Eiffel Tower"
+    ],
+    seats: 15
   },
   {
-    state: "NEVADA", emoji: "🎰", month: "August 2026",
-    cities: [
-      { name: "Las Vegas", seats: 8 },
-      { name: "Henderson", seats: 15 },
-      { name: "Reno", seats: 22 },
-      { name: "Lake Tahoe", seats: 12 },
-      { name: "Carson City", seats: 28 }
-    ]
+    country: "SOUTH AFRICA", month: "July 2026", city: "Cape Town",
+    highlights: [
+      "Clifftop private mansion, Cape Town",
+      "Meeting with SA government officials",
+      "Safari experience + private vineyard event"
+    ],
+    seats: 15
   }
 ];
 
-const FILTERS = ["All States", "June 2026", "July 2026", "August 2026"];
+const FILTERS = ["All Countries", "March 2026", "April 2026", "May 2026", "June 2026", "July 2026"];
 
 // --- ANIMATION VARIANTS ---
 const fadeUp = {
@@ -80,7 +75,7 @@ export default function TourPage() {
   const [expandedState, setExpandedState] = useState(null);
 
   const filteredData = TOUR_DATA.filter(state => 
-    activeFilter === "All States" ? true : state.month === activeFilter
+    activeFilter === "All Countries" ? true : state.month === activeFilter
   );
 
   const getSeatColor = (seats) => {
@@ -225,37 +220,32 @@ export default function TourPage() {
           <div className="px-[6%] pb-[80px] flex flex-col gap-[32px]">
             <AnimatePresence mode="popLayout">
               {filteredData.map((state, i) => (
-                <motion.div 
-                  key={state.state} layout
-                  initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, x: -20 }} transition={{ duration: 0.4 }}
-                  className="w-full"
-                >
-                  {/* State Header */}
+                <motion.div key={state.country} variants={fadeUp} className="bg-cream border border-border rounded-[4px] shadow-sm overflow-hidden">
+                  
+                  {/* State Header (Clickable) */}
                   <div 
-                    onClick={() => setExpandedState(expandedState === state.state ? null : state.state)}
-                    className="flex flex-col md:flex-row justify-between items-start md:items-center py-[24px] border-b border-border cursor-pointer group"
+                    onClick={() => setExpandedState(expandedState === state.country ? null : state.country)}
+                    className={`flex flex-col md:flex-row justify-between md:items-center p-[24px_32px] cursor-pointer transition-colors duration-300 ${expandedState === state.country ? 'bg-blush' : 'hover:bg-warm-white'}`}
                   >
-                    <div className="mb-4 md:mb-0">
-                      <div className="flex items-center gap-3">
-                        <span className="text-[32px]">{state.emoji}</span>
-                        <h3 className="font-cormorant text-[42px] font-light text-dark group-hover:text-gold transition-colors duration-200">
-                          {state.state}
-                        </h3>
+                    <div className="flex items-center gap-4 mb-4 md:mb-0">
+                      <div className="w-[48px] h-[48px] bg-dark text-gold flex items-center justify-center rounded-[4px] text-[24px]">
+                        <i className="ri-map-pin-line"></i>
                       </div>
-                      <p className="font-jost text-[12px] text-muted tracking-[2px] uppercase mt-1">
-                        5 Cities · {state.month}
-                      </p>
+                      <div>
+                        <h3 className="font-cormorant text-[28px] md:text-[32px] text-dark leading-none mb-1">{state.country}</h3>
+                        <p className="font-jost text-[12px] uppercase tracking-[2px] text-muted">{state.city}</p>
+                      </div>
                     </div>
-
+                    
                     <div className="flex items-center gap-3">
                       <span className="bg-gold text-dark text-[11px] uppercase font-semibold px-[20px] py-[6px] rounded-[2px] tracking-[1px]">
                         {state.month}
                       </span>
                       <span className="bg-dark text-cream text-[10px] uppercase font-semibold px-[12px] py-[4px] rounded-[2px] tracking-[1px] hidden sm:block">
-                        55 Seats Per City
+                        55 Spots Only
                       </span>
                       <motion.i 
-                        animate={{ rotate: expandedState === state.state ? 180 : 0 }}
+                        animate={{ rotate: expandedState === state.country ? 180 : 0 }}
                         className="ri-arrow-down-s-line text-gold text-[24px] ml-2"
                       />
                     </div>
@@ -263,46 +253,44 @@ export default function TourPage() {
 
                   {/* Cities List Accordion */}
                   <AnimatePresence>
-                    {expandedState === state.state && (
+                    {expandedState === state.country && (
                       <motion.div 
                         initial={{ height: 0, opacity: 0 }} animate={{ height: 'auto', opacity: 1 }} exit={{ height: 0, opacity: 0 }} transition={{ duration: 0.4 }}
                         className="overflow-hidden bg-cream border border-t-0 border-border rounded-b-[4px]"
                       >
-                        {state.cities.map((city, idx) => (
-                          <div key={city.name} className="flex flex-col lg:flex-row justify-between items-start lg:items-center p-[20px_20px_20px_40px] border-b border-border hover:bg-blush transition-colors duration-150 gap-4">
-                            
-                            <div className="flex-1">
-                              <div className="flex items-center gap-2 mb-1">
-                                <div className="w-[6px] h-[6px] rounded-full bg-gold" />
-                                <h4 className="font-jost text-[16px] text-dark font-medium">{city.name}</h4>
-                              </div>
-                              <p className="font-jost text-[11px] text-muted tracking-[1px] pl-[14px]">
-                                Meet & Greet · Limited to 55 Guests
-                              </p>
-                            </div>
-
-                            <div className="flex-1 flex flex-col lg:items-center text-left lg:text-center">
-                              <span className="font-jost text-[13px] text-muted italic">Venue TBA</span>
-                              <span className="font-jost text-[12px] text-gold">{state.month} · Date TBA</span>
-                            </div>
-
-                            <div className="flex items-center gap-3 w-full lg:w-auto justify-between lg:justify-end mt-2 lg:mt-0">
-                              <span className={`text-[11px] px-[10px] py-[4px] rounded-[2px] font-semibold whitespace-nowrap ${getSeatColor(city.seats)}`}>
-                                {city.seats} seats left
-                              </span>
-                              <button onClick={() => document.getElementById('booking')?.scrollIntoView({behavior: 'smooth'})} className="bg-dark text-gold px-[20px] py-[10px] text-[11px] uppercase tracking-[2px] rounded-[2px] hover:bg-gold hover:text-dark transition-all hover:scale-[1.02] shadow-md whitespace-nowrap font-semibold">
-                                Get Tickets →
-                              </button>
-                            </div>
-
+                        <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center p-[20px_20px_20px_40px] border-b border-border bg-warm-white transition-colors duration-150 gap-4">
+                          
+                          <div className="flex-1">
+                            <ul className="space-y-2">
+                              {state.highlights.map((highlight, idx) => (
+                                <li key={idx} className="flex items-start gap-2">
+                                  <div className="w-[6px] h-[6px] rounded-full bg-gold mt-1.5" />
+                                  <span className="font-jost text-[14px] text-dark font-medium">{highlight}</span>
+                                </li>
+                              ))}
+                            </ul>
                           </div>
-                        ))}
+
+                          <div className="flex-1 flex flex-col lg:items-center text-left lg:text-center">
+                            <span className="font-jost text-[13px] text-muted italic">Venue TBA</span>
+                            <span className="font-jost text-[12px] text-gold">{state.month}</span>
+                          </div>
+
+                          <div className="flex items-center gap-3 w-full lg:w-auto justify-between lg:justify-end mt-2 lg:mt-0">
+                            <span className={`text-[11px] px-[10px] py-[4px] rounded-[2px] font-semibold whitespace-nowrap ${getSeatColor(state.seats)}`}>
+                              {state.seats} spots left
+                            </span>
+                            <button onClick={() => document.getElementById('booking')?.scrollIntoView({behavior: 'smooth'})} className="bg-dark text-gold px-[20px] py-[10px] text-[11px] uppercase tracking-[2px] rounded-[2px] hover:bg-gold hover:text-dark transition-all hover:scale-[1.02] shadow-md whitespace-nowrap font-semibold">
+                              Get Tickets →
+                            </button>
+                          </div>
+                        </div>
                         
                         {/* Notify Strip */}
                         <div className="bg-[#FFFAF7] p-[16px_40px] flex items-center">
                           <button onClick={() => document.getElementById('contact')?.scrollIntoView({behavior: 'smooth'})} className="flex items-center gap-2 text-gold font-jost text-[12px] uppercase tracking-[1px] font-semibold hover:text-dark transition-colors">
                             <i className="ri-notification-3-line text-[14px]"></i>
-                            Notify me when {state.state} dates are confirmed →
+                            Notify me when {state.country} dates are confirmed →
                           </button>
                         </div>
                       </motion.div>
