@@ -47,7 +47,7 @@ export default function App() {
   const [currentView, setCurrentView] = useState('LANDING');
   const [paymentOrder, setPaymentOrder] = useState(null);
 
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [expandedState, setExpandedState] = useState(null);
@@ -171,26 +171,7 @@ export default function App() {
       {/* 1. SCROLL PROGRESS */}
       <motion.div className="fixed top-0 left-0 right-0 h-[2px] bg-gold z-[200] origin-left" style={{ scaleX }} />
 
-      {/* 2. PRELOADER */}
-      <AnimatePresence>
-        {loading && (
-          <motion.div 
-            initial={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.5 }}
-            className="fixed inset-0 z-[300] bg-dark flex flex-col items-center justify-center"
-          >
-            <motion.h1 
-              initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.3 }}
-              className="font-cormorant italic text-gold text-[52px]"
-            >
-              Reese Witherspoon Official
-            </motion.h1>
-            <motion.div 
-              className="h-[2px] bg-gold mt-6"
-              initial={{ width: "0%" }} animate={{ width: "200px" }} transition={{ duration: 1.8, ease: "easeInOut" }}
-            />
-          </motion.div>
-        )}
-      </AnimatePresence>
+      {/* Removed PRELOADER */}
 
       {/* 3. NAVIGATION */}
       <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${scrolled ? 'bg-[#FDF6F0E6] backdrop-blur-[16px] border-b border-border text-dark py-4' : 'bg-transparent text-cream py-6'}`}>
@@ -244,7 +225,7 @@ export default function App() {
       </AnimatePresence>
 
       {/* 4. HERO */}
-      <section className="relative min-h-[100vh] flex items-center pt-[120px] pb-[160px]">
+      <section className="relative min-h-[100vh] flex items-center pt-[120px] pb-[280px] md:pb-[160px]">
         <div className="absolute inset-0 z-0 bg-dark lg:bg-fixed bg-cover bg-center warm-filter" style={{ backgroundImage: `url(${HERO_IMG})` }} />
         <div className="absolute inset-0 z-0 bg-gradient-to-r from-[#1C0E0EE6] via-[#1C0E0E80] to-[#1C0E0E33]" />
         
