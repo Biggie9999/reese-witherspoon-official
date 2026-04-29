@@ -267,7 +267,7 @@ export default function App() {
             <motion.p variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} transition={{ delay: 0.75 }}
               className="text-[16px] font-light leading-[1.9] text-cream opacity-75 max-w-[420px] mb-[40px]"
             >
-              This is not a meet & greet. You will cruise together, live together in private mansions, meet kings, ministers, and governors — and have the time of your life with Reese and 54 other extraordinary people. Only 55 spots exist in the entire world.
+              A limited gathering of 55 minds. Learn from one of Hollywood's most powerful women — actress, producer, entrepreneur, and investor. This is more than a meet & greet. This is a masterclass in life. You will have the time of your life, expand your network, and meet highly influential leaders. Only 55 spots across 5 countries exist in the entire world.
             </motion.p>
             
             <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} transition={{ delay: 0.9 }}
