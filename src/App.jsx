@@ -304,7 +304,7 @@ export default function App() {
 
         <motion.div 
           animate={{ y: [0, 10, 0] }} transition={{ repeat: Infinity, duration: 2 }}
-          className="absolute bottom-[100px] right-[6%] text-cream opacity-60 text-[32px]"
+          className="absolute bottom-[200px] md:bottom-[120px] right-[6%] text-cream opacity-60 text-[32px] hidden md:block"
         >
           <i className="ri-arrow-down-line"></i>
         </motion.div>
