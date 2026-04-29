@@ -328,7 +328,7 @@ export default function App() {
               More Than a<br/><em>Meet & Greet</em>
             </h2>
             <p className="text-[16px] font-light leading-[1.9] text-muted mb-8 max-w-[540px]">
-              The experience is an intimate, deeply personal gathering — limited to just 45–70 attendees per city. This isn't a stadium show or a distant photo-op. It's an evening where you sit with Reese, learn her craft, hear her investment philosophy, and walk away with a personal connection to one of Hollywood's most extraordinary women. Not a fan event — an elevation event.
+              The experience is an intimate, deeply personal gathering — limited to just 55 attendees per city. This isn't a stadium show or a distant photo-op. It's an evening where you sit with Reese, learn her craft, hear her investment philosophy, and walk away with a personal connection to one of Hollywood's most extraordinary women. Not a fan event — an elevation event.
             </p>
             
             <ul className="space-y-6 mb-12 max-w-[540px]">
