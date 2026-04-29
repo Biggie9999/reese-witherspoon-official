@@ -11,16 +11,16 @@ const VIP_IMG_2 = IMAGES.gallery9;
 // --- DATA ---
 const TOUR_DATA = [
   {
-    country: "JAPAN", month: "March 2026", city: "Tokyo",
+    country: "JAPAN", month: "May 2026", city: "Tokyo",
     highlights: [
       "Private ryokan mansion in Tokyo",
       "Meeting with Japanese ministers & cultural leaders",
-      "March cruise departure from Yokohama"
+      "Exclusive yacht departure from Yokohama"
     ],
     seats: 12
   },
   {
-    country: "DUBAI", month: "April 2026", city: "Dubai City",
+    country: "DUBAI", month: "June 2026", city: "Dubai City",
     highlights: [
       "Private palace on Palm Jumeirah",
       "Exclusive meeting with UAE royalty & dignitaries",
@@ -29,7 +29,7 @@ const TOUR_DATA = [
     seats: 8
   },
   {
-    country: "ITALY", month: "May 2026", city: "Rome & Milan",
+    country: "ITALY", month: "July 2026", city: "Rome & Milan",
     highlights: [
       "Private villa in the Roman countryside",
       "Audience with Italian governors & cultural figures",
@@ -38,7 +38,7 @@ const TOUR_DATA = [
     seats: 5
   },
   {
-    country: "FRANCE", month: "June 2026", city: "Paris",
+    country: "FRANCE", month: "August 2026", city: "Paris",
     highlights: [
       "Private château in French countryside",
       "Meeting with French ministers & cultural leaders",
@@ -47,7 +47,7 @@ const TOUR_DATA = [
     seats: 15
   },
   {
-    country: "SOUTH AFRICA", month: "July 2026", city: "Cape Town",
+    country: "SOUTH AFRICA", month: "September 2026", city: "Cape Town",
     highlights: [
       "Clifftop private mansion, Cape Town",
       "Meeting with SA government officials",
@@ -57,7 +57,7 @@ const TOUR_DATA = [
   }
 ];
 
-const FILTERS = ["All Countries", "March 2026", "April 2026", "May 2026", "June 2026", "July 2026"];
+const FILTERS = ["All Countries", "May 2026", "June 2026", "July 2026", "August 2026", "September 2026"];
 
 // --- ANIMATION VARIANTS ---
 const fadeUp = {
@@ -109,7 +109,7 @@ export default function TourPage() {
             <motion.div variants={fadeUp} className="w-[100px] h-[1px] bg-gold mb-[24px]" />
             
             <motion.p variants={fadeUp} className="text-[14px] text-cream opacity-80 uppercase tracking-[3px] mb-[40px]">
-              5 States · 5 Cities Each · May – August 2026
+              5 Countries | May – September 2026
             </motion.p>
           </motion.div>
         </div>
@@ -225,7 +225,7 @@ export default function TourPage() {
                   {/* State Header (Clickable) */}
                   <div 
                     onClick={() => setExpandedState(expandedState === state.country ? null : state.country)}
-                    className={`flex flex-col md:flex-row justify-between md:items-center p-[24px_32px] cursor-pointer transition-colors duration-300 ${expandedState === state.country ? 'bg-blush' : 'hover:bg-warm-white'}`}
+                    className={`flex flex-col md:flex-row justify-between md:items-center p-[24px_32px] cursor-pointer transition-all duration-300 border-2 ${expandedState === state.country ? 'bg-blush border-gold' : 'border-gold/30 hover:border-gold hover:bg-warm-white'}`}
                   >
                     <div className="flex items-center gap-4 mb-4 md:mb-0">
                       <div className="w-[48px] h-[48px] bg-dark text-gold flex items-center justify-center rounded-[4px] text-[24px]">

@@ -80,8 +80,8 @@ export default function App() {
     const handleScroll = () => setScrolled(window.scrollY > 80);
     window.addEventListener('scroll', handleScroll);
 
-    // Countdown logic (Target: March 1, 2026)
-    const targetDate = new Date('2026-03-01T00:00:00').getTime();
+    // Countdown logic (Target: May 1, 2026)
+    const targetDate = new Date('2026-05-01T00:00:00').getTime();
     const interval = setInterval(() => {
       const now = new Date().getTime();
       const distance = targetDate - now;
@@ -397,7 +397,7 @@ export default function App() {
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 mb-12">
             {[
               { i: 'ri-ship-line', t: 'Boat Cruise', d: 'Sail together along the coastline of one of the most beautiful places on earth with Reese.' },
               { i: 'ri-gamepad-line', t: 'Games with Reese', d: 'Group competitions, trivia, and pure fun. Reese plays too. No sitting on the sidelines.' },
@@ -455,7 +455,7 @@ export default function App() {
               You'll Be Introduced to <em className="text-gold italic font-cormorant">the World</em>
             </h2>
             <p className="font-jost text-muted text-[16px] leading-[1.9] max-w-[600px] mx-auto">
-              This isn't just about meeting Reese. Through her extraordinary global network, she personally introduces every fan to some of the most powerful people on the planet. Ministers. Governors. Kings. Icons.
+              This isn't just about meeting Reese. Through her extraordinary global network, she personally introduces every guest to some of the most powerful people on the planet. Ministers. Governors. Kings. Icons.
             </p>
           </motion.div>
 
