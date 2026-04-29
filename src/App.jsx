@@ -251,7 +251,7 @@ export default function App() {
             </motion.span>
             
             <motion.h1 variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} transition={{ delay: 0.15 }}
-              className="font-cormorant font-light text-[96px] text-cream leading-[0.95] gold-italic-emphasis"
+              className="font-cormorant font-light text-[64px] md:text-[96px] text-cream leading-[0.95] gold-italic-emphasis"
             >
               An Evening<br/><em>With Reese</em>
             </motion.h1>
