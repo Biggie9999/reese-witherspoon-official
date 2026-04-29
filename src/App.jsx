@@ -61,7 +61,9 @@ export default function App() {
 
   // Form States
   const [bookingForm, setBookingForm] = useState({ guests: 1, payment: 'crypto', tier: 'Regular', state: '' });
-  const [donationAmount, setDonationAmount] = useState('$10,000');
+  const [donationAmount, setDonationAmount] = useState('$25');
+  const [o7cAmount, setO7cAmount] = useState('$10,000');
+  const [o7cCustom, setO7cCustom] = useState('');
   const [donationCustom, setDonationCustom] = useState('');
   const [donationPayment, setDonationPayment] = useState('crypto');
 
@@ -670,8 +672,60 @@ export default function App() {
         </div>
       </section>
 
-      {/* 12. O7C FUNDRAISING */}
-      <section className="relative bg-deep-blush py-[120px] overflow-hidden">
+      {/* 12. DONATIONS */}
+      <section className="relative bg-deep-blush py-[100px] text-center overflow-hidden border-b border-dark/10">
+        {/* Subtle floating petals via CSS/motion */}
+        <div className="absolute inset-0 pointer-events-none opacity-15">
+          <motion.i animate={{ y: [0, -20, 0], x: [0, 10, 0], rotate: [0, 10, 0] }} transition={{ repeat: Infinity, duration: 4 }} className="ri-leaf-line absolute top-[20%] left-[10%] text-6xl text-dark" />
+          <motion.i animate={{ y: [0, 30, 0], x: [0, -15, 0], rotate: [0, -15, 0] }} transition={{ repeat: Infinity, duration: 5 }} className="ri-leaf-line absolute bottom-[20%] right-[15%] text-8xl text-dark" />
+        </div>
+
+        <div className="relative z-10 max-w-[800px] mx-auto px-[6%] lg:px-[5%] md:px-[20px] flex flex-col items-center">
+          <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
+            <div className="w-[120px] h-[120px] rounded-full border-[3px] border-gold overflow-hidden mx-auto mb-8 shadow-xl">
+              <img src={ABOUT_IMG} alt="Reese Philanthropy" className="w-full h-full object-cover warm-filter" />
+            </div>
+            <span className="text-[11px] font-semibold uppercase tracking-[4px] text-dark block mb-4">Show Your Love</span>
+            <h2 className="font-cormorant font-light text-dark text-[48px] md:text-[64px] leading-[1.1] mb-6 gold-italic-emphasis">
+              Send Reese Some<br/><em>Love</em>
+            </h2>
+            <p className="text-[16px] text-dark/80 max-w-[480px] mx-auto mb-10">
+              Your support means the world. Every gesture, big or small, fuels the mission.
+            </p>
+
+            <form onSubmit={handleDonationSubmit} className="w-full max-w-[500px] mx-auto bg-cream/30 p-8 rounded-[8px] backdrop-blur-sm border border-dark/10">
+              <div className="flex flex-wrap justify-center gap-3 mb-8">
+                {['$5', '$10', '$25', '$50', 'Custom'].map(amt => (
+                  <button key={amt} type="button" onClick={() => { setDonationAmount(amt); if(amt!=='Custom') setDonationCustom(''); }}
+                    className={`px-[24px] py-[12px] text-[14px] font-semibold rounded-[4px] transition-colors ${donationAmount === amt ? 'bg-dark text-gold' : 'bg-transparent border border-dark text-dark hover:bg-dark/10'}`}
+                  >
+                    {amt}
+                  </button>
+                ))}
+              </div>
+
+              <AnimatePresence>
+                {donationAmount === 'Custom' && (
+                  <motion.div initial={{ height: 0, opacity: 0 }} animate={{ height: 'auto', opacity: 1 }} exit={{ height: 0, opacity: 0 }} className="mb-8 overflow-hidden">
+                    <input type="text" placeholder="$0.00" value={donationCustom} onChange={e => setDonationCustom(e.target.value)} required
+                      className="w-full bg-transparent border-b-2 border-gold py-2 font-cormorant text-[32px] text-gold text-center focus:outline-none placeholder:text-gold/50"
+                    />
+                  </motion.div>
+                )}
+              </AnimatePresence>
+
+              <div className="mb-10"></div>
+
+              <button type="submit" className="w-full bg-dark text-gold py-[16px] text-[12px] font-semibold tracking-[2.5px] uppercase hover:bg-gold hover:text-dark transition-colors shadow-lg rounded-[4px]">
+                Send My Love 🌸
+              </button>
+            </form>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* 13. O7C FUNDRAISING */}
+      <section className="relative bg-cream py-[120px] overflow-hidden">
         <div className="absolute inset-0 pointer-events-none opacity-10">
           <motion.i animate={{ y: [0, -20, 0], x: [0, 10, 0], rotate: [0, 10, 0] }} transition={{ repeat: Infinity, duration: 4 }} className="ri-earth-line absolute top-[20%] left-[10%] text-6xl text-dark" />
           <motion.i animate={{ y: [0, 30, 0], x: [0, -15, 0], rotate: [0, -15, 0] }} transition={{ repeat: Infinity, duration: 5 }} className="ri-heart-3-line absolute bottom-[20%] right-[15%] text-8xl text-dark" />
@@ -703,27 +757,27 @@ export default function App() {
           </motion.div>
 
           <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
-            <form onSubmit={handleDonationSubmit} className="w-full max-w-[600px] mx-auto bg-cream/50 p-8 md:p-10 rounded-[8px] backdrop-blur-sm border border-dark/10 shadow-xl">
+            <form onSubmit={handleDonationSubmit} className="w-full max-w-[600px] mx-auto bg-white p-8 md:p-10 rounded-[8px] border border-dark/10 shadow-xl">
               <h3 className="font-cormorant text-[24px] text-center mb-8">Make a Contribution</h3>
               <div className="grid grid-cols-2 gap-3 mb-8">
                 {['$10,000', '$25,000', '$50,000', '$100,000'].map(amt => (
-                  <button key={amt} type="button" onClick={() => { setDonationAmount(amt); setDonationCustom(''); }}
-                    className={`px-[24px] py-[16px] text-[14px] font-semibold rounded-[4px] transition-colors ${donationAmount === amt ? 'bg-dark text-gold' : 'bg-white border border-dark/20 text-dark hover:border-gold'}`}
+                  <button key={amt} type="button" onClick={() => { setO7cAmount(amt); setO7cCustom(''); }}
+                    className={`px-[24px] py-[16px] text-[14px] font-semibold rounded-[4px] transition-colors ${o7cAmount === amt ? 'bg-dark text-gold' : 'bg-transparent border border-dark/20 text-dark hover:border-gold'}`}
                   >
                     {amt}
                   </button>
                 ))}
-                <button type="button" onClick={() => setDonationAmount('Custom')}
-                  className={`col-span-2 px-[24px] py-[16px] text-[14px] font-semibold rounded-[4px] transition-colors ${donationAmount === 'Custom' ? 'bg-dark text-gold' : 'bg-white border border-dark/20 text-dark hover:border-gold'}`}
+                <button type="button" onClick={() => setO7cAmount('Custom')}
+                  className={`col-span-2 px-[24px] py-[16px] text-[14px] font-semibold rounded-[4px] transition-colors ${o7cAmount === 'Custom' ? 'bg-dark text-gold' : 'bg-transparent border border-dark/20 text-dark hover:border-gold'}`}
                 >
                   Custom Amount
                 </button>
               </div>
 
               <AnimatePresence>
-                {donationAmount === 'Custom' && (
+                {o7cAmount === 'Custom' && (
                   <motion.div initial={{ height: 0, opacity: 0 }} animate={{ height: 'auto', opacity: 1 }} exit={{ height: 0, opacity: 0 }} className="mb-8 overflow-hidden">
-                    <input type="text" placeholder="Enter amount (Min $10,000)" value={donationCustom} onChange={e => setDonationCustom(e.target.value)} required
+                    <input type="text" placeholder="Enter amount (Min $10,000)" value={o7cCustom} onChange={e => setO7cCustom(e.target.value)} required
                       className="w-full bg-transparent border-b-2 border-gold py-2 font-cormorant text-[32px] text-dark text-center focus:outline-none placeholder:text-dark/30"
                     />
                   </motion.div>
