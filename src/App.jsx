@@ -66,6 +66,7 @@ export default function App() {
   const [o7cCustom, setO7cCustom] = useState('');
   const [donationCustom, setDonationCustom] = useState('');
   const [donationPayment, setDonationPayment] = useState('crypto');
+  const [liveDonation, setLiveDonation] = useState(7341250);
 
   // Media Tabs
   const [mediaTab, setMediaTab] = useState('PHOTOS');
@@ -94,10 +95,15 @@ export default function App() {
       });
     }, 1000);
 
+    const donationInterval = setInterval(() => {
+      setLiveDonation(prev => prev + Math.floor(Math.random() * 8500) + 1500);
+    }, 4000);
+
     return () => {
       clearTimeout(timer);
       window.removeEventListener('scroll', handleScroll);
       clearInterval(interval);
+      clearInterval(donationInterval);
     };
   }, []);
 
@@ -744,7 +750,7 @@ export default function App() {
               </div>
               <div className="bg-white text-dark px-8 py-4 rounded-[4px] shadow-lg border border-gold/30">
                 <span className="block text-[10px] uppercase tracking-[2px] opacity-80 mb-1">Live Donated Amount</span>
-                <span className="font-cormorant text-[36px] text-green-700 leading-none">$7.3M <span className="text-[14px] font-jost text-muted ml-1">raised in 2 weeks</span></span>
+                <span className="font-cormorant text-[36px] text-green-700 leading-none">${liveDonation.toLocaleString()} <span className="text-[14px] font-jost text-muted ml-1">raised so far</span></span>
               </div>
             </div>
             
