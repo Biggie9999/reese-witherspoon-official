@@ -5,7 +5,7 @@ const MOCK_ORDER = {
   type: 'TICKET', // TICKET, DONATION, MEMBERSHIP
   amount: 250,
   details: {
-    event: "An Evening With Reese — 2026 National Tour",
+    event: "An Evening With Reese | 2026 National Tour",
     tier: "VIP Experience",
     location: "California · Los Angeles",
     date: "June 2026",

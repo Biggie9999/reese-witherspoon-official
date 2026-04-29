@@ -116,7 +116,7 @@ export default function App() {
       type: 'TICKET',
       amount: basePrice * bookingForm.guests,
       details: {
-        event: "An Evening With Reese — 2026 National Tour",
+        event: "An Evening With Reese | 2026 National Tour",
         tier: bookingForm.tier + " Experience",
         location: bookingForm.state ? `${bookingForm.state} · ${fd.get('city') || 'General Admission'}` : "Virtual Access",
         date: "June 2026",
@@ -263,7 +263,7 @@ export default function App() {
             <motion.p variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} transition={{ delay: 0.75 }}
               className="text-[16px] font-light leading-[1.9] text-cream opacity-75 max-w-[420px] mb-[40px]"
             >
-              "For years, I've wanted to do something deeper than a red carpet wave. I want to know your stories, your dreams, and your businesses. I’m limiting this journey to just 55 of you—so we can truly walk this path together."
+              "For years, I've wanted to do something deeper than a red carpet wave. I want to know your stories, your dreams, and your businesses. I’m limiting this journey to just 55 of you, so we can truly walk this path together."
             </motion.p>
             
             <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} transition={{ delay: 0.9 }}
@@ -331,7 +331,7 @@ export default function App() {
           <p className="font-playfair italic text-[38px] text-cream leading-[1.5] relative z-10">
             I've learned that being powerful, being feminine, and being ambitious are not opposites. They are the same thing.
           </p>
-          <span className="block mt-[24px] text-[13px] tracking-[3px] text-gold uppercase">— Reese Witherspoon</span>
+          <span className="block mt-[24px] text-[13px] tracking-[3px] text-gold uppercase">Reese Witherspoon</span>
         </motion.div>
       </section>
 
@@ -345,13 +345,13 @@ export default function App() {
             </h2>
             <div className="space-y-6 mb-8 text-[16px] font-light leading-[1.9] text-muted max-w-[540px]">
               <p>55 fans. 5 countries. One shared journey. For the first time ever, I am opening my private world to a group of 55 hand-selected guests for a multi-country experience that focuses on real connection, mentorship, and legacy.</p>
-              <p>We won't just "meet"—we will live together. We’ll cruise the seas, share mansions in every country, and navigate the world together. I’ll personally introduce you to my global network of kings, ministers, and icons across Japan, Dubai, Italy, France, and South Africa.</p>
+              <p>We won't just "meet," we will live together. We’ll cruise the seas, share mansions in every country, and navigate the world together. I’ll personally introduce you to my global network of kings, ministers, and icons across Japan, Dubai, Italy, France, and South Africa.</p>
               <p>I’m limiting this to just 55 people because I want to give you my undivided attention. We will leave this experience as more than acquaintances; we will be a community.</p>
             </div>
             
             <ul className="space-y-6 mb-12 max-w-[540px]">
               {[
-                { i: 'ri-ship-line', t: 'Luxury Yacht Experience', d: 'Set sail together along the coastline. Fine dining, sunsets, and genuine conversation — just us and the open sea.' },
+                { i: 'ri-ship-line', t: 'Luxury Yacht Experience', d: 'Set sail together along the coastline. Fine dining, sunsets, and genuine conversation. Just us and the open sea.' },
                 { i: 'ri-building-4-line', t: 'Private Mansion Stays', d: 'No hotels. In every country the entire group lives together in an exclusive private residence handpicked by Reese.' },
                 { i: 'ri-vip-crown-line', t: 'Meet World Leaders', d: 'Reese personally introduces you to ministers, governors, kings, and global icons through her private network.' },
                 { i: 'ri-goblet-line', t: 'Parties in Every Country', d: 'Every stop ends with an exclusive after-party. Five countries. Five unforgettable nights.' }
@@ -393,16 +393,16 @@ export default function App() {
               Every Day is an <em className="text-gold italic font-cormorant">Adventure</em>
             </h2>
             <p className="font-jost text-cream/75 text-[16px] leading-[1.9] max-w-[600px] mx-auto mb-16">
-              Each country brings a new set of unforgettable experiences. From boat cruises along stunning coastlines to private mansion dinners, games with Reese, and exclusive parties — every single day of this tour is designed to blow your mind.
+              Each country brings a new set of unforgettable experiences. From boat cruises along stunning coastlines to private mansion dinners, games with Reese, and exclusive parties: every single day of this tour is designed to blow your mind.
             </p>
           </motion.div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
             {[
               { i: 'ri-ship-line', t: 'Boat Cruise', d: 'Sail together along the coastline of one of the most beautiful places on earth with Reese.' },
-              { i: 'ri-gamepad-line', t: 'Games with Reese', d: 'Group competitions, trivia, and pure fun — Reese plays too. No sitting on the sidelines.' },
+              { i: 'ri-gamepad-line', t: 'Games with Reese', d: 'Group competitions, trivia, and pure fun. Reese plays too. No sitting on the sidelines.' },
               { i: 'ri-goblet-line', t: 'Exclusive Parties', d: 'Private after-parties in every country. Five countries. Five unforgettable nights.' },
-              { i: 'ri-building-4-line', t: 'Mansion Living', d: 'The whole group lives together in a private residence every stop — no hotels, ever.' }
+              { i: 'ri-building-4-line', t: 'Mansion Living', d: 'The whole group lives together in a private residence every stop: no hotels, ever.' }
             ].map((c, i) => (
               <motion.div key={i} variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} transition={{ delay: i * 0.1 }}
                 className="bg-[#FFFFFF14] backdrop-blur-[12px] border border-[rgba(201,169,110,0.3)] rounded-[4px] p-[32px_24px]"
@@ -464,9 +464,9 @@ export default function App() {
               { i: 'ri-vip-crown-line', t: 'Royalty & Heads of State', d: 'Private audiences with kings and royal families across the tour countries.' },
               { i: 'ri-government-line', t: 'Government Ministers', d: 'Meet and dine with senior government officials in Japan, UAE, Italy, France, and South Africa.' },
               { i: 'ri-earth-line', t: 'Governors & Regional Leaders', d: "Face-to-face with the decision-makers who shape the regions you'll be experiencing." },
-              { i: 'ri-briefcase-4-line', t: 'Business Titans', d: "Reese's personal network of entrepreneurs, investors, and industry leaders — all in one room." },
+              { i: 'ri-briefcase-4-line', t: 'Business Titans', d: "Reese's personal network of entrepreneurs, investors, and industry leaders: all in one room." },
               { i: 'ri-movie-2-line', t: 'Hollywood & Entertainment Icons', d: "Fellow actors, directors, and creators who share Reese's world at the highest level." },
-              { i: 'ri-plant-line', t: 'Philanthropists & Changemakers', d: "People using power to change the world — and now you'll know them personally." }
+              { i: 'ri-plant-line', t: 'Philanthropists & Changemakers', d: "People using power to change the world. Now you'll know them personally." }
             ].map((c, i) => (
               <motion.div key={i} variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} transition={{ delay: i * 0.1 }}
                 className="bg-[#FFFFFF] border border-border border-l-4 border-l-gold rounded-r-[4px] p-[32px_24px] hover:-translate-y-[4px] hover:shadow-[0_0_20px_rgba(201,169,110,0.2)] transition-all"

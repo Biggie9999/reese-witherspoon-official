@@ -110,9 +110,9 @@ export default function BookingForm() {
                 className={inputClasses}
                 style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
                 <option value="" disabled>Ticket Tier</option>
-                <option value="sunshine">Sunshine — $25</option>
-                <option value="elite">Elite — $70</option>
-                <option value="vip">Southern Belle VIP — $150</option>
+                <option value="sunshine">Sunshine | $25</option>
+                <option value="elite">Elite | $70</option>
+                <option value="vip">Southern Belle VIP | $150</option>
               </select>
               <div className="absolute inset-y-0 right-4 flex items-center pointer-events-none">
                 <span className="material-symbols-outlined text-primary/50 text-[24px]">expand_more</span>

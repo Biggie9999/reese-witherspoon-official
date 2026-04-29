@@ -145,7 +145,7 @@ export default function TourPage() {
               Upgrade Your <em className="text-gold italic font-cormorant">Experience</em>
             </motion.h2>
             <motion.p variants={fadeUp} className="text-[16px] text-cream opacity-75 leading-[1.9] max-w-[540px] mb-10">
-              Go beyond the standard experience. VIP and VVIP guests enjoy private access, intimate moments, after-party exclusivity, and personalized awards — all in a room of just 55 people.
+              Go beyond the standard experience. VIP and VVIP guests enjoy private access, intimate moments, after-party exclusivity, and personalized awards. All in a room of just 55 people.
             </motion.p>
             
             <motion.div variants={fadeUp} className="flex flex-col md:flex-row gap-6 md:gap-8 mb-10">
