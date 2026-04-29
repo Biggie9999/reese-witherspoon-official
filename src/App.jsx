@@ -740,28 +740,41 @@ export default function App() {
         </div>
 
         <div className="relative z-10 max-w-[1000px] mx-auto px-[6%] lg:px-[5%] md:px-[20px]">
-          <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} className="text-center mb-16">
-            <span className="text-dark text-[11px] font-semibold uppercase tracking-[4px] block mb-4">October 7 Coalition (O7C)</span>
-            <h2 className="font-cormorant font-light text-dark text-[48px] md:text-[64px] leading-[1.1] mb-6 gold-italic-emphasis">
-              Standing with the <br/><em>Vulnerable</em>
-            </h2>
-            <div className="flex flex-col md:flex-row justify-center items-center gap-6 mb-10">
-              <div className="bg-dark text-gold px-8 py-4 rounded-[4px] shadow-lg">
-                <span className="block text-[10px] uppercase tracking-[2px] opacity-80 mb-1">Target Amount</span>
-                <span className="font-cormorant text-[36px] leading-none">$50,000,000</span>
+          <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} className="grid md:grid-cols-[1.2fr_0.8fr] gap-12 lg:gap-20 items-center mb-16">
+            <div className="text-left">
+              <span className="text-dark text-[11px] font-semibold uppercase tracking-[4px] block mb-4">October 7 Coalition (O7C)</span>
+              <h2 className="font-cormorant font-light text-dark text-[48px] md:text-[64px] leading-[1.1] mb-8 gold-italic-emphasis">
+                Standing with the <br/><em>Vulnerable</em>
+              </h2>
+              
+              <div className="space-y-6 mb-10">
+                <p className="font-jost text-[16px] text-dark/80 leading-[1.8]">
+                  I have a number of shows scheduled over the coming weeks, and I am committed to making the most of them, not only to connect with my fans, but also to give back to society through my charity organization. We are rebuilding with hope.
+                </p>
+                <p className="font-jost text-[16px] text-dark/80 leading-[1.8]">
+                  I would be truly grateful if you could support the October 7 Coalition (O7C) with a donation. Contributions begin at a minimum of $10,000 and play a meaningful role in helping us provide for those in need. Your generosity will have a lasting impact.
+                </p>
               </div>
-              <div className="bg-white text-dark px-8 py-4 rounded-[4px] shadow-lg border border-gold/30">
-                <span className="block text-[10px] uppercase tracking-[2px] opacity-80 mb-1">Live Donated Amount</span>
-                <span className="font-cormorant text-[36px] text-green-700 leading-none">${liveDonation.toLocaleString()} <span className="text-[14px] font-jost text-muted ml-1">raised so far</span></span>
+
+              <div className="flex flex-col sm:flex-row gap-4">
+                <div className="bg-dark text-gold px-8 py-5 rounded-[4px] shadow-lg text-center">
+                  <span className="block text-[10px] uppercase tracking-[2px] opacity-80 mb-1">Target Goal</span>
+                  <span className="font-cormorant text-[32px] leading-none">$50,000,000</span>
+                </div>
+                <div className="bg-white text-dark px-8 py-5 rounded-[4px] shadow-lg border border-gold/30 text-center">
+                  <span className="block text-[10px] uppercase tracking-[2px] opacity-80 mb-1">Live Raised Amount</span>
+                  <span className="font-cormorant text-[32px] text-green-700 leading-none">${liveDonation.toLocaleString()}</span>
+                </div>
               </div>
             </div>
-            
-            <p className="font-jost text-[16px] text-dark/80 max-w-[700px] mx-auto leading-[1.8] mb-6">
-              "I have a number of shows scheduled over the coming weeks, and I am committed to making the most of them, not only to connect with my fans, but also to give back to society through my charity organization. We are rebuilding with hope."
-            </p>
-            <p className="font-jost text-[16px] text-dark/80 max-w-[700px] mx-auto leading-[1.8] mb-12">
-              "I would be truly grateful if you could support the October 7 Coalition (O7C) with a donation. Contributions begin at a minimum of $10,000 and play a meaningful role in helping us provide for those in need. Your generosity will have a lasting impact."
-            </p>
+
+            <div className="relative group hidden md:block">
+              <div className="absolute -inset-4 bg-gold/10 rounded-[12px] blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-1000" />
+              <div className="relative aspect-[4/5] w-full overflow-hidden rounded-[8px] shadow-2xl border border-gold/20">
+                <img src={IMAGES.philanthropyWarm} alt="Reese Witherspoon" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                <div className="absolute inset-0 bg-gradient-to-t from-dark/40 to-transparent" />
+              </div>
+            </div>
           </motion.div>
 
           <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
