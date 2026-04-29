@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
+import { IMAGES } from './constants/images';
+
 // --- ASSETS ---
-const HERO_IMG = "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a1/Reese_Witherspoon_2023.jpg/800px-Reese_Witherspoon_2023.jpg";
-const VIP_IMG_1 = "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Reese_Witherspoon_2019_by_Glenn_Francis.jpg/800px-Reese_Witherspoon_2019_by_Glenn_Francis.jpg";
-const VIP_IMG_2 = "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/Reese_Witherspoon_at_the_2012_Vanity_Fair_Oscar_Party.jpg/800px-Reese_Witherspoon_at_the_2012_Vanity_Fair_Oscar_Party.jpg";
+const HERO_IMG = IMAGES.gallery6;
+const VIP_IMG_1 = IMAGES.gallery8;
+const VIP_IMG_2 = IMAGES.gallery9;
 
 // --- DATA ---
 const TOUR_DATA = [
