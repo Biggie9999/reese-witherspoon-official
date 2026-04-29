@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { motion, useScroll, useSpring, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-scroll';
 import PaymentPage from './PaymentPage';
+import TourPage from './TourPage';
 
 import { IMAGES } from './constants/images';
 
@@ -384,55 +385,10 @@ export default function App() {
         </div>
       </section>
 
-      {/* 8. TOUR DATES */}
-      <section id="tour" className="relative bg-blush py-[80px] md:py-[120px]">
-        {/* Subtle noise overlay simulation via CSS */}
-        <div className="absolute inset-0 opacity-[0.03] mix-blend-multiply pointer-events-none" style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noiseFilter%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.65%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noiseFilter)%22/%3E%3C/svg%3E")' }} />
-        
-        <div className="relative z-10 max-w-[1280px] mx-auto px-[6%] lg:px-[5%] md:px-[20px]">
-          <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} className="mb-[64px]">
-            <span className="text-gold text-[11px] tracking-[4px] uppercase font-semibold">2026 National Tour</span>
-            <h2 className="font-cormorant font-light text-dark text-[48px] md:text-[64px] leading-[1.1] mt-4 mb-4 gold-italic-emphasis">
-              The Experience is<br/><em>Coming to You</em>
-            </h2>
-            <p className="text-[14px] text-muted tracking-[2px] uppercase">5 States · 5 Cities Each · 4 Months Only</p>
-          </motion.div>
-
-          <div className="grid md:grid-cols-2 gap-[32px] md:gap-[48px]">
-            {STATES.map((state, i) => (
-              <motion.div key={state.name} variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} transition={{ delay: i * 0.1 }}
-                className="bg-cream border border-border border-l-[3px] !border-l-gold rounded-[4px] p-[24px] md:p-[32px] hover:-translate-y-[4px] hover:shadow-[0_12px_32px_rgba(28,14,14,0.1)] transition-all duration-300"
-              >
-                <div className="flex justify-between items-start mb-[16px] cursor-pointer" onClick={() => setExpandedState(expandedState === state.name ? null : state.name)}>
-                  <div>
-                    <h3 className="font-cormorant text-dark text-[28px]">{state.emoji} {state.name}</h3>
-                    <p className="text-muted text-[11px] uppercase tracking-[1px] mt-1">Limited to 55 Seats</p>
-                  </div>
-                  <span className="bg-gold text-dark px-[12px] py-[4px] rounded-[2px] text-[11px] uppercase tracking-[1px] font-semibold">{state.date}</span>
-                </div>
-                
-                <AnimatePresence>
-                  {expandedState === state.name && (
-                    <motion.div initial={{ height: 0, opacity: 0 }} animate={{ height: 'auto', opacity: 1 }} exit={{ height: 0, opacity: 0 }} className="overflow-hidden">
-                      <ul className="mt-[16px]">
-                        {state.cities.map(city => (
-                          <li key={city} className="border-t border-border py-[8px] flex items-center gap-3">
-                            <span className="text-gold text-[10px]">●</span>
-                            <span className="font-jost text-[15px] text-dark">{city}</span>
-                          </li>
-                        ))}
-                      </ul>
-                      <Link to="contact" smooth offset={-100} className="inline-flex items-center gap-1 text-gold text-[12px] font-semibold uppercase tracking-[1px] mt-[16px] cursor-pointer hover:text-gold-dark">
-                        Notify Me for This City <i className="ri-arrow-right-line"></i>
-                      </Link>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* 8. TOUR DATES (Rebuilt Drop-in Component) */}
+      <div id="tour">
+        <TourPage />
+      </div>
 
       {/* 9. COUNTDOWN + URGENCY BAR */}
       <section className="bg-dark-2 py-[48px] px-[6%] lg:px-[5%] md:px-[20px]">
