@@ -212,12 +212,19 @@ export default function App() {
               <i className="ri-close-line"></i>
             </button>
             <div className="flex flex-col gap-6 text-center">
-              {['About', 'Tour', 'Tickets', 'Media', 'Invest', 'Contact'].map(link => (
-                <Link key={link} to={link.toLowerCase()} smooth offset={-100} onClick={() => setMobileMenuOpen(false)}
-                  className="font-cormorant text-[48px] text-cream hover:text-gold transition-colors cursor-pointer"
+              {['About', 'Tour', 'Tickets', 'Media', 'Invest', 'Contact'].map((link, i) => (
+                <motion.div
+                  key={link}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.1 + i * 0.1 }}
                 >
-                  {link}
-                </Link>
+                  <Link to={link.toLowerCase()} smooth offset={-100} onClick={() => setMobileMenuOpen(false)}
+                    className="font-cormorant text-[48px] text-cream hover:text-gold transition-colors cursor-pointer"
+                  >
+                    {link}
+                  </Link>
+                </motion.div>
               ))}
             </div>
           </motion.div>
@@ -238,9 +245,9 @@ export default function App() {
             </motion.span>
             
             <motion.h1 variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} transition={{ delay: 0.15 }}
-              className="font-cormorant font-light text-[64px] md:text-[96px] text-cream leading-[0.95] gold-italic-emphasis"
+              className="font-cormorant font-light text-[48px] md:text-[80px] lg:text-[96px] text-cream leading-[0.95] gold-italic-emphasis"
             >
-              An Evening<br/><em>With Reese</em>
+              A Personal<br/><em>World Journey</em>
             </motion.h1>
             
             <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} transition={{ delay: 0.45 }}
@@ -250,13 +257,13 @@ export default function App() {
             <motion.h3 variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} transition={{ delay: 0.6 }}
               className="text-[14px] uppercase tracking-[4px] text-cream opacity-80 mb-6"
             >
-              Acting · Investments · Legacy
+              Mentorship · Legacy · Connection
             </motion.h3>
             
             <motion.p variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} transition={{ delay: 0.75 }}
               className="text-[16px] font-light leading-[1.9] text-cream opacity-75 max-w-[420px] mb-[40px]"
             >
-              A limited gathering of 55 minds. Learn from one of Hollywood's most powerful women — actress, producer, entrepreneur, and investor. This is more than a meet & greet. This is a masterclass in life. You will have the time of your life, expand your network, and meet highly influential leaders. Only 55 spots across 5 countries exist in the entire world.
+              "For years, I've wanted to do something deeper than a red carpet wave. I want to know your stories, your dreams, and your businesses. I’m limiting this journey to just 55 of you—so we can truly walk this path together."
             </motion.p>
             
             <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} transition={{ delay: 0.9 }}
@@ -280,7 +287,7 @@ export default function App() {
             {v: '5', l: 'Countries'}, 
             {v: <i className="ri-building-4-line text-[24px]"></i>, l: 'Private Mansions'}, 
             {v: <i className="ri-vip-crown-line text-[24px]"></i>, l: 'World Leaders'}, 
-            {v: <i className="ri-ship-line text-[24px]"></i>, l: 'March Cruise'}
+            {v: <i className="ri-ship-line text-[24px]"></i>, l: 'Private Boat Cruise'}
           ].map((s, i) => (
             <div key={i} className="flex items-baseline gap-3">
               <span className="font-cormorant text-gold text-[32px] flex items-center">{s.v}</span>
@@ -319,18 +326,18 @@ export default function App() {
         <div className="max-w-[1280px] mx-auto px-[6%] lg:px-[5%] md:px-[20px] grid lg:grid-cols-[60%_40%] gap-[48px] items-center">
           <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-80px" }}>
             <span className="text-[11px] font-semibold uppercase tracking-[4px] text-gold block mb-6">About the Experience</span>
-            <h2 className="font-cormorant font-light text-[64px] leading-[1.1] mb-8 gold-italic-emphasis">
+            <h2 className="font-cormorant font-light text-[42px] md:text-[64px] leading-[1.1] mb-8 gold-italic-emphasis">
               More Than a<br/><em>Meet & Greet</em>
             </h2>
             <div className="space-y-6 mb-8 text-[16px] font-light leading-[1.9] text-muted max-w-[540px]">
-              <p>55 fans. 5 countries. One extraordinary woman. For the first time ever, Reese Witherspoon is opening her entire world to a group of 55 hand-selected people for a full multi-country luxury experience unlike anything on earth.</p>
-              <p>You won't just meet Reese — you'll live with her. Cruise the seas together in March, stay in private mansions in every country, play games, attend exclusive parties, and be personally introduced to kings, ministers, and governors across Japan, Dubai, Italy, France, and South Africa.</p>
-              <p>This is a masterclass in life, luxury, connection, and ambition. The 55 people in this room will leave transformed. Friendships, connections, and memories that last a lifetime.</p>
+              <p>55 fans. 5 countries. One shared journey. For the first time ever, I am opening my private world to a group of 55 hand-selected guests for a multi-country experience that focuses on real connection, mentorship, and legacy.</p>
+              <p>We won't just "meet"—we will live together. We’ll cruise the seas, share mansions in every country, and navigate the world together. I’ll personally introduce you to my global network of kings, ministers, and icons across Japan, Dubai, Italy, France, and South Africa.</p>
+              <p>I’m limiting this to just 55 people because I want to give you my undivided attention. We will leave this experience as more than acquaintances; we will be a community.</p>
             </div>
             
             <ul className="space-y-6 mb-12 max-w-[540px]">
               {[
-                { i: 'ri-ship-line', t: 'Private March Cruise', d: 'Set sail together before the tour begins. Games, fine dining, sunsets — just you, Reese, and your 54 new friends.' },
+                { i: 'ri-ship-line', t: 'Luxury Yacht Experience', d: 'Set sail together along the coastline. Fine dining, sunsets, and genuine conversation — just us and the open sea.' },
                 { i: 'ri-building-4-line', t: 'Private Mansion Stays', d: 'No hotels. In every country the entire group lives together in an exclusive private residence handpicked by Reese.' },
                 { i: 'ri-vip-crown-line', t: 'Meet World Leaders', d: 'Reese personally introduces you to ministers, governors, kings, and global icons through her private network.' },
                 { i: 'ri-goblet-line', t: 'Parties in Every Country', d: 'Every stop ends with an exclusive after-party. Five countries. Five unforgettable nights.' }
@@ -368,7 +375,7 @@ export default function App() {
         <div className="max-w-[1280px] mx-auto px-[6%] lg:px-[5%] md:px-[20px] text-center">
           <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
             <span className="text-gold text-[11px] uppercase tracking-[4px] font-semibold block mb-4">Activities & Experiences</span>
-            <h2 className="font-cormorant font-light text-[48px] md:text-[64px] text-cream leading-[1.1] mb-6">
+            <h2 className="font-cormorant font-light text-[36px] md:text-[64px] text-cream leading-[1.1] mb-6">
               Every Day is an <em className="text-gold italic font-cormorant">Adventure</em>
             </h2>
             <p className="font-jost text-cream/75 text-[16px] leading-[1.9] max-w-[600px] mx-auto mb-16">
@@ -430,7 +437,7 @@ export default function App() {
         <div className="max-w-[1280px] mx-auto px-[6%] lg:px-[5%] md:px-[20px]">
           <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} className="text-center mb-16">
             <span className="text-gold text-[11px] uppercase tracking-[4px] font-semibold block mb-4">Exclusive Access</span>
-            <h2 className="font-cormorant font-light text-[48px] md:text-[64px] leading-[1.1] mb-6">
+            <h2 className="font-cormorant font-light text-[36px] md:text-[64px] leading-[1.1] mb-6">
               You'll Be Introduced to <em className="text-gold italic font-cormorant">the World</em>
             </h2>
             <p className="font-jost text-muted text-[16px] leading-[1.9] max-w-[600px] mx-auto">
@@ -467,7 +474,7 @@ export default function App() {
       <section className="bg-dark-2 py-[48px] px-[6%] lg:px-[5%] md:px-[20px]">
         <div className="max-w-[1280px] mx-auto grid lg:grid-cols-[auto_1fr] gap-[64px] items-center">
           <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
-            <span className="text-gold text-[11px] uppercase tracking-[3px] font-semibold block mb-4">The Cruise Begins In</span>
+            <span className="text-gold text-[11px] uppercase tracking-[3px] font-semibold block mb-4">The Journey Begins In</span>
             <div className="flex items-start gap-4 md:gap-8">
               {Object.entries(timeLeft).map(([label, val], i, arr) => (
                 <React.Fragment key={label}>
@@ -526,7 +533,7 @@ export default function App() {
               <div className="w-full h-[1px] bg-gold opacity-30 mb-8" />
               <ul className="space-y-4 mb-12 min-h-[220px]">
                 {[
-                  "Full 5-country world tour with Reese", "March cruise included", "Private mansion stays every country",
+                  "Full 5-country world tour with Reese", "Private boat cruise included", "Private mansion stays every country",
                   "Meet Reese personally", "Personal photo session", "Free customized polo shirt & cap", "Access to unreleased & special books", "Award ceremony attendance", "Merch delivered 3–7 days after payment"
                 ].map((f, i) => (
                   <li key={i} className="flex gap-3 text-cream font-light text-[14px]">
