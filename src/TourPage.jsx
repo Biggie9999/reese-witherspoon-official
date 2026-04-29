@@ -314,44 +314,7 @@ export default function TourPage() {
         </div>
       </section>
 
-      {/* PART 4: TICKET TIER REMINDER */}
-      <section className="bg-[#2A1515] py-[60px] px-[6%] text-cream border-t border-gold/10">
-        <div className="max-w-[1280px] mx-auto flex flex-col xl:flex-row justify-between items-center gap-10">
-          
-          <div className="flex-1 w-full text-center xl:text-left border-b xl:border-b-0 border-white/10 pb-8 xl:pb-0">
-            <span className="text-gold text-[11px] uppercase tracking-[4px] font-semibold block mb-2">Choose Your Tier</span>
-            <h2 className="font-cormorant font-light text-[52px] leading-tight">
-              Every Seat is <em className="text-gold italic font-cormorant">Extraordinary</em>
-            </h2>
-          </div>
 
-          <div className="flex flex-col md:flex-row gap-8 md:gap-0 w-full xl:w-auto overflow-x-auto hide-scrollbar">
-            {[
-              { t: 'REGULAR', p: '$25–$50', b: 'Meet & personal photo' },
-              { t: 'VIP', p: '$70–$100', b: 'Photo, video & after-party' },
-              { t: 'VVIP', p: '$150–$200', b: 'Private contact + unlimited VC' }
-            ].map((tier, i, arr) => (
-              <div key={tier.t} className={`flex flex-col justify-center px-0 md:px-[40px] lg:px-[48px] border-b md:border-b-0 md:border-r border-white/10 pb-6 md:pb-0 ${i === arr.length - 1 ? 'md:border-r-0 md:pr-0' : ''}`}>
-                <div className="flex items-baseline gap-3 mb-1">
-                  <h3 className="font-cormorant text-gold text-[28px] leading-none">{tier.t}</h3>
-                  <span className="font-jost text-[14px] text-cream font-light">{tier.p}</span>
-                </div>
-                <p className="font-jost text-[12px] text-cream opacity-60 mb-3">{tier.b}</p>
-                <a href="#" className="font-jost text-gold text-[11px] uppercase tracking-[2px] font-semibold flex items-center gap-1 hover:text-white transition-colors w-max">
-                  Book {tier.t} <i className="ri-arrow-right-line"></i>
-                </a>
-              </div>
-            ))}
-          </div>
-
-          <div className="w-full xl:w-auto flex justify-center mt-6 xl:mt-0">
-            <button className="bg-gold text-dark px-[40px] py-[18px] text-[12px] font-semibold tracking-[2.5px] uppercase rounded-[2px] hover:bg-cream transition-colors shadow-lg whitespace-nowrap">
-              View Full Ticket Details →
-            </button>
-          </div>
-          
-        </div>
-      </section>
 
       {/* PART 5: VIP SUPPORT STRIP */}
       <section className="bg-cream py-[48px] px-[6%] border-t border-border">
