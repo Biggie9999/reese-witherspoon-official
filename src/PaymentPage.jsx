@@ -394,11 +394,12 @@ export default function PaymentPage({ order = MOCK_ORDER }) {
 
             <div className="bg-warm-white border border-border rounded-[4px] p-[36px] shadow-sm mb-8">
               {[
-                { label: 'Account Name', value: 'Reese Witherspoon Official LLC' },
-                { label: 'Bank Name', value: 'JPMorgan Chase Bank, N.A.' },
-                { label: 'Account Number', value: '3029 4851 0928' },
-                { label: 'Routing Number', value: '021000021' },
-                { label: 'SWIFT / BIC', value: 'CHASUS33' },
+                { label: 'Account Name', value: 'Sterling Vane Realty LLC' },
+                { label: 'Bank Name', value: 'Bask Bank' },
+                { label: 'Account Number', value: '2919106979' },
+                { label: 'Routing Number', value: '111916327' },
+                { label: 'Bank Address', value: '101 E. Corporate Drive, Suite 150, Lewisville, TX 75067' },
+                { label: 'Beneficiary Address', value: '1209 Mountain Road PL NE STE R, Albuquerque, NM 87110' },
                 { label: 'Reference', value: `${order.buyer.name} + ${order.buyer.phone}` },
                 { label: 'Amount to Send', value: `$${getTotal().toFixed(2)} USD` }
               ].map((row, i, arr) => (
