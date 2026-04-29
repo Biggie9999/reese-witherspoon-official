@@ -547,29 +547,12 @@ export default function App() {
                 </select>
               </div>
               
-              <div className="grid md:grid-cols-2 gap-6 items-end">
-                <div className="border-b border-dark/30 py-[16px] flex justify-between items-center">
-                  <span className="text-[15px] text-dark/70">Number of Guests</span>
-                  <div className="flex items-center gap-4">
-                    <button type="button" onClick={() => setBookingForm({...bookingForm, guests: Math.max(1, bookingForm.guests - 1)})} className="text-gold text-xl hover:text-dark transition-colors"><i className="ri-subtract-line"></i></button>
-                    <span className="font-semibold">{bookingForm.guests}</span>
-                    <button type="button" onClick={() => setBookingForm({...bookingForm, guests: Math.min(4, bookingForm.guests + 1)})} className="text-gold text-xl hover:text-dark transition-colors"><i className="ri-add-line"></i></button>
-                  </div>
-                </div>
-                
-                <div className="border-b border-dark/30 py-[16px] flex justify-between items-center text-[15px]">
-                  <label className="flex items-center gap-2 cursor-pointer">
-                    <div className={`w-4 h-4 rounded-full border flex items-center justify-center ${bookingForm.payment === 'crypto' ? 'border-gold bg-gold' : 'border-dark/30'}`}>
-                      {bookingForm.payment === 'crypto' && <div className="w-1.5 h-1.5 bg-dark rounded-full" />}
-                    </div>
-                    <span onClick={() => setBookingForm({...bookingForm, payment: 'crypto'})}>Crypto</span>
-                  </label>
-                  <label className="flex items-center gap-2 cursor-pointer">
-                    <div className={`w-4 h-4 rounded-full border flex items-center justify-center ${bookingForm.payment === 'wire' ? 'border-gold bg-gold' : 'border-dark/30'}`}>
-                      {bookingForm.payment === 'wire' && <div className="w-1.5 h-1.5 bg-dark rounded-full" />}
-                    </div>
-                    <span onClick={() => setBookingForm({...bookingForm, payment: 'wire'})}>Wire Transfer</span>
-                  </label>
+              <div className="border-b border-dark/30 py-[16px] flex justify-between items-center">
+                <span className="text-[15px] text-dark/70">Number of Guests</span>
+                <div className="flex items-center gap-4">
+                  <button type="button" onClick={() => setBookingForm({...bookingForm, guests: Math.max(1, bookingForm.guests - 1)})} className="text-gold text-xl hover:text-dark transition-colors"><i className="ri-subtract-line"></i></button>
+                  <span className="font-semibold">{bookingForm.guests}</span>
+                  <button type="button" onClick={() => setBookingForm({...bookingForm, guests: Math.min(4, bookingForm.guests + 1)})} className="text-gold text-xl hover:text-dark transition-colors"><i className="ri-add-line"></i></button>
                 </div>
               </div>
 
@@ -634,20 +617,7 @@ export default function App() {
                 )}
               </AnimatePresence>
 
-              <div className="flex justify-center gap-8 text-[15px] text-dark mb-10">
-                <label className="flex items-center gap-2 cursor-pointer">
-                  <div className={`w-4 h-4 rounded-full border flex items-center justify-center ${donationPayment === 'crypto' ? 'border-dark bg-dark' : 'border-dark/40'}`}>
-                    {donationPayment === 'crypto' && <div className="w-1.5 h-1.5 bg-gold rounded-full" />}
-                  </div>
-                  <span onClick={() => setDonationPayment('crypto')}>Cryptocurrency</span>
-                </label>
-                <label className="flex items-center gap-2 cursor-pointer">
-                  <div className={`w-4 h-4 rounded-full border flex items-center justify-center ${donationPayment === 'wire' ? 'border-dark bg-dark' : 'border-dark/40'}`}>
-                    {donationPayment === 'wire' && <div className="w-1.5 h-1.5 bg-gold rounded-full" />}
-                  </div>
-                  <span onClick={() => setDonationPayment('wire')}>Wire Transfer</span>
-                </label>
-              </div>
+              <div className="mb-10"></div>
 
               <button type="submit" className="w-full bg-dark text-gold py-[16px] text-[12px] font-semibold tracking-[2.5px] uppercase hover:bg-gold hover:text-dark transition-colors shadow-lg rounded-[4px]">
                 Send My Love 🌸
