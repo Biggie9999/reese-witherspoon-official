@@ -4,7 +4,7 @@ import { Link } from 'react-scroll';
 import PaymentPage from './PaymentPage';
 import TourPage from './TourPage';
 
-import { IMAGES } from './constants/images';
+import { IMAGES, EXTRA_IMAGES } from './constants/images';
 
 // === CONSTANTS & ASSETS ===
 const HERO_IMG = IMAGES.gallery6;
@@ -644,7 +644,7 @@ export default function App() {
               className="min-w-[260px] bg-dark-2 border border-gold/20 rounded-[4px] p-4 group hover:-translate-y-[6px] hover:border-gold/60 transition-all duration-300"
             >
               <div className="w-full aspect-[3/4] mb-4 overflow-hidden rounded-[2px]">
-                <img src={`https://picsum.photos/seed/film${i}/300/400`} alt={film.title} className="w-full h-full object-cover warm-filter group-hover:scale-[1.05] transition-transform duration-500" />
+                <img src={EXTRA_IMAGES[i]} alt={film.title} className="w-full h-full object-cover warm-filter group-hover:scale-[1.05] transition-transform duration-500" />
               </div>
               <h3 className="font-cormorant text-gold text-[20px] leading-tight mb-1">{film.title}</h3>
               <p className="font-jost text-[10px] text-cream/60 tracking-[3px] uppercase">{film.type}</p>
@@ -750,9 +750,10 @@ export default function App() {
 
           {mediaTab === 'PHOTOS' && (
             <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="columns-1 md:columns-2 lg:columns-3 gap-[24px] space-y-[24px]">
-              {[300, 450, 350, 500, 300, 400].map((h, i) => (
-                <div key={i} className="relative overflow-hidden border border-transparent hover:border-gold border-[2px] transition-all cursor-zoom-in group rounded-[2px]" onClick={() => setLightbox(`https://picsum.photos/seed/photo${i}/800/1000`)}>
-                  <img src={`https://picsum.photos/seed/photo${i}/600/${h}`} alt={`Media ${i}`} className="w-full h-auto warm-filter group-hover:scale-[1.03] group-hover:brightness-110 transition-all duration-500" />
+              {[...Array(9)].map((_, i) => (
+                <div key={i} className="relative overflow-hidden border border-transparent hover:border-gold border-[2px] transition-all cursor-zoom-in group rounded-[2px]" onClick={() => setLightbox(EXTRA_IMAGES[3 + i])}>
+                  <img src={EXTRA_IMAGES[3 + i]} alt={`Media ${i}`} className="w-full h-auto warm-filter group-hover:scale-[1.03] group-hover:brightness-110 transition-all duration-500" />
+                  <div className="absolute inset-0 bg-gold/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 mix-blend-overlay" />
                 </div>
               ))}
             </motion.div>
@@ -760,13 +761,13 @@ export default function App() {
 
           {mediaTab === 'VIDEOS' && (
             <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="grid md:grid-cols-2 gap-[32px]">
-              {[1, 2].map(i => (
+              {[...Array(2)].map((_, i) => (
                 <div key={i} className="group cursor-pointer">
-                  <div className="relative w-full aspect-video mb-4 overflow-hidden rounded-[2px] border border-white/10 group-hover:border-gold/50 transition-colors">
-                    <img src={`https://picsum.photos/seed/vid${i}/800/450`} alt={`Video ${i}`} className="w-full h-full object-cover warm-filter group-hover:scale-[1.03] transition-transform duration-500" />
-                    <div className="absolute inset-0 bg-dark/30 flex items-center justify-center">
-                      <div className="w-[64px] h-[64px] rounded-full bg-gold/90 flex items-center justify-center text-dark text-[24px] group-hover:scale-110 group-hover:shadow-[0_0_20px_rgba(201,169,110,0.6)] transition-all">
-                        <i className="ri-play-fill ml-1"></i>
+                  <div className="relative aspect-video rounded-[2px] overflow-hidden group cursor-pointer border-[2px] border-transparent hover:border-gold transition-colors">
+                    <img src={EXTRA_IMAGES[12 + i]} alt={`Video ${i}`} className="w-full h-full object-cover warm-filter group-hover:scale-[1.03] transition-transform duration-500" />
+                    <div className="absolute inset-0 bg-dark/40 group-hover:bg-dark/20 transition-colors duration-300 flex items-center justify-center">
+                      <div className="w-[48px] h-[48px] rounded-full bg-cream text-dark flex items-center justify-center pl-1 group-hover:scale-110 transition-transform shadow-[0_0_20px_rgba(253,246,240,0.3)]">
+                        <i className="ri-play-fill text-[24px]"></i>
                       </div>
                     </div>
                   </div>
