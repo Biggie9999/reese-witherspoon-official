@@ -540,7 +540,7 @@ export default function App() {
               <ul className="space-y-4 mb-12 min-h-[220px]">
                 {[
                   "Full 5-country world tour with Reese", "March cruise included", "Private mansion stays every country",
-                  "Meet Reese personally", "Personal photo session", "Free customized polo shirt & cap", "Award ceremony attendance", "Merch delivered 3–7 days after payment"
+                  "Meet Reese personally", "Personal photo session", "Free customized polo shirt & cap", "Access to unreleased & special books", "Award ceremony attendance", "Merch delivered 3–7 days after payment"
                 ].map((f, i) => (
                   <li key={i} className="flex gap-3 text-cream font-light text-[14px]">
                     <i className="ri-check-line text-gold mt-1"></i> <span>{f}</span>
@@ -986,8 +986,8 @@ export default function App() {
 
           <div className="grid md:grid-cols-3 gap-[24px]">
             {[
-              { i: 'ri-phone-line', t: 'Customer Support', b1: 'Phone: +1 (000) 000-0000', b2: 'Email: support@reesewitherspoonofficial.com', d: 'Mon–Sat · 9am–7pm EST', btn: 'Contact Support' },
-              { i: 'ri-whatsapp-line', t: 'WhatsApp', b1: '+1 (000) 000-0000', b2: 'Chat with us directly', d: 'Fastest response time', btn: 'Open WhatsApp' },
+              { i: 'ri-phone-line', t: 'Customer Support', b1: 'Phone: +1 (414) 551-1344', b2: 'Email: support@reesewitherspoonofficial.com', d: 'Mon–Sat · 9am–7pm EST', btn: 'Contact Support' },
+              { i: 'ri-whatsapp-line', t: 'WhatsApp', b1: '+1 (414) 551-1344', b2: 'Chat with us directly', d: 'Fastest response time', btn: 'Open WhatsApp' },
               { i: 'ri-telegram-line', t: 'Telegram', b1: '@ReeseTourOfficial', b2: 'Join our official channel for updates', d: 'Community & News', btn: 'Join Telegram' }
             ].map((c, i) => (
               <motion.div key={i} variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} transition={{ delay: i * 0.1 }}
@@ -999,7 +999,7 @@ export default function App() {
                 <p className="font-jost text-[14px] text-muted mb-4">{c.b2}</p>
                 <p className="font-jost text-[15px] text-dark font-medium mb-8">{c.d}</p>
                 <button onClick={() => {
-                  if (c.t === 'WhatsApp') window.open('https://wa.me/1234567890', '_blank');
+                  if (c.t === 'WhatsApp') window.open('https://wa.me/14145511344', '_blank');
                   else if (c.t === 'Telegram') window.open('https://t.me/ReeseTourOfficial', '_blank');
                   else window.location.href = 'mailto:support@reesewitherspoonofficial.com';
                 }} className="w-full bg-dark text-gold py-[14px] text-[12px] font-semibold tracking-[2.5px] uppercase mt-auto hover:bg-gold hover:text-dark transition-colors rounded-[2px] shadow-md">
