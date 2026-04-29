@@ -205,27 +205,53 @@ export default function App() {
       <AnimatePresence>
         {mobileMenuOpen && (
           <motion.div 
-            initial={{ y: '-100%' }} animate={{ y: 0 }} exit={{ y: '-100%' }} transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-            className="fixed inset-0 z-[100] bg-dark flex flex-col items-center justify-center"
+            initial={{ x: '100%' }} animate={{ x: 0 }} exit={{ x: '100%' }} transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+            className="fixed inset-0 z-[200] bg-dark flex flex-col lg:flex-row overflow-hidden"
           >
-            <button className="absolute top-8 right-8 text-gold text-[32px]" onClick={() => setMobileMenuOpen(false)}>
-              <i className="ri-close-line"></i>
-            </button>
-            <div className="flex flex-col gap-6 text-center">
-              {['About', 'Tour', 'Tickets', 'Media', 'Invest', 'Contact'].map((link, i) => (
-                <motion.div
-                  key={link}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.1 + i * 0.1 }}
-                >
-                  <Link to={link.toLowerCase()} smooth offset={-100} onClick={() => setMobileMenuOpen(false)}
-                    className="font-cormorant text-[48px] text-cream hover:text-gold transition-colors cursor-pointer"
+            {/* Image Section (Visible on tablet/desktop, hidden on small mobile) */}
+            <div className="hidden md:block md:w-1/3 h-full relative border-r border-gold/20">
+              <img src={IMAGES.portrait2} alt="Reese" className="w-full h-full object-cover warm-filter" />
+              <div className="absolute inset-0 bg-dark/20" />
+            </div>
+
+            <div className="flex-1 flex flex-col p-[40px] md:p-[80px] relative">
+              <button className="absolute top-8 right-8 text-gold text-[32px] hover:rotate-90 transition-transform duration-300" onClick={() => setMobileMenuOpen(false)}>
+                <i className="ri-close-line"></i>
+              </button>
+
+              <div className="mb-12">
+                <span className="text-[10px] tracking-[4px] uppercase text-gold">Official Menu</span>
+                <h2 className="font-cormorant text-[24px] text-cream mt-2 italic">Southern Elegance</h2>
+              </div>
+
+              <div className="flex flex-col gap-4 flex-1">
+                {['About', 'Tour', 'Tickets', 'Media', 'Invest', 'Contact'].map((link, i) => (
+                  <motion.div
+                    key={link}
+                    initial={{ opacity: 0, x: 20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 0.2 + i * 0.1 }}
                   >
-                    {link}
-                  </Link>
-                </motion.div>
-              ))}
+                    <Link to={link.toLowerCase()} smooth offset={-100} onClick={() => setMobileMenuOpen(false)}
+                      className="group flex items-baseline gap-6 font-cormorant text-[42px] md:text-[64px] text-cream hover:text-gold transition-colors cursor-pointer leading-tight"
+                    >
+                      <span className="text-[14px] font-jost text-gold/40 group-hover:text-gold transition-colors">0{i + 1}</span>
+                      {link}
+                    </Link>
+                  </motion.div>
+                ))}
+              </div>
+
+              <div className="mt-12 pt-12 border-t border-white/10 flex flex-col md:flex-row justify-between items-end gap-8">
+                <div className="flex gap-6 text-[20px] text-gold">
+                  {['instagram', 'twitter', 'facebook', 'youtube'].map(s => (
+                    <a key={s} href="#" className="hover:text-cream transition-colors"><i className={`ri-${s}-line`}></i></a>
+                  ))}
+                </div>
+                <Link to="tickets" smooth offset={-100} onClick={() => setMobileMenuOpen(false)} className="bg-gold text-dark px-8 py-4 text-[12px] font-semibold tracking-[2px] uppercase hover:bg-cream transition-all shadow-xl">
+                  Book Your Journey
+                </Link>
+              </div>
             </div>
           </motion.div>
         )}
