@@ -726,7 +726,7 @@ export default function App() {
 
           <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} transition={{ delay: 0.6 }}>
             <p className="font-jost text-[16px] text-dark/80 mb-6">Interested in reaching our exclusive audience?</p>
-            <button className="bg-dark text-gold px-[36px] py-[14px] text-[12px] font-semibold tracking-[2.5px] uppercase hover:bg-gold hover:text-dark transition-colors rounded-[2px] shadow-lg">
+            <button onClick={() => document.getElementById('contact')?.scrollIntoView({behavior: 'smooth'})} className="bg-dark text-gold px-[36px] py-[14px] text-[12px] font-semibold tracking-[2.5px] uppercase hover:bg-gold hover:text-dark transition-colors rounded-[2px] shadow-lg">
               Become a Sponsor
             </button>
           </motion.div>
@@ -832,7 +832,11 @@ export default function App() {
                 <p className="font-jost text-[14px] text-muted mb-1">{c.b1}</p>
                 <p className="font-jost text-[14px] text-muted mb-4">{c.b2}</p>
                 <p className="font-jost text-[15px] text-dark font-medium mb-8">{c.d}</p>
-                <button className="w-full bg-dark text-gold py-[14px] text-[12px] font-semibold tracking-[2.5px] uppercase mt-auto hover:bg-gold hover:text-dark transition-colors rounded-[2px] shadow-md">
+                <button onClick={() => {
+                  if (c.t === 'WhatsApp') window.open('https://wa.me/1234567890', '_blank');
+                  else if (c.t === 'Telegram') window.open('https://t.me/ReeseTourOfficial', '_blank');
+                  else window.location.href = 'mailto:support@reesewitherspoonofficial.com';
+                }} className="w-full bg-dark text-gold py-[14px] text-[12px] font-semibold tracking-[2.5px] uppercase mt-auto hover:bg-gold hover:text-dark transition-colors rounded-[2px] shadow-md">
                   {c.btn}
                 </button>
               </motion.div>

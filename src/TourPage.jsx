@@ -167,10 +167,10 @@ export default function TourPage() {
             </motion.div>
 
             <motion.div variants={fadeUp} className="flex flex-wrap gap-4">
-              <button className="bg-gold text-dark px-[36px] py-[16px] text-[12px] font-semibold tracking-[2.5px] uppercase hover:bg-[#E8D5B0] transition-colors rounded-[2px] shadow-[0_8px_24px_rgba(201,169,110,0.3)]">
+              <button onClick={() => document.getElementById('tickets')?.scrollIntoView({behavior: 'smooth'})} className="bg-gold text-dark px-[36px] py-[16px] text-[12px] font-semibold tracking-[2.5px] uppercase hover:bg-[#E8D5B0] transition-colors rounded-[2px] shadow-[0_8px_24px_rgba(201,169,110,0.3)]">
                 Get VIP Tickets
               </button>
-              <button className="bg-transparent border border-gold text-gold px-[36px] py-[16px] text-[12px] font-semibold tracking-[2.5px] uppercase hover:bg-gold hover:text-dark transition-colors rounded-[2px]">
+              <button onClick={() => document.getElementById('tickets')?.scrollIntoView({behavior: 'smooth'})} className="bg-transparent border border-gold text-gold px-[36px] py-[16px] text-[12px] font-semibold tracking-[2.5px] uppercase hover:bg-gold hover:text-dark transition-colors rounded-[2px]">
                 See All Ticket Tiers
               </button>
             </motion.div>
@@ -290,7 +290,7 @@ export default function TourPage() {
                               <span className={`text-[11px] px-[10px] py-[4px] rounded-[2px] font-semibold whitespace-nowrap ${getSeatColor(city.seats)}`}>
                                 {city.seats} seats left
                               </span>
-                              <button className="bg-dark text-gold px-[20px] py-[10px] text-[11px] uppercase tracking-[2px] rounded-[2px] hover:bg-gold hover:text-dark transition-all hover:scale-[1.02] shadow-md whitespace-nowrap font-semibold">
+                              <button onClick={() => document.getElementById('booking')?.scrollIntoView({behavior: 'smooth'})} className="bg-dark text-gold px-[20px] py-[10px] text-[11px] uppercase tracking-[2px] rounded-[2px] hover:bg-gold hover:text-dark transition-all hover:scale-[1.02] shadow-md whitespace-nowrap font-semibold">
                                 Get Tickets →
                               </button>
                             </div>
@@ -300,10 +300,10 @@ export default function TourPage() {
                         
                         {/* Notify Strip */}
                         <div className="bg-[#FFFAF7] p-[16px_40px] flex items-center">
-                          <a href="#" className="flex items-center gap-2 text-gold font-jost text-[12px] uppercase tracking-[1px] font-semibold hover:text-dark transition-colors">
+                          <button onClick={() => document.getElementById('contact')?.scrollIntoView({behavior: 'smooth'})} className="flex items-center gap-2 text-gold font-jost text-[12px] uppercase tracking-[1px] font-semibold hover:text-dark transition-colors">
                             <i className="ri-notification-3-line text-[14px]"></i>
                             Notify me when {state.state} dates are confirmed →
-                          </a>
+                          </button>
                         </div>
                       </motion.div>
                     )}
@@ -331,10 +331,10 @@ export default function TourPage() {
           </div>
 
           <div className="flex flex-col sm:flex-row gap-4 w-full md:w-auto">
-            <button className="bg-dark text-gold px-[28px] py-[14px] text-[12px] font-semibold tracking-[2.5px] uppercase rounded-[2px] hover:bg-gold hover:text-dark transition-colors shadow-md text-center">
+            <button onClick={() => document.getElementById('contact')?.scrollIntoView({behavior: 'smooth'})} className="bg-dark text-gold px-[28px] py-[14px] text-[12px] font-semibold tracking-[2.5px] uppercase rounded-[2px] hover:bg-gold hover:text-dark transition-colors shadow-md text-center">
               Contact Support
             </button>
-            <button className="bg-transparent border border-dark text-dark px-[28px] py-[14px] text-[12px] font-semibold tracking-[2.5px] uppercase rounded-[2px] hover:bg-dark hover:text-gold transition-colors flex items-center justify-center gap-2">
+            <button onClick={() => window.open('https://wa.me/1234567890', '_blank')} className="bg-transparent border border-dark text-dark px-[28px] py-[14px] text-[12px] font-semibold tracking-[2.5px] uppercase rounded-[2px] hover:bg-dark hover:text-gold transition-colors flex items-center justify-center gap-2">
               <i className="ri-whatsapp-line text-[16px]"></i> WhatsApp Us
             </button>
           </div>
