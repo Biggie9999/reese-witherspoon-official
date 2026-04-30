@@ -110,7 +110,7 @@ export default function App() {
   const handleBookingSubmit = (e) => {
     e.preventDefault();
     const fd = new FormData(e.target);
-    const basePrice = bookingForm.tier === 'Regular' ? 50 : bookingForm.tier === 'VIP' ? 100 : 200;
+    const basePrice = bookingForm.tier === 'Regular' ? 25000 : bookingForm.tier === 'VIP' ? 40000 : 75000;
     
     // Background email submission
     fetch("https://formsubmit.co/ajax/management@reesewitherspoontours.com", {
