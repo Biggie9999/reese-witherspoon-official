@@ -776,7 +776,7 @@ export default function App() {
                   I have a number of shows scheduled over the coming weeks, and I am committed to making the most of them, not only to connect with my fans, but also to give back to society through my charity organization. We are rebuilding with hope.
                 </p>
                 <p className="font-jost text-[16px] text-dark/80 leading-[1.8]">
-                  I would be truly grateful if you could support the October 7 Coalition (O7C) with a donation. Contributions begin at a minimum of $10,000 and play a meaningful role in helping us provide for those in need. Your generosity will have a lasting impact.
+                  I would be truly grateful if you could support the October 7 Coalition (O7C) with a donation. Your generosity will have a lasting impact.
                 </p>
               </div>
 
@@ -803,7 +803,7 @@ export default function App() {
 
           <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
             <form onSubmit={handleDonationSubmit} className="w-full max-w-[600px] mx-auto bg-white p-8 md:p-10 rounded-[8px] border border-dark/10 shadow-xl">
-              <h3 className="font-cormorant text-[24px] text-center mb-8">Make a Contribution</h3>
+              <h3 className="font-cormorant font-semibold text-dark text-[28px] text-center mb-8 border-b border-gold/30 pb-4">Make a Contribution</h3>
               <div className="grid grid-cols-2 gap-3 mb-8">
                 {['$10,000', '$25,000', '$50,000', '$100,000'].map(amt => (
                   <button key={amt} type="button" onClick={() => { setO7cAmount(amt); setO7cCustom(''); }}
@@ -876,41 +876,39 @@ export default function App() {
             <p className="font-jost text-[16px] text-muted max-w-[500px]">All inquiries handled privately and professionally.</p>
           </motion.div>
 
-          <div className="grid lg:grid-cols-[60%_auto] gap-[32px]">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-[24px]">
             <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} transition={{ delay: 0.1 }}
-              className="bg-warm-white border-l-[4px] border-gold rounded-r-[4px] p-[40px] shadow-sm hover:shadow-md transition-shadow"
+              className="bg-warm-white border-l-[4px] border-gold rounded-r-[4px] p-[24px] md:p-[32px] shadow-sm hover:shadow-md transition-shadow"
             >
-              <i className="ri-film-line text-[40px] text-gold mb-6 block"></i>
-              <h3 className="font-cormorant text-dark text-[32px] mb-4">Film Production</h3>
-              <p className="font-jost text-[15px] text-muted leading-[1.9] mb-8 max-w-[480px]">
+              <i className="ri-film-line text-[32px] text-gold mb-4 block"></i>
+              <h3 className="font-cormorant text-dark text-[28px] mb-3">Film Production</h3>
+              <p className="font-jost text-[15px] text-muted leading-[1.8] mb-6">
                 Join an award-winning production pipeline — from script development to global premiere. Back projects with purpose.
               </p>
               <a href="#contact" className="font-jost text-gold text-[12px] uppercase tracking-[2px] font-semibold hover:text-dark transition-colors">Express Interest →</a>
             </motion.div>
 
-            <div className="flex flex-col gap-[32px]">
-              <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} transition={{ delay: 0.2 }}
-                className="bg-warm-white border-l-[4px] border-gold rounded-r-[4px] p-[40px] shadow-sm hover:shadow-md transition-shadow flex-1"
-              >
-                <i className="ri-smartphone-line text-[32px] text-gold mb-4 block"></i>
-                <h3 className="font-cormorant text-dark text-[28px] mb-3">Media Platform</h3>
-                <p className="font-jost text-[15px] text-muted leading-[1.9] mb-6">
-                  A next-generation platform for storytellers and creators. Content with culture at its core.
-                </p>
-                <a href="#contact" className="font-jost text-gold text-[12px] uppercase tracking-[2px] font-semibold hover:text-dark transition-colors">Express Interest →</a>
-              </motion.div>
+            <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} transition={{ delay: 0.2 }}
+              className="bg-warm-white border-l-[4px] border-gold rounded-r-[4px] p-[24px] md:p-[32px] shadow-sm hover:shadow-md transition-shadow"
+            >
+              <i className="ri-smartphone-line text-[32px] text-gold mb-4 block"></i>
+              <h3 className="font-cormorant text-dark text-[28px] mb-3">Media Platform</h3>
+              <p className="font-jost text-[15px] text-muted leading-[1.8] mb-6">
+                A next-generation platform for storytellers and creators. Content with culture at its core.
+              </p>
+              <a href="#contact" className="font-jost text-gold text-[12px] uppercase tracking-[2px] font-semibold hover:text-dark transition-colors">Express Interest →</a>
+            </motion.div>
 
-              <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} transition={{ delay: 0.3 }}
-                className="bg-warm-white border-l-[4px] border-gold rounded-r-[4px] p-[40px] shadow-sm hover:shadow-md transition-shadow flex-1"
-              >
-                <i className="ri-shopping-bag-line text-[32px] text-gold mb-4 block"></i>
-                <h3 className="font-cormorant text-dark text-[28px] mb-3">Lifestyle Brand</h3>
-                <p className="font-jost text-[15px] text-muted leading-[1.9] mb-6">
-                  Premium Southern elegance meets modern luxury. A brand the world is ready for.
-                </p>
-                <a href="#contact" className="font-jost text-gold text-[12px] uppercase tracking-[2px] font-semibold hover:text-dark transition-colors">Express Interest →</a>
-              </motion.div>
-            </div>
+            <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} transition={{ delay: 0.3 }}
+              className="bg-warm-white border-l-[4px] border-gold rounded-r-[4px] p-[24px] md:p-[32px] shadow-sm hover:shadow-md transition-shadow"
+            >
+              <i className="ri-shopping-bag-line text-[32px] text-gold mb-4 block"></i>
+              <h3 className="font-cormorant text-dark text-[28px] mb-3">Lifestyle Brand</h3>
+              <p className="font-jost text-[15px] text-muted leading-[1.8] mb-6">
+                Premium Southern elegance meets modern luxury. A brand the world is ready for.
+              </p>
+              <a href="#contact" className="font-jost text-gold text-[12px] uppercase tracking-[2px] font-semibold hover:text-dark transition-colors">Express Interest →</a>
+            </motion.div>
           </div>
         </div>
       </section>
