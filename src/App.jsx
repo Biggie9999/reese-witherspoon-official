@@ -1042,7 +1042,7 @@ export default function App() {
               Notify Me →
             </button>
           </form>
-          <p className="font-jost text-[11px] text-muted italic mt-[12px]">No spam. Just Reese.</p>
+
         </motion.div>
       </section>
 
@@ -1095,8 +1095,15 @@ export default function App() {
               <span className="font-jost text-[10px] tracking-[4px] uppercase text-gold mt-2 block">OFFICIAL</span>
               <p className="font-jost text-[13px] text-muted italic mt-[12px]">"Where Icons Meet Their People"</p>
               <div className="flex gap-[16px] mt-[20px]">
-                {['ri-instagram-line', 'ri-twitter-x-line', 'ri-facebook-box-line', 'ri-youtube-line'].map(icon => (
-                  <i key={icon} className={`${icon} text-cream text-[20px] hover:text-gold cursor-pointer transition-colors`}></i>
+                {[
+                  { icon: 'ri-instagram-line', link: 'https://www.instagram.com/reesewitherspoon/' },
+                  { icon: 'ri-tiktok-line', link: 'https://www.tiktok.com/@reesewitherspoon?' },
+                  { icon: 'ri-facebook-box-line', link: '#' },
+                  { icon: 'ri-youtube-line', link: '#' }
+                ].map((social, i) => (
+                  <a key={i} href={social.link} target="_blank" rel="noopener noreferrer">
+                    <i className={`${social.icon} text-cream text-[20px] hover:text-gold cursor-pointer transition-colors`}></i>
+                  </a>
                 ))}
               </div>
             </div>
