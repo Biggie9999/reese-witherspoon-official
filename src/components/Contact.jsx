@@ -23,16 +23,6 @@ const contacts = [
     btn: 'Open WhatsApp',
     action: 'https://wa.me/10000000000',
   },
-  {
-    icon: 'send',
-    title: 'Telegram',
-    lines: [
-      '@ReeseTourOfficial',
-      'Join our official Telegram for updates',
-    ],
-    btn: 'Join Telegram',
-    action: 'https://t.me/ReeseTourOfficial',
-  },
 ];
 
 export default function Contact() {
@@ -58,7 +48,7 @@ export default function Contact() {
           </h2>
         </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-6 md:gap-8 items-stretch">
+        <div className="grid md:grid-cols-2 gap-6 md:gap-8 items-stretch max-w-4xl mx-auto">
           {contacts.map((c, i) => (
             <motion.div
               key={c.title}

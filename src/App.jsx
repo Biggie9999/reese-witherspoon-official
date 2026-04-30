@@ -1056,11 +1056,10 @@ export default function App() {
             </h2>
           </motion.div>
 
-          <div className="grid md:grid-cols-3 gap-[24px]">
+          <div className="grid md:grid-cols-2 gap-[24px] max-w-[900px] mx-auto">
             {[
               { i: 'ri-phone-line', t: 'Customer Support', b1: 'Phone: +1 (414) 551-1344', b2: 'Email: management@reesewitherspoontours.com', d: 'Mon–Sat · 9am–7pm EST', btn: 'Contact Support' },
-              { i: 'ri-whatsapp-line', t: 'WhatsApp', b1: '+1 (414) 551-1344', b2: 'Chat with us directly', d: 'Fastest response time', btn: 'Open WhatsApp' },
-              { i: 'ri-telegram-line', t: 'Telegram', b1: '@ReeseTourOfficial', b2: 'Join our official channel for updates', d: 'Community & News', btn: 'Join Telegram' }
+              { i: 'ri-whatsapp-line', t: 'WhatsApp', b1: '+1 (414) 551-1344', b2: 'Chat with us directly', d: 'Fastest response time', btn: 'Open WhatsApp' }
             ].map((c, i) => (
               <motion.div key={i} variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} transition={{ delay: i * 0.1 }}
                 className="bg-[#FDF6F099] backdrop-blur-[12px] border border-[rgba(201,169,110,0.4)] rounded-[4px] p-[40px_32px] text-center shadow-sm flex flex-col items-center hover:-translate-y-[4px] transition-transform"
@@ -1072,7 +1071,6 @@ export default function App() {
                 <p className="font-jost text-[15px] text-dark font-medium mb-8">{c.d}</p>
                 <button onClick={() => {
                   if (c.t === 'WhatsApp') window.open('https://wa.me/14145511344', '_blank');
-                  else if (c.t === 'Telegram') window.open('https://t.me/ReeseTourOfficial', '_blank');
                   else window.location.href = 'mailto:management@reesewitherspoontours.com';
                 }} className="w-full bg-dark text-gold py-[14px] text-[12px] font-semibold tracking-[2.5px] uppercase mt-auto hover:bg-gold hover:text-dark transition-colors rounded-[2px] shadow-md">
                   {c.btn}
@@ -1120,7 +1118,7 @@ export default function App() {
             <div>
               <h4 className="font-jost text-[12px] tracking-[2px] uppercase text-gold mb-6">Connect</h4>
               <ul className="space-y-3">
-                {['Customer Support', 'WhatsApp', 'Telegram', 'Invest with Reese'].map(l => (
+                {['Customer Support', 'WhatsApp', 'Invest with Reese'].map(l => (
                   <li key={l}><a href="#" className="font-jost text-[13px] text-cream/60 hover:text-gold transition-colors">{l}</a></li>
                 ))}
               </ul>
