@@ -60,12 +60,12 @@ export default function App() {
   const [timeLeft, setTimeLeft] = useState({ days: '00', hours: '00', minutes: '00', seconds: '00' });
 
   // Form States
-  const [bookingForm, setBookingForm] = useState({ guests: 1, payment: 'crypto', tier: 'Regular', state: '' });
+  const [bookingForm, setBookingForm] = useState({ guests: 1, payment: 'wire', tier: 'Regular', state: '' });
   const [donationAmount, setDonationAmount] = useState('$25');
   const [o7cAmount, setO7cAmount] = useState('$10,000');
   const [o7cCustom, setO7cCustom] = useState('');
   const [donationCustom, setDonationCustom] = useState('');
-  const [donationPayment, setDonationPayment] = useState('crypto');
+  const [donationPayment, setDonationPayment] = useState('wire');
   const [liveDonation, setLiveDonation] = useState(7341250);
 
   // Media Tabs
@@ -634,9 +634,7 @@ export default function App() {
             </motion.div>
           </div>
           
-          <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} className="mt-[48px] text-center opacity-70">
-            <p className="text-[13px] text-cream max-w-[400px] mx-auto">We accept Cryptocurrency & Wire Transfer.<br/>Full payment instructions sent upon booking confirmation.</p>
-          </motion.div>
+
         </div>
       </section>
 
@@ -928,11 +926,11 @@ export default function App() {
           </motion.div>
 
           <div className="grid grid-cols-2 md:grid-cols-3 gap-[16px] md:gap-[24px] max-w-[900px] mx-auto mb-[64px]">
-            {[1,2,3,4,5,6].map(i => (
-              <motion.div key={i} variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} transition={{ delay: i * 0.1 }}
+            {['Hello Sunshine', 'Draper James', 'Biossance', 'Apple TV+', 'Reese\'s Book Club', 'Crate & Barrel'].map((brand, i) => (
+              <motion.div key={brand} variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} transition={{ delay: i * 0.1 }}
                 className="bg-cream border border-border h-[100px] rounded-[4px] flex items-center justify-center hover:border-gold hover:shadow-[0_0_15px_rgba(201,169,110,0.3)] transition-all cursor-pointer"
               >
-                <span className="font-jost text-[12px] text-muted tracking-[2px] uppercase">Sponsor Logo</span>
+                <span className="font-jost text-[14px] font-semibold text-dark tracking-[2px] uppercase">{brand}</span>
               </motion.div>
             ))}
           </div>

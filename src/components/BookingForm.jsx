@@ -136,7 +136,6 @@ export default function BookingForm() {
                 className={inputClasses}
                 style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
                 <option value="" disabled>Payment Method</option>
-                <option value="crypto">Cryptocurrency</option>
                 <option value="wire">Wire Transfer</option>
               </select>
               <div className="absolute inset-y-0 right-4 flex items-center pointer-events-none">

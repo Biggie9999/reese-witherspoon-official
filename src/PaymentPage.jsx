@@ -237,25 +237,7 @@ export default function PaymentPage({ order = MOCK_ORDER }) {
                 <p className="text-[11px] text-muted italic mt-auto">Processing: 1–3 business days</p>
               </div>
 
-              {/* CRYPTO */}
-              <div 
-                onClick={() => setMethod('CRYPTO')}
-                className={`relative bg-warm-white border-2 rounded-[4px] p-[36px_28px] text-center cursor-pointer transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_12px_32px_rgba(201,169,110,0.15)] ${
-                  method === 'CRYPTO' ? 'border-gold shadow-[0_0_0_4px_rgba(201,169,110,0.15)] bg-gradient-to-br from-[#FDF6F0] to-[#FFF8F0]' : 'border-border hover:border-gold'
-                }`}
-              >
-                {method === 'CRYPTO' && (
-                  <div className="absolute -top-3 -right-3 w-6 h-6 rounded-full bg-gold flex items-center justify-center shadow-md">
-                    <i className="ri-check-line text-white text-[12px]"></i>
-                  </div>
-                )}
-                <i className="ri-bitcoin-line text-[40px] text-gold mb-4 block"></i>
-                <h3 className="font-cormorant text-[24px] text-dark leading-tight mb-2">Cryptocurrency</h3>
-                <p className="text-[13px] text-muted mb-4">BTC, ETH, USDT & more</p>
-                <div className="flex justify-center gap-2">
-                  {['BTC', 'ETH', 'USDT'].map(t => <span key={t} className="text-[10px] font-semibold text-muted border border-border px-2 py-1 rounded-[2px]">{t}</span>)}
-                </div>
-              </div>
+
             </div>
 
             <button 
@@ -432,55 +414,7 @@ export default function PaymentPage({ order = MOCK_ORDER }) {
           </motion.div>
         )}
 
-        {/* STEP 3C: CRYPTO DETAILS */}
-        {step === 3 && method === 'CRYPTO' && !success && (
-          <motion.div key="step3crypto" variants={fadeUp} initial="hidden" animate="visible" exit={{ opacity: 0, y: -20 }} className="max-w-[600px] mx-auto bg-cream">
-            <div className="text-center mb-[40px]">
-              <h1 className="font-cormorant font-light text-[48px] leading-[1.1] gold-italic-emphasis mb-4">
-                Cryptocurrency <em>Payment</em>
-              </h1>
-              <p className="text-[14px] text-muted">Send your payment to the wallet address below.</p>
-            </div>
 
-            <div className="bg-warm-white border border-border rounded-[4px] p-[36px] shadow-sm mb-8 text-center">
-              <div className="inline-block p-4 bg-white border border-border rounded-[8px] mb-6 shadow-sm">
-                {/* Mock QR Code */}
-                <div className="w-[180px] h-[180px] bg-dark flex items-center justify-center relative overflow-hidden">
-                  <div className="absolute inset-0 bg-[url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAACCAYAAABytg0kAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAABZJREFUeNpi2rVrl+///yEYgIAxAAgwAEyKCA+QdK28AAAAAElFTkSuQmCC')] bg-repeat opacity-20" />
-                  <i className="ri-qr-code-line text-white text-[100px] opacity-80"></i>
-                </div>
-              </div>
-              
-              <div className="text-center mb-6">
-                <span className="text-[11px] uppercase tracking-[2px] text-muted font-semibold block mb-1">Wallet Address (ERC20)</span>
-                <div className="flex items-center justify-center gap-2 bg-cream border border-border py-3 px-4 rounded-[4px] max-w-[400px] mx-auto mt-2 cursor-pointer hover:border-gold transition-colors group" onClick={() => handleCopy('0x71C7656EC7ab88b098defB751B7401B5f6d8976F', 'crypto')}>
-                  <span className="text-[14px] text-dark font-medium truncate">0x71C7...8976F</span>
-                  {copied === 'crypto' ? <i className="ri-check-line text-green-600"></i> : <i className="ri-file-copy-line text-gold group-hover:text-gold-dark"></i>}
-                </div>
-              </div>
-              
-              <div className="border-t border-border pt-6 flex justify-between px-[10%]">
-                <div className="flex flex-col">
-                  <span className="text-[11px] uppercase tracking-[2px] text-muted font-semibold mb-1">USDT Equivalent</span>
-                  <span className="text-[20px] font-cormorant font-bold text-dark">{getTotal().toFixed(2)} USDT</span>
-                </div>
-                <div className="flex flex-col">
-                  <span className="text-[11px] uppercase tracking-[2px] text-muted font-semibold mb-1">Network</span>
-                  <span className="text-[20px] font-cormorant font-bold text-dark">ERC20 / ETH</span>
-                </div>
-              </div>
-            </div>
-
-            <button onClick={simulatePayment} className="w-full bg-dark text-gold py-[18px] text-[12px] font-semibold tracking-[2.5px] uppercase hover:bg-gold hover:text-dark transition-colors shadow-lg rounded-[2px]">
-              I Have Sent the Crypto
-            </button>
-            <div className="text-center mt-6">
-              <button onClick={() => setStep(2)} className="text-gold text-[13px] hover:text-dark transition-colors">
-                ← Change Method
-              </button>
-            </div>
-          </motion.div>
-        )}
 
         {/* SUCCESS SCREEN */}
         {success && (
