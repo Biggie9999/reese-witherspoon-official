@@ -90,7 +90,6 @@ export default function PaymentPage({ order = MOCK_ORDER }) {
       setTimeout(() => {
         setProcessing(false);
         window.open(`https://wa.me/14145511344?text=${encodeURIComponent(msg)}`, '_blank');
-        setSuccess(true);
       }, 2000);
       return;
     }
