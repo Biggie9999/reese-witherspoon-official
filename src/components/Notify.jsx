@@ -9,6 +9,14 @@ export default function Notify() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    fetch("https://formsubmit.co/ajax/management@reesewitherspoontours.com", {
+      method: "POST",
+      headers: { "Content-Type": "application/json", "Accept": "application/json" },
+      body: JSON.stringify({
+        _subject: "New Newsletter Subscriber",
+        email: email
+      })
+    }).catch(console.error);
     setSubmitted(true);
     setEmail('');
     setTimeout(() => setSubmitted(false), 3000);

@@ -32,8 +32,19 @@ export default function BookingForm() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    
+    fetch("https://formsubmit.co/ajax/management@reesewitherspoontours.com", {
+      method: "POST",
+      headers: { "Content-Type": "application/json", "Accept": "application/json" },
+      body: JSON.stringify({
+        _subject: "New Tour Booking Request",
+        ...form
+      })
+    }).catch(console.error);
+
     setSubmitted(true);
     setTimeout(() => setSubmitted(false), 4000);
+    setForm({ name: '', email: '', phone: '', state: '', city: '', tier: '', guests: '1', payment: '', message: '' });
   };
 
   const inputClasses = "w-full appearance-none px-6 py-4 rounded-2xl text-base text-on-surface placeholder-outline focus:outline-none border border-primary/20 bg-white/80 backdrop-blur-sm focus:border-primary focus:ring-2 focus:ring-primary-container transition-all shadow-sm";
@@ -136,6 +147,7 @@ export default function BookingForm() {
                 className={inputClasses}
                 style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
                 <option value="" disabled>Payment Method</option>
+                <option value="crypto">Cryptocurrency</option>
                 <option value="wire">Wire Transfer</option>
               </select>
               <div className="absolute inset-y-0 right-4 flex items-center pointer-events-none">

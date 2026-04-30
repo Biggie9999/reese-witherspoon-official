@@ -163,6 +163,7 @@ export default function Donations() {
                       style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}
                     >
                       <option value="" disabled>Select Payment Method</option>
+                      <option value="crypto">Cryptocurrency</option>
                       <option value="wire">Wire Transfer</option>
                     </select>
                     <div className="absolute inset-y-0 right-4 flex items-center pointer-events-none">

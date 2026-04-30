@@ -237,6 +237,26 @@ export default function PaymentPage({ order = MOCK_ORDER }) {
                 <p className="text-[11px] text-muted italic mt-auto">Processing: 1–3 business days</p>
               </div>
 
+              {/* CRYPTO */}
+              <div 
+                onClick={() => setMethod('CRYPTO')}
+                className={`relative bg-warm-white border-2 rounded-[4px] p-[36px_28px] text-center cursor-pointer transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_12px_32px_rgba(201,169,110,0.15)] ${
+                  method === 'CRYPTO' ? 'border-gold shadow-[0_0_0_4px_rgba(201,169,110,0.15)] bg-gradient-to-br from-[#FDF6F0] to-[#FFF8F0]' : 'border-border hover:border-gold'
+                }`}
+              >
+                {method === 'CRYPTO' && (
+                  <div className="absolute -top-3 -right-3 w-6 h-6 rounded-full bg-gold flex items-center justify-center shadow-md">
+                    <i className="ri-check-line text-white text-[12px]"></i>
+                  </div>
+                )}
+                <i className="ri-bitcoin-line text-[40px] text-gold mb-4 block"></i>
+                <h3 className="font-cormorant text-[24px] text-dark leading-tight mb-2">Cryptocurrency</h3>
+                <p className="text-[13px] text-muted mb-4">BTC, ETH, USDT & more</p>
+                <div className="flex justify-center gap-2">
+                  {['BTC', 'ETH', 'USDT'].map(t => <span key={t} className="text-[10px] font-semibold text-muted border border-border px-2 py-1 rounded-[2px]">{t}</span>)}
+                </div>
+              </div>
+
 
             </div>
 
