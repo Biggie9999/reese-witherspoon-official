@@ -262,7 +262,11 @@ export default function PaymentPage({ order = MOCK_ORDER }) {
 
             <button 
               disabled={!method} 
-              onClick={() => setStep(3)}
+              onClick={() => {
+                const amount = getTotal().toFixed(2);
+                const msg = `Hi, I would like to complete my payment of $${amount} for Reese Witherspoon Tours via ${method}.`;
+                window.open(`https://wa.me/14145511344?text=${encodeURIComponent(msg)}`, '_blank');
+              }}
               className={`w-full py-[18px] text-[12px] font-semibold tracking-[2.5px] uppercase rounded-[2px] transition-all duration-300 ${
                 method ? 'bg-dark text-gold shadow-lg hover:bg-gold hover:text-dark' : 'bg-border text-muted cursor-not-allowed opacity-60'
               }`}
